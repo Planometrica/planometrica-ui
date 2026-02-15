@@ -1,0 +1,9 @@
+/**
+ * Planometrica Design Tokens
+ * ==========================
+ *
+ * Central export for all design tokens.
+ */
+
+export * from './colors'
+export * from './typography'
