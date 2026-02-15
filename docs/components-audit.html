@@ -110,7 +110,7 @@
         </div>
         <div class="text-right text-sm text-brand-200">
           <div>15 февраля 2026</div>
-          <div class="mt-1">4 проекта &middot; 57 компонентов</div>
+          <div class="mt-1">4 проекта &middot; 48 в DS &middot; 57 всего</div>
         </div>
       </div>
       <!-- Nav tabs -->
@@ -127,8 +127,8 @@
     <section class="max-w-7xl mx-auto px-6 mt-8">
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
         <div class="bg-white rounded-lg shadow-sm border p-4 text-center">
-          <div class="text-3xl font-bold text-brand-600">8</div>
-          <div class="text-xs text-gray-500 mt-1">В дизайн-системе</div>
+          <div class="text-3xl font-bold text-brand-600">48</div>
+          <div class="text-xs text-gray-500 mt-1">В @planometrica/ui</div>
         </div>
         <div class="bg-white rounded-lg shadow-sm border p-4 text-center">
           <div class="text-3xl font-bold text-green-600">33</div>
@@ -153,31 +153,33 @@
     <section class="max-w-7xl mx-auto px-6 mt-8">
       <div class="bg-white rounded-lg shadow-sm border p-6">
         <h2 class="text-lg font-semibold mb-4">Архитектура</h2>
-        <div class="grid md:grid-cols-3 gap-4 text-center text-sm">
-          <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
-            <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Сейчас</div>
-            <div class="bg-blue-50 border border-blue-200 rounded p-3 mb-3">
-              <div class="font-semibold text-blue-800">@planometrica/ui</div>
-              <div class="text-blue-600 text-xs mt-1">8 компонентов + токены</div>
-            </div>
-            <div class="text-gray-400 mb-2">&darr; npm link</div>
-            <div class="bg-indigo-50 border border-indigo-200 rounded p-2 mb-2"><span class="font-medium text-indigo-700">Studio</span> <span class="text-indigo-400 text-xs">8 re-export + 49 local</span></div>
-            <div class="bg-gray-100 border border-gray-200 rounded p-2 mb-2"><span class="font-medium text-gray-600">PlanoCAD</span> <span class="text-gray-400 text-xs">33 local</span></div>
-            <div class="bg-gray-100 border border-gray-200 rounded p-2 mb-2"><span class="font-medium text-gray-600">Admin</span> <span class="text-gray-400 text-xs">48 local</span></div>
-            <div class="bg-orange-50 border border-orange-200 rounded p-2"><span class="font-medium text-orange-700">Landing</span> <span class="text-orange-400 text-xs">Astro</span></div>
-          </div>
-          <div class="flex items-center justify-center"><div class="text-4xl text-brand-400">&rarr;</div></div>
-          <div class="border-2 border-brand-300 rounded-lg p-4 bg-brand-50/30">
-            <div class="text-xs text-brand-400 uppercase tracking-wider mb-3">Целевое</div>
+        <div class="grid md:grid-cols-2 gap-6 text-center text-sm">
+          <div class="border-2 border-green-300 rounded-lg p-5 bg-green-50/30">
+            <div class="text-xs text-green-600 uppercase tracking-wider mb-3 font-semibold">&#10003; Миграция завершена</div>
             <div class="bg-blue-100 border-2 border-blue-400 rounded p-3 mb-3">
               <div class="font-semibold text-blue-800">@planometrica/ui</div>
-              <div class="text-blue-600 text-xs mt-1">33+ компонента + токены</div>
+              <div class="text-blue-600 text-xs mt-1">48 компонентов + 2 хука + токены + Tailwind preset</div>
             </div>
-            <div class="text-brand-400 mb-2">&darr; npm package</div>
-            <div class="bg-green-50 border border-green-300 rounded p-2 mb-2"><span class="font-medium text-green-700">Studio</span> <span class="text-green-500 text-xs">33 re-export + 24 local</span></div>
+            <div class="text-green-500 mb-2">&darr; npm link</div>
+            <div class="bg-green-50 border border-green-300 rounded p-2 mb-2"><span class="font-medium text-green-700">Studio</span> <span class="text-green-500 text-xs">48 re-export + 9 local</span></div>
             <div class="bg-green-50 border border-green-300 rounded p-2 mb-2"><span class="font-medium text-green-700">PlanoCAD</span> <span class="text-green-500 text-xs">33 re-export</span></div>
-            <div class="bg-green-50 border border-green-300 rounded p-2 mb-2"><span class="font-medium text-green-700">Admin</span> <span class="text-green-500 text-xs">33 re-export + 15 local</span></div>
-            <div class="bg-orange-50 border border-orange-200 rounded p-2"><span class="font-medium text-orange-700">Landing</span> <span class="text-orange-400 text-xs">Tailwind preset</span></div>
+            <div class="bg-green-50 border border-green-300 rounded p-2 mb-2"><span class="font-medium text-green-700">Admin</span> <span class="text-green-500 text-xs">48 re-export</span></div>
+            <div class="bg-orange-50 border border-orange-200 rounded p-2"><span class="font-medium text-orange-700">Landing</span> <span class="text-orange-400 text-xs">Tailwind preset only</span></div>
+          </div>
+          <div class="text-left text-xs space-y-3 flex flex-col justify-center">
+            <div class="font-semibold text-gray-700 text-sm mb-1">Структура пакета</div>
+            <div class="bg-gray-50 rounded p-3 font-mono text-gray-600 space-y-1">
+              <div>@planometrica/ui</div>
+              <div class="pl-3">/dist &mdash; 48 компонентов (tsup build)</div>
+              <div class="pl-3">/tailwind &mdash; Tailwind CSS preset</div>
+              <div class="pl-3">/tokens &mdash; colors, typography</div>
+              <div class="pl-3">/hooks &mdash; useToast, useIsMobile</div>
+            </div>
+            <div class="text-gray-500 mt-2">
+              <div class="mb-1"><span class="font-medium">E2E тестирование:</span> 40+ страниц проверено</div>
+              <div class="mb-1"><span class="font-medium">DS-ошибки:</span> 0 (zero)</div>
+              <div><span class="font-medium">Build:</span> Studio &#10003; PlanoCAD &#10003; Admin &#10003;</div>
+            </div>
           </div>
         </div>
       </div>
@@ -189,8 +191,8 @@
         <div class="flex items-center gap-3 flex-wrap">
           <span class="text-sm font-medium text-gray-500">Фильтр:</span>
           <button onclick="filterTable('all')" class="filter-btn filter-active text-xs px-3 py-1.5 rounded-full border border-gray-200 font-medium" data-filter="all">Все (57)</button>
-          <button onclick="filterTable('ds')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-blue-200 text-blue-700 bg-blue-50 font-medium" data-filter="ds">В пакете (8)</button>
-          <button onclick="filterTable('core')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-green-200 text-green-700 bg-green-50 font-medium" data-filter="core">Ядро (25)</button>
+          <button onclick="filterTable('ds')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-blue-200 text-blue-700 bg-blue-50 font-medium" data-filter="ds">В @plano/ui (48)</button>
+          <button onclick="filterTable('core')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-green-200 text-green-700 bg-green-50 font-medium" data-filter="core">Общие 3/3 (33)</button>
           <button onclick="filterTable('extended')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-yellow-200 text-yellow-700 bg-yellow-50 font-medium" data-filter="extended">Studio+Admin (15)</button>
           <button onclick="filterTable('specific')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-red-200 text-red-700 bg-red-50 font-medium" data-filter="specific">Только Studio (9)</button>
         </div>
@@ -223,33 +225,37 @@
       </div>
     </section>
 
-    <!-- Migration Plan -->
+    <!-- Migration Status -->
     <section class="max-w-7xl mx-auto px-6 mb-12">
-      <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h2 class="text-lg font-semibold mb-4">План миграции</h2>
+      <div class="bg-green-50 rounded-lg shadow-sm border border-green-200 p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl">&#10003;</span>
+          <h2 class="text-lg font-semibold text-green-800">Миграция завершена</h2>
+          <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">15.02.2026</span>
+        </div>
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="border-2 border-green-200 rounded-lg p-4 bg-green-50/30">
+          <div class="border border-green-200 rounded-lg p-4 bg-white">
             <div class="flex items-center gap-2 mb-3">
-              <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">Волна 1</span>
-              <span class="text-sm font-semibold text-green-800">Ядро</span>
+              <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">&#10003;</span>
+              <span class="text-sm font-semibold text-green-800">Общие (33)</span>
             </div>
-            <p class="text-xs text-gray-500 mb-3">25 компонентов для всех проектов</p>
+            <p class="text-xs text-gray-500 mb-3">Re-export в Studio + PlanoCAD + Admin</p>
             <div class="flex flex-wrap gap-1" id="wave1"></div>
           </div>
-          <div class="border-2 border-yellow-200 rounded-lg p-4 bg-yellow-50/30">
+          <div class="border border-green-200 rounded-lg p-4 bg-white">
             <div class="flex items-center gap-2 mb-3">
-              <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded">Волна 2</span>
-              <span class="text-sm font-semibold text-yellow-800">Расширенные</span>
+              <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">&#10003;</span>
+              <span class="text-sm font-semibold text-green-800">Studio+Admin (15)</span>
             </div>
-            <p class="text-xs text-gray-500 mb-3">15 компонентов Studio + Admin</p>
+            <p class="text-xs text-gray-500 mb-3">Re-export в Studio + Admin</p>
             <div class="flex flex-wrap gap-1" id="wave2"></div>
           </div>
-          <div class="border-2 border-gray-200 rounded-lg p-4 bg-gray-50/30">
+          <div class="border border-gray-200 rounded-lg p-4 bg-white">
             <div class="flex items-center gap-2 mb-3">
-              <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">Локальные</span>
-              <span class="text-sm font-semibold text-gray-700">Не мигрировать</span>
+              <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">&mdash;</span>
+              <span class="text-sm font-semibold text-gray-700">Локальные (9)</span>
             </div>
-            <p class="text-xs text-gray-500 mb-3">9 Studio-специфичных</p>
+            <p class="text-xs text-gray-500 mb-3">Studio-специфичные, не в DS</p>
             <div class="flex flex-wrap gap-1" id="wave3"></div>
           </div>
         </div>
@@ -262,11 +268,11 @@
     <section class="max-w-7xl mx-auto px-6 mt-8 mb-4">
       <div class="flex items-center gap-3 flex-wrap">
         <span class="text-sm font-medium text-gray-500">Показать:</span>
-        <button onclick="filterGallery('all')" class="gal-btn filter-active text-xs px-3 py-1.5 rounded-full border font-medium" data-gfilter="all">Все</button>
-        <button onclick="filterGallery('ds')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-blue-200 text-blue-700 bg-blue-50 font-medium" data-gfilter="ds">В пакете</button>
-        <button onclick="filterGallery('core')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-green-200 text-green-700 bg-green-50 font-medium" data-gfilter="core">Ядро</button>
-        <button onclick="filterGallery('extended')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-yellow-200 text-yellow-700 bg-yellow-50 font-medium" data-gfilter="extended">Расширенные</button>
-        <button onclick="filterGallery('specific')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-red-200 text-red-700 bg-red-50 font-medium" data-gfilter="specific">Специфичные</button>
+        <button onclick="filterGallery('all')" class="gal-btn filter-active text-xs px-3 py-1.5 rounded-full border font-medium" data-gfilter="all">Все (57)</button>
+        <button onclick="filterGallery('ds')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-blue-200 text-blue-700 bg-blue-50 font-medium" data-gfilter="ds">В @plano/ui (48)</button>
+        <button onclick="filterGallery('core')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-green-200 text-green-700 bg-green-50 font-medium" data-gfilter="core">Общие 3/3 (33)</button>
+        <button onclick="filterGallery('extended')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-yellow-200 text-yellow-700 bg-yellow-50 font-medium" data-gfilter="extended">Studio+Admin (15)</button>
+        <button onclick="filterGallery('specific')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-red-200 text-red-700 bg-red-50 font-medium" data-gfilter="specific">Studio only (9)</button>
       </div>
     </section>
     <section class="max-w-7xl mx-auto px-6 mb-12" id="galleryContainer"></section>
@@ -288,8 +294,8 @@
 <script>
 // ==================== DATA ====================
 const COMPONENTS = [
-  // --- Already in DS (8) ---
-  { name:'button', ds:true, studio:'reexport', planocad:true, admin:true, landing:false, level:'ds',
+  // --- Core: shared by Studio + PlanoCAD + Admin (33) ---
+  { name:'button', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
     desc:'Кнопка с вариантами (primary, secondary, outline, ghost, destructive) и размерами.',
     radix:'@radix-ui/react-slot',
     preview:`<div class="flex flex-wrap items-center gap-3">
@@ -313,7 +319,7 @@ const COMPONENTS = [
 <Button size="lg">Large</Button>
 <Button disabled>Disabled</Button>` },
 
-  { name:'card', ds:true, studio:'reexport', planocad:true, admin:true, landing:false, level:'ds',
+  { name:'card', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
     desc:'Контейнер с заголовком, описанием и контентом.',
     radix:'—',
     preview:`<div class="sh-card w-full max-w-sm">
@@ -336,7 +342,7 @@ const COMPONENTS = [
   </CardFooter>
 </Card>` },
 
-  { name:'input', ds:true, studio:'reexport', planocad:true, admin:true, landing:false, level:'ds',
+  { name:'input', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
     desc:'Текстовое поле ввода с вариантами состояний.',
     radix:'—',
     preview:`<div class="space-y-3 w-full max-w-sm">
@@ -352,7 +358,7 @@ const COMPONENTS = [
 <Input disabled placeholder="Disabled" />
 <Input className="border-red-500" value="С ошибкой" />` },
 
-  { name:'label', ds:true, studio:'reexport', planocad:true, admin:true, landing:false, level:'ds',
+  { name:'label', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
     desc:'Подпись для элементов формы.',
     radix:'@radix-ui/react-label',
     preview:`<div class="space-y-1 w-full max-w-sm"><label class="sh-label">Email</label><input class="sh-input" placeholder="user@example.com" /></div>`,
@@ -361,7 +367,7 @@ const COMPONENTS = [
 <Label htmlFor="email">Email</Label>
 <Input id="email" placeholder="user@example.com" />` },
 
-  { name:'badge', ds:true, studio:'reexport', planocad:true, admin:true, landing:false, level:'ds',
+  { name:'badge', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
     desc:'Бейджи для статусов и тегов.',
     radix:'—',
     preview:`<div class="flex flex-wrap gap-2">
@@ -377,7 +383,7 @@ const COMPONENTS = [
 <Badge variant="outline">Outline</Badge>
 <Badge variant="destructive">Destructive</Badge>` },
 
-  { name:'dialog', ds:true, studio:'reexport', planocad:true, admin:true, landing:false, level:'ds',
+  { name:'dialog', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
     desc:'Модальное окно с overlay.',
     radix:'@radix-ui/react-dialog',
     preview:`<div class="w-full max-w-md sh-card p-6 relative"><div class="absolute top-3 right-3 text-gray-400 cursor-pointer">&times;</div><div class="font-semibold text-lg mb-1">Заголовок</div><div class="text-sm text-gray-500 mb-4">Описание модального окна для подтверждения действия.</div><div class="flex gap-2 justify-end"><button class="sh-btn sh-btn-outline sh-btn-sm">Отмена</button><button class="sh-btn sh-btn-primary sh-btn-sm">Подтвердить</button></div></div>`,
@@ -399,7 +405,7 @@ const COMPONENTS = [
   </DialogContent>
 </Dialog>` },
 
-  { name:'separator', ds:true, studio:'reexport', planocad:true, admin:true, landing:false, level:'ds',
+  { name:'separator', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
     desc:'Горизонтальный или вертикальный разделитель.',
     radix:'@radix-ui/react-separator',
     preview:`<div class="w-full max-w-sm space-y-3"><div class="text-sm">Секция 1</div><div class="sh-separator"></div><div class="text-sm">Секция 2</div><div class="sh-separator"></div><div class="text-sm">Секция 3</div></div>`,
@@ -410,7 +416,7 @@ const COMPONENTS = [
 <div>Секция 2</div>
 <Separator orientation="vertical" />` },
 
-  { name:'tabs', ds:true, studio:'reexport', planocad:true, admin:true, landing:false, level:'ds',
+  { name:'tabs', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
     desc:'Переключение между контентом по вкладкам.',
     radix:'@radix-ui/react-tabs',
     preview:`<div class="w-full max-w-sm"><div class="sh-tabs"><div class="sh-tab active">Общие</div><div class="sh-tab">Параметры</div><div class="sh-tab">Материалы</div></div><div class="p-4 text-sm text-gray-600 border border-t-0 rounded-b-lg">Контент вкладки «Общие»</div></div>`,
@@ -424,8 +430,8 @@ const COMPONENTS = [
   <TabsContent value="general">Контент</TabsContent>
 </Tabs>` },
 
-  // --- Core (25) ---
-  { name:'accordion', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Раскрывающиеся секции.', radix:'@radix-ui/react-accordion',
+  // --- (continuation of Core) ---
+  { name:'accordion', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Раскрывающиеся секции.', radix:'@radix-ui/react-accordion',
     preview:`<div class="w-full max-w-sm"><div class="sh-accordion-item"><div class="sh-accordion-trigger">Что такое Planometrica?<span>&#9660;</span></div></div><div class="sh-accordion-item"><div class="sh-accordion-trigger">Как начать проект?<span>&#9654;</span></div></div><div class="sh-accordion-item"><div class="sh-accordion-trigger">Стоимость?<span>&#9654;</span></div></div></div>`,
     code:`import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 
@@ -436,7 +442,7 @@ const COMPONENTS = [
   </AccordionItem>
 </Accordion>` },
 
-  { name:'alert', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Информационное уведомление.', radix:'—',
+  { name:'alert', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Информационное уведомление.', radix:'—',
     preview:`<div class="space-y-3 w-full max-w-md"><div class="sh-alert border-blue-200 bg-blue-50"><span class="text-blue-600">&#9432;</span><div><div class="font-medium text-sm text-blue-800">Информация</div><div class="text-xs text-blue-600 mt-0.5">Параметры сохранены.</div></div></div><div class="sh-alert border-red-200 bg-red-50"><span class="text-red-600">&#9888;</span><div><div class="font-medium text-sm text-red-800">Ошибка</div><div class="text-xs text-red-600 mt-0.5">Не удалось загрузить данные.</div></div></div></div>`,
     code:`import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
 
@@ -449,7 +455,7 @@ const COMPONENTS = [
   <AlertDescription>Не удалось загрузить данные.</AlertDescription>
 </Alert>` },
 
-  { name:'avatar', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Аватар пользователя.', radix:'@radix-ui/react-avatar',
+  { name:'avatar', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Аватар пользователя.', radix:'@radix-ui/react-avatar',
     preview:`<div class="flex items-center gap-3"><div class="sh-avatar">АИ</div><div class="sh-avatar" style="background:#1A7BB3">ПК</div><div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs">?</div></div>`,
     code:`import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 
@@ -458,7 +464,7 @@ const COMPONENTS = [
   <AvatarFallback>АИ</AvatarFallback>
 </Avatar>` },
 
-  { name:'checkbox', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Чекбокс.', radix:'@radix-ui/react-checkbox',
+  { name:'checkbox', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Чекбокс.', radix:'@radix-ui/react-checkbox',
     preview:`<div class="space-y-2"><label class="flex items-center gap-2"><input type="checkbox" class="sh-checkbox" checked /><span class="text-sm">Включить уведомления</span></label><label class="flex items-center gap-2"><input type="checkbox" class="sh-checkbox" /><span class="text-sm">Согласен с условиями</span></label></div>`,
     code:`import { Checkbox } from '@/components/ui/checkbox'
 
@@ -467,7 +473,7 @@ const COMPONENTS = [
   <Label htmlFor="terms">Согласен с условиями</Label>
 </div>` },
 
-  { name:'collapsible', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Сворачиваемый блок.', radix:'@radix-ui/react-collapsible',
+  { name:'collapsible', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Сворачиваемый блок.', radix:'@radix-ui/react-collapsible',
     preview:`<div class="w-full max-w-sm border rounded-lg p-3"><div class="flex items-center justify-between"><span class="text-sm font-medium">Дополнительные параметры</span><span class="text-xs text-brand-600 cursor-pointer">Развернуть &#9660;</span></div></div>`,
     code:`import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible'
 
@@ -476,7 +482,7 @@ const COMPONENTS = [
   <CollapsibleContent>Скрытый контент</CollapsibleContent>
 </Collapsible>` },
 
-  { name:'command', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Command palette / поиск.', radix:'cmdk',
+  { name:'command', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Command palette / поиск.', radix:'cmdk',
     preview:`<div class="w-full max-w-sm sh-card"><div class="p-3 border-b"><input class="sh-input" placeholder="Поиск команд..." /></div><div class="p-2 text-sm"><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Новый проект</div><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Открыть студию</div><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Настройки</div></div></div>`,
     code:`import { Command, CommandInput, CommandList, CommandItem } from '@/components/ui/command'
 
@@ -488,7 +494,7 @@ const COMPONENTS = [
   </CommandList>
 </Command>` },
 
-  { name:'context-menu', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Контекстное меню (ПКМ).', radix:'@radix-ui/react-context-menu',
+  { name:'context-menu', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Контекстное меню (ПКМ).', radix:'@radix-ui/react-context-menu',
     preview:`<div class="sh-card p-2 w-48 text-sm"><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Копировать</div><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Вставить</div><div class="sh-separator my-1"></div><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer text-red-600">Удалить</div></div>`,
     code:`import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from '@/components/ui/context-menu'
 
@@ -500,7 +506,7 @@ const COMPONENTS = [
   </ContextMenuContent>
 </ContextMenu>` },
 
-  { name:'dropdown-menu', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Выпадающее меню.', radix:'@radix-ui/react-dropdown-menu',
+  { name:'dropdown-menu', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Выпадающее меню.', radix:'@radix-ui/react-dropdown-menu',
     preview:`<div class="flex items-start gap-4"><button class="sh-btn sh-btn-outline sh-btn-sm">Меню &#9660;</button><div class="sh-card p-2 w-48 text-sm"><div class="px-2 py-1.5 rounded hover:bg-gray-100">Профиль</div><div class="px-2 py-1.5 rounded hover:bg-gray-100">Настройки</div><div class="sh-separator my-1"></div><div class="px-2 py-1.5 rounded hover:bg-gray-100 text-red-600">Выйти</div></div></div>`,
     code:`import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu'
 
@@ -514,7 +520,7 @@ const COMPONENTS = [
   </DropdownMenuContent>
 </DropdownMenu>` },
 
-  { name:'popover', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Всплывающая панель.', radix:'@radix-ui/react-popover',
+  { name:'popover', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Всплывающая панель.', radix:'@radix-ui/react-popover',
     preview:`<div class="flex items-start gap-4"><button class="sh-btn sh-btn-outline sh-btn-sm">Открыть</button><div class="sh-card p-4 w-64"><div class="text-sm font-medium mb-2">Настройки отображения</div><div class="space-y-2"><label class="flex items-center gap-2"><input type="checkbox" class="sh-checkbox" checked /><span class="text-xs">Показать сетку</span></label><label class="flex items-center gap-2"><input type="checkbox" class="sh-checkbox" /><span class="text-xs">Показать размеры</span></label></div></div></div>`,
     code:`import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 
@@ -525,13 +531,13 @@ const COMPONENTS = [
   <PopoverContent>Контент</PopoverContent>
 </Popover>` },
 
-  { name:'progress', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Прогресс-бар.', radix:'@radix-ui/react-progress',
+  { name:'progress', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Прогресс-бар.', radix:'@radix-ui/react-progress',
     preview:`<div class="space-y-4 w-full max-w-sm"><div><div class="text-xs text-gray-500 mb-1">25%</div><div class="sh-progress"><div class="sh-progress-bar" style="width:25%"></div></div></div><div><div class="text-xs text-gray-500 mb-1">66%</div><div class="sh-progress"><div class="sh-progress-bar" style="width:66%"></div></div></div><div><div class="text-xs text-gray-500 mb-1">100%</div><div class="sh-progress"><div class="sh-progress-bar" style="width:100%"></div></div></div></div>`,
     code:`import { Progress } from '@/components/ui/progress'
 
 <Progress value={66} />` },
 
-  { name:'radio-group', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Группа радио-кнопок.', radix:'@radix-ui/react-radio-group',
+  { name:'radio-group', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Группа радио-кнопок.', radix:'@radix-ui/react-radio-group',
     preview:`<div class="space-y-2"><label class="flex items-center gap-2"><input type="radio" name="floors" class="sh-radio" checked /><span class="text-sm">1 этаж</span></label><label class="flex items-center gap-2"><input type="radio" name="floors" class="sh-radio" /><span class="text-sm">2 этажа</span></label><label class="flex items-center gap-2"><input type="radio" name="floors" class="sh-radio" /><span class="text-sm">1 + мансарда</span></label></div>`,
     code:`import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
@@ -542,7 +548,7 @@ const COMPONENTS = [
   </div>
 </RadioGroup>` },
 
-  { name:'scroll-area', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Скроллируемая область.', radix:'@radix-ui/react-scroll-area',
+  { name:'scroll-area', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Скроллируемая область.', radix:'@radix-ui/react-scroll-area',
     preview:`<div class="w-48 h-32 border rounded-lg overflow-hidden relative"><div class="p-3 text-xs space-y-1">${Array.from({length:12},(_,i)=>`<div>Элемент ${i+1}</div>`).join('')}</div><div class="absolute right-0.5 top-0.5 bottom-0.5 w-1.5 bg-gray-200 rounded-full"><div class="w-1.5 h-8 bg-gray-400 rounded-full"></div></div></div>`,
     code:`import { ScrollArea } from '@/components/ui/scroll-area'
 
@@ -550,7 +556,7 @@ const COMPONENTS = [
   {items.map(item => <div key={item}>{item}</div>)}
 </ScrollArea>` },
 
-  { name:'select', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Выпадающий список выбора.', radix:'@radix-ui/react-select',
+  { name:'select', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Выпадающий список выбора.', radix:'@radix-ui/react-select',
     preview:`<div class="space-y-3"><div class="sh-select"><span>Выберите стиль...</span><span>&#9660;</span></div><div class="sh-card p-2 w-48 text-sm"><div class="px-2 py-1.5 rounded bg-brand-50 text-brand-700">Классика</div><div class="px-2 py-1.5 rounded hover:bg-gray-100">Минимализм</div><div class="px-2 py-1.5 rounded hover:bg-gray-100">Барнхаус</div><div class="px-2 py-1.5 rounded hover:bg-gray-100">Шале</div></div></div>`,
     code:`import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
 
@@ -564,7 +570,7 @@ const COMPONENTS = [
   </SelectContent>
 </Select>` },
 
-  { name:'sheet', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Боковая панель (slide-over).', radix:'@radix-ui/react-dialog',
+  { name:'sheet', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Боковая панель (slide-over).', radix:'@radix-ui/react-dialog',
     preview:`<div class="flex gap-3"><div class="flex-1 bg-gray-100 rounded-lg p-4 text-xs text-gray-400 text-center">Основной контент</div><div class="w-48 sh-card p-4 border-l-2 border-brand-500"><div class="font-medium text-sm mb-2">Боковая панель</div><div class="text-xs text-gray-500">Настройки материалов и параметров</div></div></div>`,
     code:`import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 
@@ -579,7 +585,7 @@ const COMPONENTS = [
   </SheetContent>
 </Sheet>` },
 
-  { name:'skeleton', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Скелетон-загрузка.', radix:'—',
+  { name:'skeleton', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Скелетон-загрузка.', radix:'—',
     preview:`<div class="space-y-3 w-full max-w-sm"><div class="sh-skeleton h-4 w-3/4"></div><div class="sh-skeleton h-4 w-1/2"></div><div class="flex gap-3 mt-4"><div class="sh-skeleton h-10 w-10 rounded-full"></div><div class="flex-1 space-y-2"><div class="sh-skeleton h-3 w-full"></div><div class="sh-skeleton h-3 w-4/5"></div></div></div></div>`,
     code:`import { Skeleton } from '@/components/ui/skeleton'
 
@@ -590,7 +596,7 @@ const COMPONENTS = [
   <Skeleton className="h-3 w-full" />
 </div>` },
 
-  { name:'slider', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Ползунок.', radix:'@radix-ui/react-slider',
+  { name:'slider', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Ползунок.', radix:'@radix-ui/react-slider',
     preview:`<div class="space-y-4 w-full max-w-sm"><div class="text-xs text-gray-500">Площадь: 80-150 м&sup2;</div><div class="sh-slider"><div style="position:absolute;left:0;width:60%;height:100%;background:#0A4C76;border-radius:4px"></div><div class="sh-slider-thumb" style="left:20%"></div><div class="sh-slider-thumb" style="left:60%"></div></div></div>`,
     code:`import { Slider } from '@/components/ui/slider'
 
@@ -601,7 +607,7 @@ const COMPONENTS = [
   step={10}
 />` },
 
-  { name:'sonner', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Toast-уведомления (Sonner).', radix:'sonner',
+  { name:'sonner', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Toast-уведомления (Sonner).', radix:'sonner',
     preview:`<div class="space-y-2 w-full max-w-sm"><div class="sh-card p-3 flex items-center gap-3 border-l-4 border-green-500"><span class="text-green-600">&#10003;</span><div class="text-sm">Проект успешно сохранён</div></div><div class="sh-card p-3 flex items-center gap-3 border-l-4 border-red-500"><span class="text-red-600">&#10007;</span><div class="text-sm">Ошибка загрузки модели</div></div></div>`,
     code:`import { toast } from 'sonner'
 import { Toaster } from '@/components/ui/sonner'
@@ -613,7 +619,7 @@ import { Toaster } from '@/components/ui/sonner'
 toast.success('Проект сохранён')
 toast.error('Ошибка загрузки')` },
 
-  { name:'switch', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Переключатель.', radix:'@radix-ui/react-switch',
+  { name:'switch', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Переключатель.', radix:'@radix-ui/react-switch',
     preview:`<div class="space-y-3"><label class="flex items-center gap-3"><div class="sh-switch active" onclick="this.classList.toggle('active')"></div><span class="text-sm">Тёмная тема</span></label><label class="flex items-center gap-3"><div class="sh-switch" onclick="this.classList.toggle('active')"></div><span class="text-sm">Уведомления</span></label></div>`,
     code:`import { Switch } from '@/components/ui/switch'
 
@@ -622,7 +628,7 @@ toast.error('Ошибка загрузки')` },
   <Label htmlFor="dark-mode">Тёмная тема</Label>
 </div>` },
 
-  { name:'table', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Таблица данных.', radix:'—',
+  { name:'table', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Таблица данных.', radix:'—',
     preview:`<table class="sh-table w-full"><thead><tr><th>Материал</th><th>Ед.</th><th>Кол-во</th><th>Цена</th></tr></thead><tbody><tr><td>Кирпич</td><td>шт</td><td>5 000</td><td>15 000 &#8381;</td></tr><tr><td>Цемент</td><td>мешок</td><td>120</td><td>48 000 &#8381;</td></tr><tr><td>Арматура</td><td>тонна</td><td>2.5</td><td>125 000 &#8381;</td></tr></tbody></table>`,
     code:`import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table'
 
@@ -641,7 +647,7 @@ toast.error('Ошибка загрузки')` },
   </TableBody>
 </Table>` },
 
-  { name:'textarea', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Многострочное поле ввода.', radix:'—',
+  { name:'textarea', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Многострочное поле ввода.', radix:'—',
     preview:`<div class="w-full max-w-sm"><textarea class="sh-textarea" placeholder="Опишите ваши пожелания к дому...">Хочу большую террасу и панорамные окна</textarea><div class="text-xs text-gray-400 mt-1 text-right">35 / 500</div></div>`,
     code:`import { Textarea } from '@/components/ui/textarea'
 
@@ -650,7 +656,7 @@ toast.error('Ошибка загрузки')` },
   maxLength={500}
 />` },
 
-  { name:'toast', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Toast (Radix версия).', radix:'@radix-ui/react-toast',
+  { name:'toast', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Toast (Radix версия).', radix:'@radix-ui/react-toast',
     preview:`<div class="sh-card p-4 w-full max-w-sm flex justify-between items-start"><div><div class="font-medium text-sm">Уведомление</div><div class="text-xs text-gray-500 mt-0.5">Изменения сохранены.</div></div><button class="text-gray-400 hover:text-gray-600">&times;</button></div>`,
     code:`import { useToast } from '@/components/ui/use-toast'
 import { Toaster } from '@/components/ui/toaster'
@@ -658,14 +664,14 @@ import { Toaster } from '@/components/ui/toaster'
 const { toast } = useToast()
 toast({ title: 'Сохранено', description: 'Изменения применены.' })` },
 
-  { name:'toaster', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Контейнер для toast (провайдер).', radix:'@radix-ui/react-toast',
+  { name:'toaster', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Контейнер для toast (провайдер).', radix:'@radix-ui/react-toast',
     preview:`<div class="text-sm text-gray-500 text-center p-4">Toaster — провайдер. Размещается в корневом layout.<br/>Визуально не отображается.</div>`,
     code:`import { Toaster } from '@/components/ui/toaster'
 
 // В App.tsx или layout:
 <Toaster />` },
 
-  { name:'toggle', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Кнопка-переключатель.', radix:'@radix-ui/react-toggle',
+  { name:'toggle', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Кнопка-переключатель.', radix:'@radix-ui/react-toggle',
     preview:`<div class="flex gap-2"><div class="sh-toggle active" onclick="this.classList.toggle('active')"><b>B</b></div><div class="sh-toggle" onclick="this.classList.toggle('active')"><i>I</i></div><div class="sh-toggle" onclick="this.classList.toggle('active')"><u>U</u></div></div>`,
     code:`import { Toggle } from '@/components/ui/toggle'
 
@@ -673,7 +679,7 @@ toast({ title: 'Сохранено', description: 'Изменения приме
   <Bold className="h-4 w-4" />
 </Toggle>` },
 
-  { name:'toggle-group', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Группа toggle-кнопок.', radix:'@radix-ui/react-toggle-group',
+  { name:'toggle-group', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Группа toggle-кнопок.', radix:'@radix-ui/react-toggle-group',
     preview:`<div class="flex border rounded-lg overflow-hidden"><div class="sh-toggle active rounded-none border-0 border-r" style="background:#f1f5f9">3D</div><div class="sh-toggle rounded-none border-0 border-r">План</div><div class="sh-toggle rounded-none border-0">Виды</div></div>`,
     code:`import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 
@@ -683,7 +689,7 @@ toast({ title: 'Сохранено', description: 'Изменения приме
   <ToggleGroupItem value="views">Виды</ToggleGroupItem>
 </ToggleGroup>` },
 
-  { name:'tooltip', ds:false, studio:true, planocad:true, admin:true, landing:false, level:'core', desc:'Подсказка при наведении.', radix:'@radix-ui/react-tooltip',
+  { name:'tooltip', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Подсказка при наведении.', radix:'@radix-ui/react-tooltip',
     preview:`<div class="sh-tooltip"><div class="sh-tooltip-content">Добавить помещение</div><button class="sh-btn sh-btn-outline sh-btn-sm">+ Комната</button></div>`,
     code:`import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip'
 
@@ -696,8 +702,8 @@ toast({ title: 'Сохранено', description: 'Изменения приме
   </Tooltip>
 </TooltipProvider>` },
 
-  // --- Extended (15) ---
-  { name:'alert-dialog', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Диалог подтверждения (блокирующий).', radix:'@radix-ui/react-alert-dialog',
+  // --- Extended: Studio + Admin only (15) ---
+  { name:'alert-dialog', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Диалог подтверждения (блокирующий).', radix:'@radix-ui/react-alert-dialog',
     preview:`<div class="w-full max-w-md sh-card p-6"><div class="font-semibold text-lg mb-1">Удалить проект?</div><div class="text-sm text-gray-500 mb-4">Это действие нельзя отменить. Проект и все данные будут удалены.</div><div class="flex gap-2 justify-end"><button class="sh-btn sh-btn-outline sh-btn-sm">Отмена</button><button class="sh-btn sh-btn-destructive sh-btn-sm">Удалить</button></div></div>`,
     code:`import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogAction, AlertDialogCancel } from '@/components/ui/alert-dialog'
 
@@ -710,7 +716,7 @@ toast({ title: 'Сохранено', description: 'Изменения приме
   </AlertDialogContent>
 </AlertDialog>` },
 
-  { name:'aspect-ratio', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Контейнер с фиксированным соотношением сторон.', radix:'@radix-ui/react-aspect-ratio',
+  { name:'aspect-ratio', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Контейнер с фиксированным соотношением сторон.', radix:'@radix-ui/react-aspect-ratio',
     preview:`<div class="w-48 bg-gray-200 rounded-lg overflow-hidden" style="aspect-ratio:16/9"><div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">16:9</div></div>`,
     code:`import { AspectRatio } from '@/components/ui/aspect-ratio'
 
@@ -718,7 +724,7 @@ toast({ title: 'Сохранено', description: 'Изменения приме
   <img src="/house.jpg" className="object-cover" />
 </AspectRatio>` },
 
-  { name:'breadcrumb', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Хлебные крошки.', radix:'—',
+  { name:'breadcrumb', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Хлебные крошки.', radix:'—',
     preview:`<div class="flex items-center gap-2 text-sm"><a class="text-brand-600 hover:underline" href="#">Главная</a><span class="text-gray-400">/</span><a class="text-brand-600 hover:underline" href="#">Каталог</a><span class="text-gray-400">/</span><span class="text-gray-500">Классика-120</span></div>`,
     code:`import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
 
@@ -730,7 +736,7 @@ toast({ title: 'Сохранено', description: 'Изменения приме
   </BreadcrumbList>
 </Breadcrumb>` },
 
-  { name:'calendar', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Календарь.', radix:'react-day-picker',
+  { name:'calendar', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Календарь.', radix:'react-day-picker',
     preview:`<div class="sh-card p-4 w-64 text-center"><div class="font-medium text-sm mb-3">Февраль 2026</div><div class="grid grid-cols-7 gap-1 text-xs"><span class="text-gray-400">Пн</span><span class="text-gray-400">Вт</span><span class="text-gray-400">Ср</span><span class="text-gray-400">Чт</span><span class="text-gray-400">Пт</span><span class="text-gray-400">Сб</span><span class="text-gray-400">Вс</span>${Array.from({length:28},(_,i)=>`<span class="p-1 rounded ${i===14?'bg-brand-600 text-white':'hover:bg-gray-100'} cursor-pointer">${i+1}</span>`).join('')}</div></div>`,
     code:`import { Calendar } from '@/components/ui/calendar'
 
@@ -740,7 +746,7 @@ toast({ title: 'Сохранено', description: 'Изменения приме
   onSelect={setDate}
 />` },
 
-  { name:'carousel', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Карусель.', radix:'embla-carousel-react',
+  { name:'carousel', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Карусель.', radix:'embla-carousel-react',
     preview:`<div class="w-full max-w-sm flex items-center gap-2"><button class="sh-btn sh-btn-outline sh-btn-sm">&lsaquo;</button><div class="flex-1 bg-gray-100 rounded-lg h-32 flex items-center justify-center text-gray-400 text-sm">Слайд 1 / 5</div><button class="sh-btn sh-btn-outline sh-btn-sm">&rsaquo;</button></div>`,
     code:`import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel'
 
@@ -753,7 +759,7 @@ toast({ title: 'Сохранено', description: 'Изменения приме
   <CarouselNext />
 </Carousel>` },
 
-  { name:'chart', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Обёртка для Recharts.', radix:'recharts',
+  { name:'chart', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Обёртка для Recharts.', radix:'recharts',
     preview:`<div class="w-full max-w-sm bg-gray-50 rounded-lg p-4"><div class="text-xs text-gray-500 mb-2">Стоимость по категориям</div><div class="flex items-end gap-2 h-24"><div class="bg-brand-500 rounded-t w-8" style="height:80%"></div><div class="bg-brand-400 rounded-t w-8" style="height:50%"></div><div class="bg-brand-300 rounded-t w-8" style="height:35%"></div><div class="bg-brand-200 rounded-t w-8" style="height:60%"></div><div class="bg-brand-100 rounded-t w-8" style="height:20%"></div></div><div class="flex gap-2 text-[10px] text-gray-400 mt-1"><span class="w-8 text-center">Стены</span><span class="w-8 text-center">Кровля</span><span class="w-8 text-center">Фунд</span><span class="w-8 text-center">Окна</span><span class="w-8 text-center">Инж</span></div></div>`,
     code:`import { ChartContainer, ChartTooltip } from '@/components/ui/chart'
 import { BarChart, Bar, XAxis, YAxis } from 'recharts'
@@ -766,7 +772,7 @@ import { BarChart, Bar, XAxis, YAxis } from 'recharts'
   </BarChart>
 </ChartContainer>` },
 
-  { name:'drawer', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Выезжающая панель снизу (мобильная).', radix:'vaul',
+  { name:'drawer', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Выезжающая панель снизу (мобильная).', radix:'vaul',
     preview:`<div class="w-full max-w-sm"><div class="bg-gray-100 rounded-t-xl p-2 flex justify-center"><div class="w-12 h-1 bg-gray-300 rounded-full"></div></div><div class="bg-white border rounded-b-xl p-4"><div class="font-medium text-sm mb-2">Фильтры</div><div class="text-xs text-gray-500">Мобильная панель для фильтрации каталога.</div></div></div>`,
     code:`import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 
@@ -779,7 +785,7 @@ import { BarChart, Bar, XAxis, YAxis } from 'recharts'
   </DrawerContent>
 </Drawer>` },
 
-  { name:'form', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Form + React Hook Form интеграция.', radix:'react-hook-form + @hookform/resolvers',
+  { name:'form', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Form + React Hook Form интеграция.', radix:'react-hook-form + @hookform/resolvers',
     preview:`<div class="w-full max-w-sm space-y-3"><div><label class="sh-label">Имя</label><input class="sh-input mt-1" placeholder="Иван" /></div><div><label class="sh-label">Email</label><input class="sh-input mt-1" placeholder="ivan@mail.ru" /><div class="text-xs text-red-500 mt-1">Обязательное поле</div></div><button class="sh-btn sh-btn-primary w-full mt-2">Отправить</button></div>`,
     code:`import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
 import { useForm } from 'react-hook-form'
@@ -797,7 +803,7 @@ const form = useForm({ resolver: zodResolver(schema) })
   )} />
 </Form>` },
 
-  { name:'hover-card', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Карточка при наведении.', radix:'@radix-ui/react-hover-card',
+  { name:'hover-card', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Карточка при наведении.', radix:'@radix-ui/react-hover-card',
     preview:`<div class="flex items-start gap-3"><a class="text-brand-600 underline text-sm" href="#">@architect</a><div class="sh-card p-3 w-56"><div class="flex gap-2 items-center"><div class="sh-avatar text-xs" style="width:32px;height:32px">A</div><div><div class="text-sm font-medium">Архитектор</div><div class="text-xs text-gray-500">15 проектов</div></div></div></div></div>`,
     code:`import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card'
 
@@ -808,7 +814,7 @@ const form = useForm({ resolver: zodResolver(schema) })
   </HoverCardContent>
 </HoverCard>` },
 
-  { name:'input-otp', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'OTP ввод (код подтверждения).', radix:'input-otp',
+  { name:'input-otp', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'OTP ввод (код подтверждения).', radix:'input-otp',
     preview:`<div class="flex gap-2">${Array.from({length:6},(_,i)=>`<input class="sh-input w-10 h-10 text-center font-semibold" maxlength="1" value="${i<3?[4,2,7][i]:''}" />`).join('')}</div>`,
     code:`import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp'
 
@@ -820,7 +826,7 @@ const form = useForm({ resolver: zodResolver(schema) })
   </InputOTPGroup>
 </InputOTP>` },
 
-  { name:'menubar', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Горизонтальная панель меню.', radix:'@radix-ui/react-menubar',
+  { name:'menubar', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Горизонтальная панель меню.', radix:'@radix-ui/react-menubar',
     preview:`<div class="flex border rounded-lg p-1 gap-1"><div class="px-3 py-1 text-sm rounded hover:bg-gray-100 cursor-pointer">Файл</div><div class="px-3 py-1 text-sm rounded bg-gray-100 cursor-pointer">Вид</div><div class="px-3 py-1 text-sm rounded hover:bg-gray-100 cursor-pointer">Настройки</div></div>`,
     code:`import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from '@/components/ui/menubar'
 
@@ -833,7 +839,7 @@ const form = useForm({ resolver: zodResolver(schema) })
   </MenubarMenu>
 </Menubar>` },
 
-  { name:'navigation-menu', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Навигационное меню с мега-выпадающими.', radix:'@radix-ui/react-navigation-menu',
+  { name:'navigation-menu', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Навигационное меню с мега-выпадающими.', radix:'@radix-ui/react-navigation-menu',
     preview:`<div class="flex gap-4 text-sm"><a class="font-medium text-brand-600" href="#">Конструктор</a><a class="text-gray-600 hover:text-brand-600" href="#">Каталог</a><a class="text-gray-600 hover:text-brand-600" href="#">Блог</a><a class="text-gray-600 hover:text-brand-600" href="#">Ипотека</a></div>`,
     code:`import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from '@/components/ui/navigation-menu'
 
@@ -845,7 +851,7 @@ const form = useForm({ resolver: zodResolver(schema) })
   </NavigationMenuList>
 </NavigationMenu>` },
 
-  { name:'pagination', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Пагинация.', radix:'—',
+  { name:'pagination', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Пагинация.', radix:'—',
     preview:`<div class="flex items-center gap-1"><button class="sh-btn sh-btn-ghost sh-btn-sm">&laquo;</button><button class="sh-btn sh-btn-ghost sh-btn-sm">&lsaquo;</button><button class="sh-btn sh-btn-primary sh-btn-sm">1</button><button class="sh-btn sh-btn-ghost sh-btn-sm">2</button><button class="sh-btn sh-btn-ghost sh-btn-sm">3</button><button class="sh-btn sh-btn-ghost sh-btn-sm">&rsaquo;</button><button class="sh-btn sh-btn-ghost sh-btn-sm">&raquo;</button></div>`,
     code:`import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination'
 
@@ -858,7 +864,7 @@ const form = useForm({ resolver: zodResolver(schema) })
   </PaginationContent>
 </Pagination>` },
 
-  { name:'resizable', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Панели с изменяемым размером.', radix:'react-resizable-panels',
+  { name:'resizable', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Панели с изменяемым размером.', radix:'react-resizable-panels',
     preview:`<div class="flex border rounded-lg overflow-hidden h-24"><div class="flex-1 bg-gray-50 p-3 text-xs text-gray-500">Панель 1 (60%)</div><div class="w-1 bg-gray-300 cursor-col-resize hover:bg-brand-400"></div><div class="w-24 bg-gray-50 p-3 text-xs text-gray-500">Панель 2</div></div>`,
     code:`import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable'
 
@@ -868,7 +874,7 @@ const form = useForm({ resolver: zodResolver(schema) })
   <ResizablePanel>Панель 2</ResizablePanel>
 </ResizablePanelGroup>` },
 
-  { name:'sidebar', ds:false, studio:true, planocad:false, admin:true, landing:false, level:'extended', desc:'Боковая навигация.', radix:'—',
+  { name:'sidebar', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Боковая навигация.', radix:'—',
     preview:`<div class="flex h-32"><div class="w-48 bg-gray-900 text-white p-3 rounded-l-lg"><div class="text-xs font-semibold text-gray-400 mb-2">НАВИГАЦИЯ</div><div class="text-sm py-1 px-2 rounded bg-brand-600 mb-1">Конструктор</div><div class="text-sm py-1 px-2 rounded hover:bg-gray-800 mb-1 text-gray-300">Каталог</div><div class="text-sm py-1 px-2 rounded hover:bg-gray-800 text-gray-300">Кабинет</div></div><div class="flex-1 bg-gray-50 p-3 rounded-r-lg text-xs text-gray-400">Основной контент</div></div>`,
     code:`import { Sidebar, SidebarContent, SidebarGroup, SidebarMenuItem } from '@/components/ui/sidebar'
 
@@ -883,7 +889,7 @@ const form = useForm({ resolver: zodResolver(schema) })
   </Sidebar>
 </SidebarProvider>` },
 
-  // --- Studio-specific (9) ---
+  // --- Specific: Studio only, NOT in DS (9) ---
   { name:'ai-actions', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Кнопки действий AI-ответа (копировать, повторить).', radix:'—',
     preview:`<div class="flex gap-1"><button class="sh-btn sh-btn-ghost sh-btn-sm text-xs">&#128203; Копировать</button><button class="sh-btn sh-btn-ghost sh-btn-sm text-xs">&#x21bb; Повторить</button><button class="sh-btn sh-btn-ghost sh-btn-sm text-xs">&#128077;</button><button class="sh-btn sh-btn-ghost sh-btn-sm text-xs">&#128078;</button></div>`,
     code:`import { AIActions } from '@/components/ui/ai-actions'
@@ -960,8 +966,8 @@ const form = useForm({ resolver: zodResolver(schema) })
 />` },
 ];
 
-const LEVEL_LABELS = { ds:{label:'В пакете',class:'level-ds'}, core:{label:'Ядро (3/3)',class:'level-core'}, extended:{label:'Расширенные',class:'level-extended'}, specific:{label:'Специфичные',class:'level-specific'} };
-const ACTION_MAP = { ds:'Готово', core:'Мигрировать (Волна 1)', extended:'По потребности (Волна 2)', specific:'Оставить локально' };
+const LEVEL_LABELS = { core:{label:'Общие (3/3)',class:'level-core'}, extended:{label:'Studio+Admin',class:'level-extended'}, specific:{label:'Studio only',class:'level-specific'} };
+const ACTION_MAP = { core:'&#10003; В @planometrica/ui', extended:'&#10003; В @planometrica/ui', specific:'Локальный компонент' };
 
 // ==================== AUDIT TABLE ====================
 function cellHTML(val) {
@@ -973,7 +979,7 @@ function cellHTML(val) {
 
 function renderTable(filter) {
   const tbody = document.getElementById('tableBody');
-  const filtered = filter === 'all' ? COMPONENTS : COMPONENTS.filter(c => c.level === filter);
+  const filtered = filter === 'all' ? COMPONENTS : filter === 'ds' ? COMPONENTS.filter(c => c.ds) : COMPONENTS.filter(c => c.level === filter);
   tbody.innerHTML = filtered.map(c => {
     const lev = LEVEL_LABELS[c.level];
     return `<tr class="border-b border-gray-100 comp-row" onclick="openModal('${c.name}')">
@@ -994,7 +1000,7 @@ function filterTable(filter) {
 // ==================== GALLERY ====================
 function renderGallery(filter) {
   const container = document.getElementById('galleryContainer');
-  const filtered = filter === 'all' ? COMPONENTS : COMPONENTS.filter(c => c.level === filter);
+  const filtered = filter === 'all' ? COMPONENTS : filter === 'ds' ? COMPONENTS.filter(c => c.ds) : COMPONENTS.filter(c => c.level === filter);
   container.innerHTML = filtered.map(c => {
     const lev = LEVEL_LABELS[c.level];
     return `<div class="bg-white rounded-lg shadow-sm border mb-6 overflow-hidden" id="gal-${c.name}">
@@ -1048,9 +1054,9 @@ function openModal(name) {
         <table class="text-xs w-full">
           <tr><td class="py-1 pr-4 text-gray-500 font-medium">Radix / Dep</td><td><code class="bg-gray-100 px-1 rounded">${c.radix}</code></td></tr>
           <tr><td class="py-1 pr-4 text-gray-500 font-medium">@planometrica/ui</td><td>${c.ds ? '<span class="text-green-600 font-medium">&#10003; В пакете</span>' : '<span class="text-yellow-600">Не мигрирован</span>'}</td></tr>
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">Studio</td><td>${c.studio === 'reexport' ? 'Re-export' : c.studio ? 'Local copy' : '—'}</td></tr>
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">PlanoCAD</td><td>${c.planocad ? 'Local copy' : '—'}</td></tr>
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">Admin</td><td>${c.admin ? 'Local copy' : '—'}</td></tr>
+          <tr><td class="py-1 pr-4 text-gray-500 font-medium">Studio</td><td>${c.studio === 'reexport' ? '<span class="text-indigo-600">Re-export</span>' : c.studio ? 'Local copy' : '—'}</td></tr>
+          <tr><td class="py-1 pr-4 text-gray-500 font-medium">PlanoCAD</td><td>${c.planocad === 'reexport' ? '<span class="text-indigo-600">Re-export</span>' : c.planocad ? 'Local copy' : '—'}</td></tr>
+          <tr><td class="py-1 pr-4 text-gray-500 font-medium">Admin</td><td>${c.admin === 'reexport' ? '<span class="text-indigo-600">Re-export</span>' : c.admin ? 'Local copy' : '—'}</td></tr>
           <tr><td class="py-1 pr-4 text-gray-500 font-medium">Действие</td><td><strong>${ACTION_MAP[c.level]}</strong></td></tr>
         </table>
       </div>
