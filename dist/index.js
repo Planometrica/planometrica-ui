@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import * as React34 from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import { ChevronDown, ArrowLeft, ArrowRight, Check, X, Search, ChevronRight, Circle, Dot, ChevronUp, PanelLeft, MoreHorizontal, ChevronLeft, GripVertical } from 'lucide-react';
+import { ChevronDown, ArrowLeft, ArrowRight, Check, X, Search, ChevronRight, Dot, ChevronUp, PanelLeft, MoreHorizontal, ChevronLeft, GripVertical } from 'lucide-react';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 import { cva } from 'class-variance-authority';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
@@ -1578,7 +1578,7 @@ var ContextMenuRadioItem = React34.forwardRef(({ className, children, ...props }
     ),
     ...props,
     children: [
-      /* @__PURE__ */ jsx("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx(ContextMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx(Circle, { className: "h-4 w-4 fill-current" }) }) }),
+      /* @__PURE__ */ jsx("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx(ContextMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx("span", { className: "block h-2.5 w-2.5 rounded-full bg-current" }) }) }),
       children
     ]
   }
@@ -1901,7 +1901,7 @@ var DropdownMenuRadioItem = React34.forwardRef(({ className, children, ...props 
     ),
     ...props,
     children: [
-      /* @__PURE__ */ jsx("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx(DropdownMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx(Circle, { className: "h-2 w-2 fill-current" }) }) }),
+      /* @__PURE__ */ jsx("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx(DropdownMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx("span", { className: "block h-2 w-2 rounded-full bg-current" }) }) }),
       children
     ]
   }
@@ -2128,7 +2128,7 @@ var MenubarRadioItem = React34.forwardRef(({ className, children, ...props }, re
     ),
     ...props,
     children: [
-      /* @__PURE__ */ jsx("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx(MenubarPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx(Circle, { className: "h-2 w-2 fill-current" }) }) }),
+      /* @__PURE__ */ jsx("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx(MenubarPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx("span", { className: "block h-2 w-2 rounded-full bg-current" }) }) }),
       children
     ]
   }
@@ -2410,7 +2410,7 @@ var RadioGroupItem = React34.forwardRef(({ className, ...props }, ref) => {
         className
       ),
       ...props,
-      children: /* @__PURE__ */ jsx(RadioGroupPrimitive.Indicator, { className: "flex items-center justify-center", children: /* @__PURE__ */ jsx(Circle, { className: "h-3.5 w-3.5 fill-primary" }) })
+      children: /* @__PURE__ */ jsx(RadioGroupPrimitive.Indicator, { className: "flex items-center justify-center", children: /* @__PURE__ */ jsx("span", { className: "block h-2.5 w-2.5 rounded-full bg-current" }) })
     }
   );
 });
