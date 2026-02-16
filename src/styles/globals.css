@@ -197,6 +197,8 @@
   /* Brand heading — Poiret One with stroke for visual weight */
   .brand-heading {
     font-family: 'Poiret One', sans-serif;
+    font-size: 1.875rem; /* 30px — text-3xl */
+    line-height: 2.25rem;
     -webkit-text-stroke: 1px currentColor;
     letter-spacing: 0.02em;
   }
