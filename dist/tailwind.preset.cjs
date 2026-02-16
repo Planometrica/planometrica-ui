@@ -116,6 +116,7 @@ var planometricaPreset = {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
         logo: ["Aileron", "Inter", "sans-serif"],
+        heading: ["Poiret One", "sans-serif"],
         mono: ["JetBrains Mono", "Fira Code", "monospace"]
       },
       // Animations
