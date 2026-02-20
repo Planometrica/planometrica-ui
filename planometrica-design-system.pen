@@ -1,0 +1,2436 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "npR9d",
+      "x": 0,
+      "y": 0,
+      "name": "Planometrica Design System",
+      "width": 1800,
+      "fill": "#FAFBFC",
+      "layout": "vertical",
+      "gap": 64,
+      "padding": 64,
+      "children": [
+        {
+          "type": "text",
+          "id": "2Dt9s",
+          "name": "title",
+          "fill": "$--brand-primary",
+          "content": "Планометрика",
+          "fontFamily": "Comfortaa",
+          "fontSize": 48,
+          "fontWeight": "700",
+          "letterSpacing": -0.025
+        },
+        {
+          "type": "text",
+          "id": "Tfq4E",
+          "name": "subtitle",
+          "fill": "$--muted-foreground",
+          "content": "Дизайн-система — UI компоненты и токены",
+          "fontFamily": "Inter",
+          "fontSize": 18
+        },
+        {
+          "type": "rectangle",
+          "id": "QpZ3p",
+          "name": "divider1",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "Toqio",
+          "name": "colorSectionTitle",
+          "fill": "$--foreground",
+          "content": "Цвета",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "MxyOk",
+          "name": "colorDesc",
+          "fill": "$--muted-foreground",
+          "content": "Фирменные цвета и семантические токены для всех продуктов Планометрики.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "JasWp",
+          "name": "Brand Colors",
+          "width": "fill_container",
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "dqfc8",
+              "name": "Primary",
+              "width": 160,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 8,
+                  "id": "gtzK2",
+                  "name": "bpSwatch",
+                  "fill": "$--brand-primary",
+                  "width": 160,
+                  "height": 80
+                },
+                {
+                  "type": "text",
+                  "id": "TLe3X",
+                  "name": "bpName",
+                  "fill": "$--foreground",
+                  "content": "Основной",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "ouvvW",
+                  "name": "bpHex",
+                  "fill": "$--muted-foreground",
+                  "content": "#0A4C76",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "S51b8",
+              "name": "Secondary",
+              "width": 160,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 8,
+                  "id": "ARhIo",
+                  "name": "bsSwatch",
+                  "fill": "$--brand-secondary",
+                  "width": 160,
+                  "height": 80
+                },
+                {
+                  "type": "text",
+                  "id": "5gi1r",
+                  "name": "bsName",
+                  "fill": "$--foreground",
+                  "content": "Вторичный",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "W5ySR",
+                  "name": "bsHex",
+                  "fill": "$--muted-foreground",
+                  "content": "#1A7BB3",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HabGe",
+              "name": "Green",
+              "width": 160,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 8,
+                  "id": "bCyVI",
+                  "name": "bgSwatch",
+                  "fill": "$--brand-green",
+                  "width": 160,
+                  "height": 80
+                },
+                {
+                  "type": "text",
+                  "id": "Z4bcF",
+                  "name": "bgName",
+                  "fill": "$--foreground",
+                  "content": "Зелёный / Успех",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "2Lrch",
+                  "name": "bgHex",
+                  "fill": "$--muted-foreground",
+                  "content": "#92CF93",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FcNWL",
+              "name": "Orange",
+              "width": 160,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 8,
+                  "id": "wDSoq",
+                  "name": "boSwatch",
+                  "fill": "$--brand-orange",
+                  "width": 160,
+                  "height": 80
+                },
+                {
+                  "type": "text",
+                  "id": "4IeCG",
+                  "name": "boName",
+                  "fill": "$--foreground",
+                  "content": "Оранжевый / Внимание",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "YgOG9",
+                  "name": "boHex",
+                  "fill": "$--muted-foreground",
+                  "content": "#F59E0B",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lthue",
+              "name": "Destructive",
+              "width": 160,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 8,
+                  "id": "4cNzu",
+                  "name": "bdSwatch",
+                  "fill": "$--destructive",
+                  "width": 160,
+                  "height": 80
+                },
+                {
+                  "type": "text",
+                  "id": "7eiK0",
+                  "name": "bdName",
+                  "fill": "$--foreground",
+                  "content": "Критический",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "hMJ47",
+                  "name": "bdHex",
+                  "fill": "$--muted-foreground",
+                  "content": "#EF4444",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "0Hg2e",
+          "name": "semLabel",
+          "fill": "$--foreground",
+          "content": "Семантические цвета",
+          "fontFamily": "Inter",
+          "fontSize": 20,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "wi4p2",
+          "name": "Semantic Colors",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "y6ecB",
+              "name": "s1",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "AwN5D",
+                  "name": "s1c",
+                  "fill": "$--background",
+                  "width": 32,
+                  "height": 32,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$--border"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "3eS2s",
+                  "name": "s1t",
+                  "fill": "$--foreground",
+                  "content": "Фон",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HQU8B",
+              "name": "s2",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "pdRzw",
+                  "name": "s2c",
+                  "fill": "$--foreground",
+                  "width": 32,
+                  "height": 32
+                },
+                {
+                  "type": "text",
+                  "id": "uoHcR",
+                  "name": "s2t",
+                  "fill": "$--foreground",
+                  "content": "Текст",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xQwOq",
+              "name": "s3",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "JJ8sV",
+                  "name": "s3c",
+                  "fill": "$--muted",
+                  "width": 32,
+                  "height": 32,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$--border"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "0pKF9",
+                  "name": "s3t",
+                  "fill": "$--foreground",
+                  "content": "Приглушённый",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LshNs",
+              "name": "s4",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "QxGwi",
+                  "name": "s4c",
+                  "fill": "$--muted-foreground",
+                  "width": 32,
+                  "height": 32
+                },
+                {
+                  "type": "text",
+                  "id": "KRXuR",
+                  "name": "s4t",
+                  "fill": "$--foreground",
+                  "content": "Приглушённый текст",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6ytE9",
+              "name": "s5",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "6XELS",
+                  "name": "s5c",
+                  "fill": "$--border",
+                  "width": 32,
+                  "height": 32
+                },
+                {
+                  "type": "text",
+                  "id": "7EUJp",
+                  "name": "s5t",
+                  "fill": "$--foreground",
+                  "content": "Граница",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "06gpq",
+              "name": "s6",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "d6Alo",
+                  "name": "s6c",
+                  "fill": "$--accent",
+                  "width": 32,
+                  "height": 32,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$--border"
+                  }
+                },
+                {
+                  "type": "text",
+                  "id": "orP5s",
+                  "name": "s6t",
+                  "fill": "$--foreground",
+                  "content": "Акцент",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "n60Xi",
+          "name": "divider2",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "Iwifn",
+          "name": "typoTitle",
+          "fill": "$--foreground",
+          "content": "Типографика",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "R5beP",
+          "name": "typoDesc",
+          "fill": "$--muted-foreground",
+          "content": "Inter — основной шрифт. Comfortaa — логотип/дисплей. JetBrains Mono — код.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "1wcE8",
+          "name": "Typography Scale",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "children": [
+            {
+              "type": "frame",
+              "id": "UmvzI",
+              "name": "h1row",
+              "width": "fill_container",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "38js8",
+                  "name": "h1label",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 180,
+                  "content": "H1 — 36px Жирный",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "QDgt1",
+                  "name": "h1sample",
+                  "fill": "$--foreground",
+                  "content": "Заголовок первый",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": "700",
+                  "letterSpacing": -0.025
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HacyS",
+              "name": "h2row",
+              "width": "fill_container",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BJtOT",
+                  "name": "h2label",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 180,
+                  "content": "H2 — 30px Полужирный",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "oiDG0",
+                  "name": "h2sample",
+                  "fill": "$--foreground",
+                  "content": "Заголовок второй",
+                  "fontFamily": "Inter",
+                  "fontSize": 30,
+                  "fontWeight": "600",
+                  "letterSpacing": -0.025
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ksvKB",
+              "name": "h3row",
+              "width": "fill_container",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZmPIi",
+                  "name": "h3label",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 180,
+                  "content": "H3 — 24px Полужирный",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "MWoO1",
+                  "name": "h3sample",
+                  "fill": "$--foreground",
+                  "content": "Заголовок третий",
+                  "fontFamily": "Inter",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Q0SLW",
+              "name": "h4row",
+              "width": "fill_container",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "koO28",
+                  "name": "h4label",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 180,
+                  "content": "H4 — 20px Полужирный",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "GgGB1",
+                  "name": "h4sample",
+                  "fill": "$--foreground",
+                  "content": "Заголовок четвёртый",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "K5jcT",
+              "name": "bodyRow",
+              "width": "fill_container",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5rY3y",
+                  "name": "bodyLabel",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 180,
+                  "content": "Основной — 16px Обычный",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "vMlh0",
+                  "name": "bodySample",
+                  "fill": "$--foreground",
+                  "content": "Основной текст для абзацев и общего контента.",
+                  "fontFamily": "Inter",
+                  "fontSize": 16
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "8z1x0",
+              "name": "smRow",
+              "width": "fill_container",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yeBnk",
+                  "name": "smLabel",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 180,
+                  "content": "Малый — 14px Обычный",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "HcPTT",
+                  "name": "smSample",
+                  "fill": "$--foreground",
+                  "content": "Мелкий текст для вторичной информации.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "1GqCv",
+              "name": "captRow",
+              "width": "fill_container",
+              "gap": 32,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0U9gk",
+                  "name": "captLabel",
+                  "fill": "$--muted-foreground",
+                  "textGrowth": "fixed-width",
+                  "width": 180,
+                  "content": "Подпись — 12px Средний",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "sjT6a",
+                  "name": "captSample",
+                  "fill": "$--muted-foreground",
+                  "content": "ПОДПИСЬ ДЛЯ МЕТОК И ЛЕЙБЛОВ",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "xPtce",
+          "name": "divider3",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "6f9GW",
+          "name": "btnTitle",
+          "fill": "$--foreground",
+          "content": "Кнопки",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "gIRdD",
+          "name": "btnDesc",
+          "fill": "$--muted-foreground",
+          "content": "Основная, Вторичная, Контурная, Призрачная и Критическая варианты. Скругление 8px.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "aAdfW",
+          "name": "Button/Primary",
+          "reusable": true,
+          "fill": "$--primary",
+          "cornerRadius": 8,
+          "gap": 8,
+          "padding": [
+            10,
+            24
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "jZW5P",
+              "name": "btnPLabel",
+              "fill": "$--primary-foreground",
+              "content": "Кнопка",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "KzsIn",
+          "name": "Button/Secondary",
+          "reusable": true,
+          "fill": "$--secondary",
+          "cornerRadius": 8,
+          "gap": 8,
+          "padding": [
+            10,
+            24
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "jwtcJ",
+              "name": "btnSLabel",
+              "fill": "$--secondary-foreground",
+              "content": "Кнопка",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "W8D7n",
+          "name": "Button/Outline",
+          "reusable": true,
+          "fill": "$--background",
+          "cornerRadius": 8,
+          "stroke": {
+            "thickness": 1,
+            "fill": "$--border"
+          },
+          "gap": 8,
+          "padding": [
+            10,
+            24
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ZhBEL",
+              "name": "btnOLabel",
+              "fill": "$--foreground",
+              "content": "Кнопка",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ykRd6",
+          "name": "Button/Ghost",
+          "reusable": true,
+          "cornerRadius": 8,
+          "gap": 8,
+          "padding": [
+            10,
+            24
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "HZQ7r",
+              "name": "btnGLabel",
+              "fill": "$--foreground",
+              "content": "Кнопка",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "KBI3o",
+          "name": "Button/Destructive",
+          "reusable": true,
+          "fill": "$--destructive",
+          "cornerRadius": 8,
+          "gap": 8,
+          "padding": [
+            10,
+            24
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "IYd3a",
+              "name": "btnDLabel",
+              "fill": "$--destructive-foreground",
+              "content": "Кнопка",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cPrtv",
+          "name": "Button Showcase",
+          "width": "fill_container",
+          "gap": 16,
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "JGIHr",
+              "type": "ref",
+              "ref": "aAdfW",
+              "name": "bp1",
+              "descendants": {
+                "jZW5P": {
+                  "content": "Основная"
+                }
+              }
+            },
+            {
+              "id": "yak1L",
+              "type": "ref",
+              "ref": "KzsIn",
+              "name": "bs1",
+              "descendants": {
+                "jwtcJ": {
+                  "content": "Вторичная"
+                }
+              }
+            },
+            {
+              "id": "s0YYR",
+              "type": "ref",
+              "ref": "W8D7n",
+              "name": "bo1",
+              "descendants": {
+                "ZhBEL": {
+                  "content": "Контурная"
+                }
+              }
+            },
+            {
+              "id": "VYQ5e",
+              "type": "ref",
+              "ref": "ykRd6",
+              "name": "bg1",
+              "descendants": {
+                "HZQ7r": {
+                  "content": "Призрачная"
+                }
+              }
+            },
+            {
+              "id": "N6bS1",
+              "type": "ref",
+              "ref": "KBI3o",
+              "name": "bd1",
+              "descendants": {
+                "IYd3a": {
+                  "content": "Критическая"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "cOXYd",
+          "name": "divider4",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "J0acL",
+          "name": "inputTitle",
+          "fill": "$--foreground",
+          "content": "Поля ввода",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "FXJQV",
+          "name": "inputDesc",
+          "fill": "$--muted-foreground",
+          "content": "Текстовое поле, область ввода и группа с лейблом.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "6egf5",
+          "name": "Input/Default",
+          "reusable": true,
+          "width": 320,
+          "height": 40,
+          "fill": "$--background",
+          "cornerRadius": 8,
+          "stroke": {
+            "thickness": 1,
+            "fill": "$--input"
+          },
+          "padding": [
+            10,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "kuMps",
+              "name": "inputPlaceholder",
+              "fill": "$--muted-foreground",
+              "content": "Введите текст...",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EGpPt",
+          "name": "Input/Filled",
+          "reusable": true,
+          "width": 320,
+          "height": 40,
+          "fill": "$--background",
+          "cornerRadius": 8,
+          "stroke": {
+            "thickness": 2,
+            "fill": "$--ring"
+          },
+          "padding": [
+            10,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "hPixL",
+              "name": "inputFilledText",
+              "fill": "$--foreground",
+              "content": "Иван Петров",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "mkNMS",
+          "name": "Input Group/Labeled",
+          "reusable": true,
+          "width": 320,
+          "layout": "vertical",
+          "gap": 6,
+          "children": [
+            {
+              "type": "text",
+              "id": "RcEUQ",
+              "name": "labelText",
+              "fill": "$--foreground",
+              "content": "Лейбл",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            },
+            {
+              "id": "MLrf3",
+              "type": "ref",
+              "ref": "6egf5",
+              "width": "fill_container",
+              "name": "labelInputInst"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "E6sjV",
+          "name": "Input Showcase",
+          "width": "fill_container",
+          "gap": 24,
+          "alignItems": "end",
+          "children": [
+            {
+              "id": "k6z1B",
+              "type": "ref",
+              "ref": "6egf5",
+              "name": "is1"
+            },
+            {
+              "id": "o0UHo",
+              "type": "ref",
+              "ref": "EGpPt",
+              "name": "is2"
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "m8Vs9",
+          "name": "divider5",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "gNJbH",
+          "name": "cardTitle",
+          "fill": "$--foreground",
+          "content": "Карточки",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "Dd0tG",
+          "name": "cardDesc",
+          "fill": "$--muted-foreground",
+          "content": "Контейнеры контента с заголовком, телом и подвалом.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "AKkMK",
+          "name": "Card",
+          "reusable": true,
+          "width": 380,
+          "fill": "$--card",
+          "cornerRadius": 12,
+          "stroke": {
+            "thickness": 1,
+            "fill": "$--border"
+          },
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#0000000D",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "blur": 3
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "d7Q1s",
+              "name": "Card Header",
+              "slot": [],
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                24,
+                24,
+                0,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "KNYYU",
+                  "name": "cardHeaderTitle",
+                  "fill": "$--card-foreground",
+                  "content": "Заголовок карточки",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "ix9OP",
+                  "name": "cardHeaderDesc",
+                  "fill": "$--muted-foreground",
+                  "content": "Описание карточки.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "i3xnH",
+              "name": "Card Content",
+              "slot": [],
+              "width": "fill_container",
+              "layout": "vertical",
+              "padding": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Vd1kw",
+                  "name": "cardContentText",
+                  "fill": "$--foreground",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Область контента карточки. Здесь можно разместить любой компонент.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PLKV1",
+              "name": "Card Footer",
+              "slot": [],
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                0,
+                24,
+                24,
+                24
+              ],
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "Ax5kl",
+                  "type": "ref",
+                  "ref": "aAdfW",
+                  "name": "cardFooterBtn",
+                  "descendants": {
+                    "jZW5P": {
+                      "content": "Сохранить"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "f5K9g",
+          "name": "divider6",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "S0zQa",
+          "name": "badgeTitle",
+          "fill": "$--foreground",
+          "content": "Бейджи",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "qmmVo",
+          "name": "Badge/Default",
+          "reusable": true,
+          "fill": "$--primary",
+          "cornerRadius": 100,
+          "padding": [
+            4,
+            10
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "sjqvk",
+              "name": "badgeDefText",
+              "fill": "$--primary-foreground",
+              "content": "Бейдж",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "90vym",
+          "name": "Badge/Secondary",
+          "reusable": true,
+          "fill": "$--secondary",
+          "cornerRadius": 100,
+          "padding": [
+            4,
+            10
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "0GUTZ",
+              "name": "badgeSecText",
+              "fill": "$--secondary-foreground",
+              "content": "Бейдж",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OgJ51",
+          "name": "Badge/Success",
+          "reusable": true,
+          "fill": "$--brand-green",
+          "cornerRadius": 100,
+          "padding": [
+            4,
+            10
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "0OVg2",
+              "name": "badgeSucText",
+              "fill": "#1A4D1C",
+              "content": "Бейдж",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Iychb",
+          "name": "Badge/Destructive",
+          "reusable": true,
+          "fill": "$--destructive",
+          "cornerRadius": 100,
+          "padding": [
+            4,
+            10
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Uucw5",
+              "name": "badgeDesText",
+              "fill": "$--destructive-foreground",
+              "content": "Бейдж",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "X0lIi",
+          "name": "Badge Showcase",
+          "width": "fill_container",
+          "gap": 12,
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "iLwKu",
+              "type": "ref",
+              "ref": "qmmVo",
+              "name": "bsi1",
+              "descendants": {
+                "sjqvk": {
+                  "content": "Основной"
+                }
+              }
+            },
+            {
+              "id": "3KZNU",
+              "type": "ref",
+              "ref": "90vym",
+              "name": "bsi2",
+              "descendants": {
+                "0GUTZ": {
+                  "content": "Вторичный"
+                }
+              }
+            },
+            {
+              "id": "7KGK8",
+              "type": "ref",
+              "ref": "OgJ51",
+              "name": "bsi3",
+              "descendants": {
+                "0OVg2": {
+                  "content": "Успех"
+                }
+              }
+            },
+            {
+              "id": "gwLM1",
+              "type": "ref",
+              "ref": "Iychb",
+              "name": "bsi4",
+              "descendants": {
+                "Uucw5": {
+                  "content": "Критический"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "Fmdfj",
+          "name": "divider7",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "7S5ti",
+          "name": "alertTitle",
+          "fill": "$--foreground",
+          "content": "Оповещения",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "4BHP7",
+          "name": "Alert/Info",
+          "reusable": true,
+          "width": 500,
+          "fill": "#EFF6FF",
+          "cornerRadius": 8,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#BFDBFE"
+          },
+          "gap": 12,
+          "padding": 16,
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "84Iko",
+              "name": "alertInfoIcon",
+              "width": 20,
+              "height": 20,
+              "iconFontName": "info",
+              "iconFontFamily": "lucide",
+              "fill": "$--brand-secondary"
+            },
+            {
+              "type": "frame",
+              "id": "tuGB7",
+              "name": "alertInfoContent",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kDWr8",
+                  "name": "alertInfoTitle",
+                  "fill": "$--brand-primary",
+                  "content": "Информация",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "EVACn",
+                  "name": "alertInfoDesc",
+                  "fill": "$--brand-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Это информационное сообщение для пользователя.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "e77PY",
+          "name": "Alert/Success",
+          "reusable": true,
+          "width": 500,
+          "fill": "#F0FDF4",
+          "cornerRadius": 8,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#BBF7D0"
+          },
+          "gap": 12,
+          "padding": 16,
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "Jleyx",
+              "name": "alertSuccIcon",
+              "width": 20,
+              "height": 20,
+              "iconFontName": "circle-check",
+              "iconFontFamily": "lucide",
+              "fill": "#16A34A"
+            },
+            {
+              "type": "frame",
+              "id": "PV4jA",
+              "name": "alertSuccContent",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tOpxr",
+                  "name": "alertSuccTitle",
+                  "fill": "#15803D",
+                  "content": "Успешно",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "grox5",
+                  "name": "alertSuccDesc",
+                  "fill": "#16A34A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Операция выполнена успешно.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "l3GXy",
+          "name": "Alert/Error",
+          "reusable": true,
+          "width": 500,
+          "fill": "#FEF2F2",
+          "cornerRadius": 8,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#FECACA"
+          },
+          "gap": 12,
+          "padding": 16,
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "B010c",
+              "name": "alertErrIcon",
+              "width": 20,
+              "height": 20,
+              "iconFontName": "circle-x",
+              "iconFontFamily": "lucide",
+              "fill": "$--destructive"
+            },
+            {
+              "type": "frame",
+              "id": "R4YLj",
+              "name": "alertErrContent",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "O9IjD",
+                  "name": "alertErrTitle",
+                  "fill": "#991B1B",
+                  "content": "Ошибка",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "tXiLp",
+                  "name": "alertErrDesc",
+                  "fill": "#DC2626",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Что-то пошло не так. Попробуйте ещё раз.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "N46NX",
+          "name": "divider8",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "A8GxA",
+          "name": "formTitle",
+          "fill": "$--foreground",
+          "content": "Элементы форм",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "dGVbq",
+          "name": "formDesc",
+          "fill": "$--muted-foreground",
+          "content": "Чекбокс, переключатель и радиокнопка.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "wEPwr",
+          "name": "Checkbox/Unchecked",
+          "reusable": true,
+          "width": 20,
+          "height": 20,
+          "fill": "$--background",
+          "cornerRadius": 4,
+          "stroke": {
+            "thickness": 2,
+            "fill": "$--input"
+          },
+          "justifyContent": "center",
+          "alignItems": "center"
+        },
+        {
+          "type": "frame",
+          "id": "MXw5s",
+          "name": "Checkbox/Checked",
+          "reusable": true,
+          "width": 20,
+          "height": 20,
+          "fill": "$--primary",
+          "cornerRadius": 4,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "hRMuQ",
+              "name": "checkIcon",
+              "width": 14,
+              "height": 14,
+              "iconFontName": "check",
+              "iconFontFamily": "lucide",
+              "fill": "$--primary-foreground"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Q5m8f",
+          "name": "Switch/Off",
+          "reusable": true,
+          "width": 44,
+          "height": 24,
+          "fill": "$--input",
+          "cornerRadius": 12,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "qbCVi",
+              "x": 2,
+              "y": 2,
+              "name": "switchOffThumb",
+              "fill": "$--background",
+              "width": 20,
+              "height": 20
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "v97uz",
+          "name": "Switch/On",
+          "reusable": true,
+          "width": 44,
+          "height": 24,
+          "fill": "$--primary",
+          "cornerRadius": 12,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "yBNS2",
+              "x": 22,
+              "y": 2,
+              "name": "switchOnThumb",
+              "fill": "$--primary-foreground",
+              "width": 20,
+              "height": 20
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EDwI5",
+          "name": "Radio/Unchecked",
+          "reusable": true,
+          "width": 20,
+          "height": 20,
+          "fill": "$--background",
+          "cornerRadius": 100,
+          "stroke": {
+            "thickness": 2,
+            "fill": "$--input"
+          },
+          "justifyContent": "center",
+          "alignItems": "center"
+        },
+        {
+          "type": "frame",
+          "id": "an35S",
+          "name": "Radio/Checked",
+          "reusable": true,
+          "width": 20,
+          "height": 20,
+          "fill": "$--background",
+          "cornerRadius": 100,
+          "stroke": {
+            "thickness": 2,
+            "fill": "$--primary"
+          },
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "PDXMZ",
+              "name": "radioDot",
+              "fill": "$--primary",
+              "width": 10,
+              "height": 10
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "SxMZp",
+          "name": "Form Controls Showcase",
+          "width": "fill_container",
+          "gap": 48,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rII76",
+              "name": "cbGroup",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "siE5U",
+                  "type": "ref",
+                  "ref": "MXw5s",
+                  "name": "cb1"
+                },
+                {
+                  "type": "text",
+                  "id": "6TCy2",
+                  "name": "cbLabel1",
+                  "fill": "$--foreground",
+                  "content": "Отмечен",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RNVyz",
+              "name": "cbGroup2",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "CGtjB",
+                  "type": "ref",
+                  "ref": "wEPwr",
+                  "name": "cb2"
+                },
+                {
+                  "type": "text",
+                  "id": "dsRki",
+                  "name": "cbLabel2",
+                  "fill": "$--foreground",
+                  "content": "Не отмечен",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qUqm7",
+              "name": "swGroup",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "0Y3ti",
+                  "type": "ref",
+                  "ref": "v97uz",
+                  "name": "sw1"
+                },
+                {
+                  "type": "text",
+                  "id": "t2Kw5",
+                  "name": "swLabel",
+                  "fill": "$--foreground",
+                  "content": "Вкл",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nxBsv",
+              "name": "swGroup2",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "2YZ37",
+                  "type": "ref",
+                  "ref": "Q5m8f",
+                  "name": "sw2"
+                },
+                {
+                  "type": "text",
+                  "id": "Ovc9v",
+                  "name": "swLabel2",
+                  "fill": "$--foreground",
+                  "content": "Выкл",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WNdXm",
+              "name": "rdGroup",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "UWVqf",
+                  "type": "ref",
+                  "ref": "an35S",
+                  "name": "rd1"
+                },
+                {
+                  "type": "text",
+                  "id": "voWOx",
+                  "name": "rdLabel",
+                  "fill": "$--foreground",
+                  "content": "Выбран",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nSsj5",
+              "name": "rdGroup2",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "iYVYg",
+                  "type": "ref",
+                  "ref": "EDwI5",
+                  "name": "rd2"
+                },
+                {
+                  "type": "text",
+                  "id": "x4Cwf",
+                  "name": "rdLabel2",
+                  "fill": "$--foreground",
+                  "content": "По умолчанию",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "YAgY8",
+          "name": "divider9",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "cCFMY",
+          "name": "avatarTitle",
+          "fill": "$--foreground",
+          "content": "Аватары",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "CyY6f",
+          "name": "Avatar/Text",
+          "reusable": true,
+          "width": 40,
+          "height": 40,
+          "fill": "$--primary",
+          "cornerRadius": 100,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "YDM2U",
+              "name": "avatarInitials",
+              "fill": "$--primary-foreground",
+              "content": "ПМ",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "NJDnm",
+          "name": "Avatar/Small",
+          "reusable": true,
+          "width": 32,
+          "height": 32,
+          "fill": "$--brand-secondary",
+          "cornerRadius": 100,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ViM3D",
+              "name": "avatarSmInitials",
+              "fill": "$--primary-foreground",
+              "content": "AB",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "3F9s4",
+          "name": "Avatar/Large",
+          "reusable": true,
+          "width": 56,
+          "height": 56,
+          "fill": "$--primary",
+          "cornerRadius": 100,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "UFwBA",
+              "name": "avatarLgInitials",
+              "fill": "$--primary-foreground",
+              "content": "ПМ",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Di0hx",
+          "name": "Avatar Showcase",
+          "width": "fill_container",
+          "gap": 16,
+          "alignItems": "center",
+          "children": [
+            {
+              "id": "68MXF",
+              "type": "ref",
+              "ref": "NJDnm",
+              "name": "av1"
+            },
+            {
+              "id": "JZUwL",
+              "type": "ref",
+              "ref": "CyY6f",
+              "name": "av2"
+            },
+            {
+              "id": "miv3z",
+              "type": "ref",
+              "ref": "3F9s4",
+              "name": "av3"
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "B6WpE",
+          "name": "divider10",
+          "fill": "$--border",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "text",
+          "id": "8KhDW",
+          "name": "sidebarTitle",
+          "fill": "$--foreground",
+          "content": "Боковая панель",
+          "fontFamily": "Inter",
+          "fontSize": 30,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "2hm9n",
+          "name": "sidebarDesc",
+          "fill": "$--muted-foreground",
+          "content": "Навигация с пунктами меню, секциями и активным состоянием.",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "ENqZB",
+          "name": "Sidebar Item/Default",
+          "reusable": true,
+          "width": 240,
+          "cornerRadius": 6,
+          "gap": 12,
+          "padding": [
+            8,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "BPWaX",
+              "name": "sideItemIcon",
+              "width": 18,
+              "height": 18,
+              "iconFontName": "file-text",
+              "iconFontFamily": "lucide",
+              "fill": "$--muted-foreground"
+            },
+            {
+              "type": "text",
+              "id": "GDz2u",
+              "name": "sideItemText",
+              "fill": "$--foreground",
+              "content": "Пункт меню",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "mrDV4",
+          "name": "Sidebar Item/Active",
+          "reusable": true,
+          "width": 240,
+          "fill": "$--accent",
+          "cornerRadius": 6,
+          "gap": 12,
+          "padding": [
+            8,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "TA4NU",
+              "name": "sideItemActiveIcon",
+              "width": 18,
+              "height": 18,
+              "iconFontName": "home",
+              "iconFontFamily": "lucide",
+              "fill": "$--primary"
+            },
+            {
+              "type": "text",
+              "id": "Vnqjz",
+              "name": "sideItemActiveText",
+              "fill": "$--primary",
+              "content": "Активный пункт",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "MO55i",
+          "name": "Sidebar Section Title",
+          "reusable": true,
+          "width": 240,
+          "padding": [
+            16,
+            12,
+            4,
+            12
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "ziDur",
+              "name": "sideSectionText",
+              "fill": "$--muted-foreground",
+              "content": "СЕКЦИЯ",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600",
+              "letterSpacing": 0.08
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lmwAv",
+          "name": "Sidebar",
+          "reusable": true,
+          "width": 260,
+          "fill": "$--sidebar-bg",
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "$--border"
+          },
+          "layout": "vertical",
+          "gap": 2,
+          "padding": [
+            16,
+            8
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "5FjI3",
+              "name": "sLogo",
+              "width": "fill_container",
+              "gap": 10,
+              "padding": [
+                8,
+                8,
+                16,
+                8
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "RAYVi",
+                  "type": "ref",
+                  "ref": "NJDnm",
+                  "name": "sLogoAvatar"
+                },
+                {
+                  "type": "text",
+                  "id": "mzrt7",
+                  "name": "sLogoText",
+                  "fill": "$--foreground",
+                  "content": "Планометрика",
+                  "fontFamily": "Comfortaa",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "id": "m55gZ",
+              "type": "ref",
+              "ref": "MO55i",
+              "name": "sSec1",
+              "descendants": {
+                "ziDur": {
+                  "content": "ОСНОВНОЕ"
+                }
+              }
+            },
+            {
+              "id": "CPRUt",
+              "type": "ref",
+              "ref": "mrDV4",
+              "name": "sNav1",
+              "descendants": {
+                "TA4NU": {
+                  "iconFontName": "layout-dashboard"
+                },
+                "Vnqjz": {
+                  "content": "Главная"
+                }
+              }
+            },
+            {
+              "id": "11Vz1",
+              "type": "ref",
+              "ref": "ENqZB",
+              "name": "sNav2",
+              "descendants": {
+                "BPWaX": {
+                  "iconFontName": "building-2"
+                },
+                "GDz2u": {
+                  "content": "Проекты"
+                }
+              }
+            },
+            {
+              "id": "IPJ1A",
+              "type": "ref",
+              "ref": "ENqZB",
+              "name": "sNav3",
+              "descendants": {
+                "BPWaX": {
+                  "iconFontName": "ruler"
+                },
+                "GDz2u": {
+                  "content": "ПланоCAD"
+                }
+              }
+            },
+            {
+              "id": "MSADx",
+              "type": "ref",
+              "ref": "MO55i",
+              "name": "sSec2",
+              "descendants": {
+                "ziDur": {
+                  "content": "ИНСТРУМЕНТЫ"
+                }
+              }
+            },
+            {
+              "id": "DW8zf",
+              "type": "ref",
+              "ref": "ENqZB",
+              "name": "sNav4",
+              "descendants": {
+                "BPWaX": {
+                  "iconFontName": "brain"
+                },
+                "GDz2u": {
+                  "content": "AI Архитектор"
+                }
+              }
+            },
+            {
+              "id": "b4x1E",
+              "type": "ref",
+              "ref": "ENqZB",
+              "name": "sNav5",
+              "descendants": {
+                "BPWaX": {
+                  "iconFontName": "map"
+                },
+                "GDz2u": {
+                  "content": "Участки"
+                }
+              }
+            },
+            {
+              "id": "8nBsH",
+              "type": "ref",
+              "ref": "ENqZB",
+              "name": "sNav6",
+              "descendants": {
+                "BPWaX": {
+                  "iconFontName": "settings"
+                },
+                "GDz2u": {
+                  "content": "Настройки"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "--accent": {
+      "type": "color",
+      "value": "#F0F9FF"
+    },
+    "--accent-foreground": {
+      "type": "color",
+      "value": "#0A4C76"
+    },
+    "--background": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "--border": {
+      "type": "color",
+      "value": "#E2E8F0"
+    },
+    "--brand-green": {
+      "type": "color",
+      "value": "#92CF93"
+    },
+    "--brand-orange": {
+      "type": "color",
+      "value": "#F59E0B"
+    },
+    "--brand-primary": {
+      "type": "color",
+      "value": "#0A4C76"
+    },
+    "--brand-secondary": {
+      "type": "color",
+      "value": "#1A7BB3"
+    },
+    "--card": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "--card-foreground": {
+      "type": "color",
+      "value": "#0A4C76"
+    },
+    "--destructive": {
+      "type": "color",
+      "value": "#EF4444"
+    },
+    "--destructive-foreground": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "--foreground": {
+      "type": "color",
+      "value": "#0A4C76"
+    },
+    "--input": {
+      "type": "color",
+      "value": "#E2E8F0"
+    },
+    "--muted": {
+      "type": "color",
+      "value": "#F0F9FF"
+    },
+    "--muted-foreground": {
+      "type": "color",
+      "value": "#64748B"
+    },
+    "--primary": {
+      "type": "color",
+      "value": "#0A4C76"
+    },
+    "--primary-foreground": {
+      "type": "color",
+      "value": "#F0F9FF"
+    },
+    "--ring": {
+      "type": "color",
+      "value": "#0A4C76"
+    },
+    "--secondary": {
+      "type": "color",
+      "value": "#F0F9FF"
+    },
+    "--secondary-foreground": {
+      "type": "color",
+      "value": "#0A4C76"
+    },
+    "--sidebar-accent": {
+      "type": "color",
+      "value": "#F0F9FF"
+    },
+    "--sidebar-bg": {
+      "type": "color",
+      "value": "#FAFAFA"
+    },
+    "--sidebar-fg": {
+      "type": "color",
+      "value": "#0A4C76"
+    }
+  }
+}
