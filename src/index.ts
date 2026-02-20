@@ -398,3 +398,11 @@ export { ToggleGroup, ToggleGroupItem } from './components/ui/toggle-group'
 
 // Tooltip
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from './components/ui/tooltip'
+
+// =============================================================================
+// Brand Assets
+// =============================================================================
+
+// Planometrica Logo
+export { PlanometricaLogo } from './components/ui/planometrica-logo'
+export type { PlanometricaLogoProps, LogoVariant } from './components/ui/planometrica-logo'

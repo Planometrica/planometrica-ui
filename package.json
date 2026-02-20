@@ -15,13 +15,16 @@
       "import": "./dist/tailwind.preset.js",
       "require": "./dist/tailwind.preset.cjs"
     },
-    "./styles": "./dist/styles/globals.css"
+    "./styles": "./dist/styles/globals.css",
+    "./logos/primary": "./dist/assets/logos/logo-primary.svg",
+    "./logos/inverse-white": "./dist/assets/logos/logo-inverse-white.svg",
+    "./logos/inverse-transparent": "./dist/assets/logos/logo-inverse-transparent.svg"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup && mkdir -p dist/styles && cp src/styles/globals.css dist/styles/",
+    "build": "tsup && mkdir -p dist/styles dist/assets/logos && cp src/styles/globals.css dist/styles/ && cp src/assets/logos/*.svg dist/assets/logos/",
     "dev": "tsup --watch",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit"

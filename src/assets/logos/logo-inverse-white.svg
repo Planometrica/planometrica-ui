@@ -1,0 +1,16 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Planometrica Logo: Letter П — Inverse (blue on white) -->
+  <!-- Corner-touch pixel construction -->
+
+  <!-- White background -->
+  <rect width="1024" height="1024" rx="52" fill="white"/>
+
+  <!-- Top beam -->
+  <rect x="340" y="200" width="345" height="130" fill="#0A4C76"/>
+
+  <!-- Left pillar -->
+  <rect x="210" y="330" width="130" height="410" fill="#0A4C76"/>
+
+  <!-- Right pillar -->
+  <rect x="685" y="330" width="130" height="410" fill="#0A4C76"/>
+</svg>

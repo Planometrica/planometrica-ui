@@ -189,7 +189,7 @@ type DarkThemeColor = keyof typeof colors.dark;
 declare const fonts: {
     readonly families: {
         readonly sans: readonly ["Inter", "system-ui", "sans-serif"];
-        readonly logo: readonly ["Aileron", "Inter", "sans-serif"];
+        readonly logo: readonly ["Comfortaa", "Inter", "sans-serif"];
         readonly mono: readonly ["JetBrains Mono", "Fira Code", "monospace"];
     };
     readonly sizes: {

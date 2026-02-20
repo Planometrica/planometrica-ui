@@ -10,7 +10,7 @@
  * ```
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -194,10 +194,11 @@
     @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
 
-  /* Brand heading — Poiret One with stroke for visual weight */
+  /* Brand heading — Comfortaa geometric rounded font */
   .brand-heading {
-    font-family: 'Poiret One', sans-serif;
-    -webkit-text-stroke: 1px currentColor;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 1.875rem; /* 30px — text-3xl */
+    line-height: 2.25rem;
     letter-spacing: 0.02em;
   }
 

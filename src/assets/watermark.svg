@@ -1,0 +1,25 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Planometrica Watermark: П logo + "Планометрика" -->
+  <!-- Brand color: #0A4C76, Font: Comfortaa -->
+  <!-- Corner-touch pixel construction -->
+
+  <!-- Top beam (corner-touch: left edge aligns with left pillar right edge) -->
+  <rect x="165" y="60" width="171" height="65" fill="#0A4C76"/>
+
+  <!-- Left pillar (top-right corner touches beam bottom-left) -->
+  <rect x="100" y="125" width="65" height="203" fill="#0A4C76"/>
+
+  <!-- Right pillar (top-left corner touches beam bottom-right) -->
+  <rect x="336" y="125" width="65" height="203" fill="#0A4C76"/>
+
+  <!-- Text "Планометрика" in Comfortaa -->
+  <text
+    x="250"
+    y="430"
+    text-anchor="middle"
+    font-family="'Comfortaa', sans-serif"
+    font-weight="400"
+    font-size="42"
+    fill="#0A4C76"
+  >Планометрика</text>
+</svg>

@@ -177,7 +177,7 @@ var fonts = {
   // Font Families
   families: {
     sans: ["Inter", "system-ui", "sans-serif"],
-    logo: ["Aileron", "Inter", "sans-serif"],
+    logo: ["Comfortaa", "Inter", "sans-serif"],
     mono: ["JetBrains Mono", "Fira Code", "monospace"]
   },
   // Font Sizes (rem based)
