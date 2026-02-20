@@ -8,8 +8,8 @@
 export const fonts = {
   // Font Families
   families: {
-    sans: ['Inter', 'system-ui', 'sans-serif'],
-    logo: ['Aileron', 'Inter', 'sans-serif'],
+    sans: ['Manrope', 'system-ui', 'sans-serif'],
+    logo: ['Unbounded', 'sans-serif'],
     mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
   },
 

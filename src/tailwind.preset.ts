@@ -114,9 +114,8 @@ const planometricaPreset: Partial<Config> = {
 
       // Font Families
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        logo: ['Aileron', 'Inter', 'sans-serif'],
-        heading: ['Poiret One', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        logo: ['Unbounded', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
 

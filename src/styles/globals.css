@@ -10,7 +10,7 @@
  * ```
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -194,12 +194,9 @@
     @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
 
-  /* Brand heading — Poiret One with stroke for visual weight */
-  .brand-heading {
-    font-family: 'Poiret One', sans-serif;
-    font-size: 1.875rem; /* 30px — text-3xl */
-    line-height: 2.25rem;
-    -webkit-text-stroke: 1px currentColor;
+  /* Brand logo — Unbounded display font (logo only) */
+  .brand-logo {
+    font-family: 'Unbounded', sans-serif;
     letter-spacing: 0.02em;
   }
 
