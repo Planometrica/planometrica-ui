@@ -19,9 +19,9 @@
           "name": "title",
           "fill": "$--brand-primary",
           "content": "Планометрика",
-          "fontFamily": "Comfortaa",
+          "fontFamily": "Unbounded",
           "fontSize": 48,
-          "fontWeight": "700",
+          "fontWeight": "500",
           "letterSpacing": -0.025
         },
         {
@@ -30,8 +30,9 @@
           "name": "subtitle",
           "fill": "$--muted-foreground",
           "content": "Дизайн-система — UI компоненты и токены",
-          "fontFamily": "Inter",
-          "fontSize": 18
+          "fontFamily": "Manrope",
+          "fontSize": 18,
+          "fontWeight": "normal"
         },
         {
           "type": "rectangle",
@@ -47,7 +48,7 @@
           "name": "colorSectionTitle",
           "fill": "$--foreground",
           "content": "Цвета",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -57,7 +58,7 @@
           "name": "colorDesc",
           "fill": "$--muted-foreground",
           "content": "Фирменные цвета и семантические токены для всех продуктов Планометрики.",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 14,
           "fontWeight": "normal"
         },
@@ -271,7 +272,7 @@
           "name": "semLabel",
           "fill": "$--foreground",
           "content": "Семантические цвета",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 20,
           "fontWeight": "600"
         },
@@ -478,7 +479,7 @@
           "name": "typoTitle",
           "fill": "$--foreground",
           "content": "Типографика",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -487,8 +488,8 @@
           "id": "R5beP",
           "name": "typoDesc",
           "fill": "$--muted-foreground",
-          "content": "Inter — основной шрифт. Comfortaa — логотип/дисплей. JetBrains Mono — код.",
-          "fontFamily": "Inter",
+          "content": "Manrope — основной шрифт. Unbounded — логотип. JetBrains Mono — код.",
+          "fontFamily": "Manrope",
           "fontSize": 14,
           "fontWeight": "normal"
         },
@@ -657,7 +658,8 @@
                   "fill": "$--foreground",
                   "content": "Основной текст для абзацев и общего контента.",
                   "fontFamily": "Inter",
-                  "fontSize": 16
+                  "fontSize": 16,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -688,7 +690,8 @@
                   "fill": "$--foreground",
                   "content": "Мелкий текст для вторичной информации.",
                   "fontFamily": "Inter",
-                  "fontSize": 14
+                  "fontSize": 14,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -741,7 +744,7 @@
           "name": "btnTitle",
           "fill": "$--foreground",
           "content": "Кнопки",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -751,7 +754,7 @@
           "name": "btnDesc",
           "fill": "$--muted-foreground",
           "content": "Основная, Вторичная, Контурная, Призрачная и Критическая варианты. Скругление 8px.",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 14,
           "fontWeight": "normal"
         },
@@ -776,7 +779,7 @@
               "name": "btnPLabel",
               "fill": "$--primary-foreground",
               "content": "Кнопка",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "500"
             }
@@ -803,7 +806,7 @@
               "name": "btnSLabel",
               "fill": "$--secondary-foreground",
               "content": "Кнопка",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "500"
             }
@@ -834,7 +837,7 @@
               "name": "btnOLabel",
               "fill": "$--foreground",
               "content": "Кнопка",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "500"
             }
@@ -860,7 +863,7 @@
               "name": "btnGLabel",
               "fill": "$--foreground",
               "content": "Кнопка",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "500"
             }
@@ -887,7 +890,7 @@
               "name": "btnDLabel",
               "fill": "$--destructive-foreground",
               "content": "Кнопка",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "500"
             }
@@ -972,7 +975,7 @@
           "name": "inputTitle",
           "fill": "$--foreground",
           "content": "Поля ввода",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -982,7 +985,7 @@
           "name": "inputDesc",
           "fill": "$--muted-foreground",
           "content": "Текстовое поле, область ввода и группа с лейблом.",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 14,
           "fontWeight": "normal"
         },
@@ -1011,7 +1014,7 @@
               "name": "inputPlaceholder",
               "fill": "$--muted-foreground",
               "content": "Введите текст...",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "normal"
             }
@@ -1042,7 +1045,7 @@
               "name": "inputFilledText",
               "fill": "$--foreground",
               "content": "Иван Петров",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "normal"
             }
@@ -1063,7 +1066,7 @@
               "name": "labelText",
               "fill": "$--foreground",
               "content": "Лейбл",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "500"
             },
@@ -1112,7 +1115,7 @@
           "name": "cardTitle",
           "fill": "$--foreground",
           "content": "Карточки",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -1122,7 +1125,7 @@
           "name": "cardDesc",
           "fill": "$--muted-foreground",
           "content": "Контейнеры контента с заголовком, телом и подвалом.",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 14,
           "fontWeight": "normal"
         },
@@ -1255,7 +1258,7 @@
           "name": "badgeTitle",
           "fill": "$--foreground",
           "content": "Бейджи",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -1279,7 +1282,7 @@
               "name": "badgeDefText",
               "fill": "$--primary-foreground",
               "content": "Бейдж",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 12,
               "fontWeight": "500"
             }
@@ -1305,7 +1308,7 @@
               "name": "badgeSecText",
               "fill": "$--secondary-foreground",
               "content": "Бейдж",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 12,
               "fontWeight": "500"
             }
@@ -1331,7 +1334,7 @@
               "name": "badgeSucText",
               "fill": "#1A4D1C",
               "content": "Бейдж",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 12,
               "fontWeight": "600"
             }
@@ -1357,7 +1360,7 @@
               "name": "badgeDesText",
               "fill": "$--destructive-foreground",
               "content": "Бейдж",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 12,
               "fontWeight": "500"
             }
@@ -1431,7 +1434,7 @@
           "name": "alertTitle",
           "fill": "$--foreground",
           "content": "Оповещения",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -1626,7 +1629,7 @@
           "name": "formTitle",
           "fill": "$--foreground",
           "content": "Элементы форм",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -1636,7 +1639,7 @@
           "name": "formDesc",
           "fill": "$--muted-foreground",
           "content": "Чекбокс, переключатель и радиокнопка.",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 14,
           "fontWeight": "normal"
         },
@@ -1942,7 +1945,7 @@
           "name": "avatarTitle",
           "fill": "$--foreground",
           "content": "Аватары",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -1964,7 +1967,7 @@
               "name": "avatarInitials",
               "fill": "$--primary-foreground",
               "content": "ПМ",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "600"
             }
@@ -1988,7 +1991,7 @@
               "name": "avatarSmInitials",
               "fill": "$--primary-foreground",
               "content": "AB",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 11,
               "fontWeight": "600"
             }
@@ -2012,7 +2015,7 @@
               "name": "avatarLgInitials",
               "fill": "$--primary-foreground",
               "content": "ПМ",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 20,
               "fontWeight": "600"
             }
@@ -2060,7 +2063,7 @@
           "name": "sidebarTitle",
           "fill": "$--foreground",
           "content": "Боковая панель",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 30,
           "fontWeight": "600"
         },
@@ -2070,7 +2073,7 @@
           "name": "sidebarDesc",
           "fill": "$--muted-foreground",
           "content": "Навигация с пунктами меню, секциями и активным состоянием.",
-          "fontFamily": "Inter",
+          "fontFamily": "Manrope",
           "fontSize": 14,
           "fontWeight": "normal"
         },
@@ -2104,7 +2107,7 @@
               "name": "sideItemText",
               "fill": "$--foreground",
               "content": "Пункт меню",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "normal"
             }
@@ -2141,7 +2144,7 @@
               "name": "sideItemActiveText",
               "fill": "$--primary",
               "content": "Активный пункт",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 14,
               "fontWeight": "500"
             }
@@ -2166,7 +2169,7 @@
               "name": "sideSectionText",
               "fill": "$--muted-foreground",
               "content": "СЕКЦИЯ",
-              "fontFamily": "Inter",
+              "fontFamily": "Manrope",
               "fontSize": 11,
               "fontWeight": "600",
               "letterSpacing": 0.08
