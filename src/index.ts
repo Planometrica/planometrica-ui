@@ -400,6 +400,11 @@ export { ToggleGroup, ToggleGroupItem } from './components/ui/toggle-group'
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from './components/ui/tooltip'
 
 // =============================================================================
+// Icons
+// =============================================================================
+export * from './icons'
+
+// =============================================================================
 // Brand Assets
 // =============================================================================
 

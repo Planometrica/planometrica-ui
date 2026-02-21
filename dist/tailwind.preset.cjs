@@ -114,9 +114,8 @@ var planometricaPreset = {
       },
       // Font Families
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        logo: ["Comfortaa", "Inter", "sans-serif"],
-        heading: ["Comfortaa", "sans-serif"],
+        sans: ["Manrope", "system-ui", "sans-serif"],
+        logo: ["Unbounded", "sans-serif"],
         mono: ["JetBrains Mono", "Fira Code", "monospace"]
       },
       // Animations

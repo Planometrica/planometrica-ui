@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge';
 import * as React34 from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { ChevronDown, ArrowLeft, ArrowRight, Check, X, Search, ChevronRight, Dot, ChevronUp, PanelLeft, MoreHorizontal, ChevronLeft, GripVertical } from 'lucide-react';
+export { Sparkles as AiIcon, AlertCircle, AlertTriangle, ArrowDown, ArrowLeft, ArrowRight, ArrowUp, ArrowUpRight, Banknote, BarChart3, BookOpen, Bot, BoxSelect, Boxes, Brain, Building2, Building2 as BuildingIcon, Calculator, Camera, Check, CheckCircle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Circle, Clock, Circle as ColumnIcon, Snowflake as CoolingIcon, Copy, CreditCard, Cylinder, DoorOpen as DoorIcon, DoorOpen, Download, Droplet, Zap as ElectricalIcon, ExternalLink, Eye, EyeOff, FileCheck, FileDown, FileText, FileUp, Paintbrush as FinishingIcon, Flame, Layers as FloorIcon, Folder, Cylinder as FoundationIcon, Grid2x2, Heart, Flame as HeatingIcon, HelpCircle, Home, Image, Images, Info, Layers, LayoutGrid, Loader2, Lock, LogOut, Mail, MapPin, Palette as MaterialIcon, Maximize2, Ruler as MeasureIcon, Menu, MessageCircle, MessageSquare, Minus, MousePointer2, BoxSelect as OpeningIcon, Paintbrush, Palette, PanelLeft, Pencil, Phone, MapPin as PlotIcon, Plus, Printer, RefreshCw, Rocket, Home as RoomIcon, RotateCcw, RotateCw, Ruler, Save, Search, MousePointer2 as SelectIcon, Send, Settings, Waves as SewerageIcon, Shield, ShieldCheck, Snowflake, Sparkles, Square, TrendingUp as StairsIcon, Star, Trash2, TrendingUp, Upload, User, Users, Wind as VentilationIcon, Video, Square as WallIcon, Wand2, Droplet as WaterIcon, Waves, Wind, Grid2x2 as WindowIcon, X, Zap } from 'lucide-react';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 import { cva } from 'class-variance-authority';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
@@ -176,8 +177,8 @@ var hslColors = {
 var fonts = {
   // Font Families
   families: {
-    sans: ["Inter", "system-ui", "sans-serif"],
-    logo: ["Comfortaa", "Inter", "sans-serif"],
+    sans: ["Manrope", "system-ui", "sans-serif"],
+    logo: ["Unbounded", "sans-serif"],
     mono: ["JetBrains Mono", "Fira Code", "monospace"]
   },
   // Font Sizes (rem based)
@@ -3282,21 +3283,27 @@ var SidebarMenuSubButton = React34.forwardRef(({ asChild = false, size = "md", i
   );
 });
 SidebarMenuSubButton.displayName = "SidebarMenuSubButton";
-var Slider = React34.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxs(
-  SliderPrimitive.Root,
-  {
-    ref,
-    className: cn(
-      "relative flex w-full touch-none select-none items-center",
-      className
-    ),
-    ...props,
-    children: [
-      /* @__PURE__ */ jsx(SliderPrimitive.Track, { className: "relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary/20", children: /* @__PURE__ */ jsx(SliderPrimitive.Range, { className: "absolute h-full bg-primary" }) }),
-      /* @__PURE__ */ jsx(SliderPrimitive.Thumb, { className: "block h-4 w-4 rounded-full border border-primary/50 bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" })
-    ]
-  }
-));
+var thumbClass = "block h-4 w-4 rounded-full border border-primary/50 bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50";
+var Slider = React34.forwardRef(({ className, defaultValue, value, ...props }, ref) => {
+  const thumbCount = (value ?? defaultValue ?? [0]).length;
+  return /* @__PURE__ */ jsxs(
+    SliderPrimitive.Root,
+    {
+      ref,
+      className: cn(
+        "relative flex w-full touch-none select-none items-center",
+        className
+      ),
+      value,
+      defaultValue,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx(SliderPrimitive.Track, { className: "relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary/20", children: /* @__PURE__ */ jsx(SliderPrimitive.Range, { className: "absolute h-full bg-primary" }) }),
+        Array.from({ length: thumbCount }, (_, i) => /* @__PURE__ */ jsx(SliderPrimitive.Thumb, { className: thumbClass }, i))
+      ]
+    }
+  );
+});
 Slider.displayName = SliderPrimitive.Root.displayName;
 var Toaster = ({ ...props }) => {
   const { theme = "system" } = useTheme();
@@ -3622,7 +3629,37 @@ var ToggleGroupItem = React34.forwardRef(({ className, children, variant, size, 
   );
 });
 ToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;
+var BRAND_BLUE = "#0A4C76";
+var PlanometricaLogo = React34.forwardRef(
+  ({ variant = "primary", size = 48, className, ...props }, ref) => {
+    const isPrimary = variant === "primary";
+    const letterColor = isPrimary ? "white" : BRAND_BLUE;
+    const showBackground = variant !== "transparent";
+    const bgColor = isPrimary ? BRAND_BLUE : "white";
+    return /* @__PURE__ */ jsxs(
+      "svg",
+      {
+        ref,
+        width: size,
+        height: size,
+        viewBox: "0 0 1024 1024",
+        xmlns: "http://www.w3.org/2000/svg",
+        className: cn("shrink-0", className),
+        "aria-label": "Planometrica",
+        role: "img",
+        ...props,
+        children: [
+          showBackground && /* @__PURE__ */ jsx("rect", { width: "1024", height: "1024", rx: "52", fill: bgColor }),
+          /* @__PURE__ */ jsx("rect", { x: "340", y: "200", width: "345", height: "130", fill: letterColor }),
+          /* @__PURE__ */ jsx("rect", { x: "210", y: "330", width: "130", height: "410", fill: letterColor }),
+          /* @__PURE__ */ jsx("rect", { x: "685", y: "330", width: "130", height: "410", fill: letterColor })
+        ]
+      }
+    );
+  }
+);
+PlanometricaLogo.displayName = "PlanometricaLogo";
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, Calendar, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, ChartContainer, ChartLegend, ChartLegendContent, ChartStyle, ChartTooltip, ChartTooltipContent, Checkbox, Collapsible, CollapsibleContent2 as CollapsibleContent, CollapsibleTrigger2 as CollapsibleTrigger, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuGroup, ContextMenuItem, ContextMenuLabel, ContextMenuPortal, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label2 as Label, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, Progress, RadioGroup4 as RadioGroup, RadioGroupItem, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectValue, Separator5 as Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Toaster as Sonner, Switch, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, Toast, ToastAction, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport, Toaster2 as Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip2 as Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, buttonVariants, cn, colors, fonts, formatArea, formatCurrency, formatNumber, formatPercentage, formatVolume, hslColors, navigationMenuTriggerStyle, textStyles, toast, toggleVariants, useFormField, useIsMobile, useSidebar, useToast };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, Calendar, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, ChartContainer, ChartLegend, ChartLegendContent, ChartStyle, ChartTooltip, ChartTooltipContent, Checkbox, Collapsible, CollapsibleContent2 as CollapsibleContent, CollapsibleTrigger2 as CollapsibleTrigger, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuGroup, ContextMenuItem, ContextMenuLabel, ContextMenuPortal, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label2 as Label, Menubar, MenubarCheckboxItem, MenubarContent, MenubarGroup, MenubarItem, MenubarLabel, MenubarMenu, MenubarPortal, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, PlanometricaLogo, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, Progress, RadioGroup4 as RadioGroup, RadioGroupItem, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectValue, Separator5 as Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Toaster as Sonner, Switch, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, Toast, ToastAction, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport, Toaster2 as Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip2 as Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, buttonVariants, cn, colors, fonts, formatArea, formatCurrency, formatNumber, formatPercentage, formatVolume, hslColors, navigationMenuTriggerStyle, textStyles, toast, toggleVariants, useFormField, useIsMobile, useSidebar, useToast };
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map

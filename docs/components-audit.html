@@ -3,1106 +3,663 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@planometrica/ui — Component Audit & Preview</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwindcss.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { 50:'#e6f0f7',100:'#b3d4e8',200:'#80b8d9',300:'#4d9cca',400:'#1a80bb',500:'#1A7BB3',600:'#0A4C76',700:'#083d5e',800:'#062e47',900:'#041f2f' }
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/typescript.min.js"></script>
+  <title>Planometrica Icons Audit</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    code, .font-mono { font-family: 'JetBrains Mono', monospace; }
-    .cell-yes { background: #dcfce7; color: #166534; }
-    .cell-no { background: #f3f4f6; color: #9ca3af; }
-    .cell-migrated { background: #dbeafe; color: #1e40af; }
-    .cell-reexport { background: #e0e7ff; color: #3730a3; }
-    .level-chip { font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-    .level-core { background: #dcfce7; color: #166534; }
-    .level-extended { background: #fef9c3; color: #854d0e; }
-    .level-specific { background: #fee2e2; color: #991b1b; }
-    .level-ds { background: #dbeafe; color: #1e40af; }
-    tr:hover td { background: #f8fafc !important; }
-    .filter-active { background: #0A4C76 !important; color: white !important; border-color: #0A4C76 !important; }
-    .tab-active { border-bottom: 2px solid #0A4C76; color: #0A4C76; font-weight: 600; }
-    .tab-inactive { border-bottom: 2px solid transparent; color: #6b7280; }
-    .preview-box { border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; background: white; display: flex; align-items: center; justify-content: center; min-height: 80px; }
-    .code-block { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; overflow-x: auto; }
-    .code-block pre { margin: 0; padding: 12px 16px; font-size: 12px; line-height: 1.6; }
-    .modal-overlay { backdrop-filter: blur(4px); }
-    .comp-row { cursor: pointer; }
-    .comp-row:hover td:first-child { color: #0A4C76; text-decoration: underline; }
-    /* shadcn-like component styles for preview */
-    .sh-btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 14px; font-weight: 500; padding: 8px 16px; transition: all 0.15s; cursor: pointer; }
-    .sh-btn-primary { background: #0A4C76; color: white; border: none; }
-    .sh-btn-primary:hover { background: #083d5e; }
-    .sh-btn-secondary { background: #f1f5f9; color: #0f172a; border: 1px solid #e2e8f0; }
-    .sh-btn-outline { background: transparent; color: #0f172a; border: 1px solid #e2e8f0; }
-    .sh-btn-ghost { background: transparent; color: #0f172a; border: none; }
-    .sh-btn-destructive { background: #ef4444; color: white; border: none; }
-    .sh-btn-sm { padding: 4px 12px; font-size: 13px; }
-    .sh-btn-lg { padding: 10px 24px; font-size: 15px; }
-    .sh-input { display: flex; height: 36px; width: 100%; border-radius: 6px; border: 1px solid #e2e8f0; background: white; padding: 8px 12px; font-size: 14px; outline: none; }
-    .sh-input:focus { border-color: #0A4C76; box-shadow: 0 0 0 2px rgba(10,76,118,0.1); }
-    .sh-badge { display: inline-flex; align-items: center; border-radius: 9999px; padding: 2px 10px; font-size: 12px; font-weight: 500; }
-    .sh-badge-default { background: #0A4C76; color: white; }
-    .sh-badge-secondary { background: #f1f5f9; color: #0f172a; }
-    .sh-badge-outline { background: transparent; color: #0f172a; border: 1px solid #e2e8f0; }
-    .sh-badge-destructive { background: #fef2f2; color: #dc2626; }
-    .sh-card { border-radius: 8px; border: 1px solid #e2e8f0; background: white; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-    .sh-separator { height: 1px; background: #e2e8f0; width: 100%; }
-    .sh-label { font-size: 14px; font-weight: 500; color: #0f172a; }
-    .sh-checkbox { width: 16px; height: 16px; border-radius: 4px; border: 1px solid #d1d5db; accent-color: #0A4C76; }
-    .sh-switch { width: 44px; height: 24px; border-radius: 12px; background: #e2e8f0; position: relative; cursor: pointer; transition: background 0.2s; }
-    .sh-switch.active { background: #0A4C76; }
-    .sh-switch::after { content: ''; position: absolute; width: 20px; height: 20px; border-radius: 50%; background: white; top: 2px; left: 2px; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
-    .sh-switch.active::after { transform: translateX(20px); }
-    .sh-progress { width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
-    .sh-progress-bar { height: 100%; background: #0A4C76; border-radius: 4px; transition: width 0.5s; }
-    .sh-skeleton { background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 6px; }
-    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-    .sh-avatar { width: 40px; height: 40px; border-radius: 50%; background: #0A4C76; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; }
-    .sh-slider { width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; position: relative; }
-    .sh-slider-thumb { width: 20px; height: 20px; border-radius: 50%; background: white; border: 2px solid #0A4C76; position: absolute; top: -6px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
-    .sh-tabs { display: flex; border-bottom: 1px solid #e2e8f0; }
-    .sh-tab { padding: 8px 16px; font-size: 14px; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; color: #6b7280; }
-    .sh-tab.active { border-bottom-color: #0A4C76; color: #0A4C76; }
-    .sh-alert { border-radius: 8px; border: 1px solid #e2e8f0; padding: 12px 16px; display: flex; gap: 12px; }
-    .sh-select { display: flex; height: 36px; align-items: center; justify-content: space-between; border-radius: 6px; border: 1px solid #e2e8f0; background: white; padding: 8px 12px; font-size: 14px; min-width: 180px; cursor: pointer; }
-    .sh-textarea { width: 100%; min-height: 80px; border-radius: 6px; border: 1px solid #e2e8f0; padding: 8px 12px; font-size: 14px; resize: vertical; outline: none; font-family: inherit; }
-    .sh-textarea:focus { border-color: #0A4C76; box-shadow: 0 0 0 2px rgba(10,76,118,0.1); }
-    .sh-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .sh-table th { text-align: left; padding: 8px 16px; font-weight: 500; color: #6b7280; border-bottom: 1px solid #e2e8f0; }
-    .sh-table td { padding: 8px 16px; border-bottom: 1px solid #f1f5f9; }
-    .sh-tooltip { position: relative; display: inline-block; }
-    .sh-tooltip-content { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #0f172a; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
-    .sh-tooltip-content::after { content: ''; position: absolute; top: 100%; left: 50%; margin-left: -4px; border: 4px solid transparent; border-top-color: #0f172a; }
-    .sh-radio { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #d1d5db; appearance: none; cursor: pointer; position: relative; }
-    .sh-radio:checked { border-color: #0A4C76; }
-    .sh-radio:checked::after { content: ''; position: absolute; width: 8px; height: 8px; background: #0A4C76; border-radius: 50%; top: 2px; left: 2px; }
-    .sh-toggle { display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 14px; padding: 8px; border: 1px solid #e2e8f0; background: transparent; cursor: pointer; }
-    .sh-toggle.active { background: #f1f5f9; border-color: #0A4C76; }
-    .sh-sheet-overlay { background: rgba(0,0,0,0.4); }
-    .sh-accordion-item { border-bottom: 1px solid #e2e8f0; }
-    .sh-accordion-trigger { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 14px; font-weight: 500; cursor: pointer; width: 100%; }
+    :root {
+      --brand: #0A4C76;
+      --brand-light: #1A7BB3;
+      --accent: #92CF93;
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #E2E8F0;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --studio: #3B82F6;
+      --planocad: #8B5CF6;
+      --landing: #F59E0B;
+      --common: #10B981;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--brand), var(--brand-light));
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .header p { opacity: 0.85; font-size: 0.95rem; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      padding: 1.5rem 2rem;
+      max-width: 1400px;
+      margin: -1.5rem auto 0;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border-top: 3px solid var(--brand);
+    }
+    .stat-card.studio { border-top-color: var(--studio); }
+    .stat-card.planocad { border-top-color: var(--planocad); }
+    .stat-card.landing { border-top-color: var(--landing); }
+    .stat-card.common { border-top-color: var(--common); }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--brand); }
+    .stat-card.studio .stat-number { color: var(--studio); }
+    .stat-card.planocad .stat-number { color: var(--planocad); }
+    .stat-card.landing .stat-number { color: var(--landing); }
+    .stat-card.common .stat-number { color: var(--common); }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; }
+
+    .view-toggle {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .view-btn {
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .view-btn.active { background: var(--brand); color: white; border-color: var(--brand); }
+    .view-btn:hover { border-color: var(--brand-light); }
+
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .tab {
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: 2px solid var(--border);
+      background: var(--card);
+      transition: all 0.2s;
+    }
+    .tab:hover { border-color: var(--brand-light); }
+    .tab.active { background: var(--brand); color: white; border-color: var(--brand); }
+    .tab.active-studio { background: var(--studio); color: white; border-color: var(--studio); }
+    .tab.active-planocad { background: var(--planocad); color: white; border-color: var(--planocad); }
+    .tab.active-landing { background: var(--landing); color: white; border-color: var(--landing); }
+    .tab.active-common { background: var(--common); color: white; border-color: var(--common); }
+
+    .search-bar {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-bar input:focus { border-color: var(--brand); }
+    .search-bar::before {
+      content: '\1F50D';
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+    }
+
+    /* TABLE VIEW */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    th {
+      background: #F1F5F9;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.6rem 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.875rem;
+      vertical-align: middle;
+    }
+    tr:hover td { background: #F8FAFC; }
+
+    .icon-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .icon-preview {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #F1F5F9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--brand);
+    }
+    .icon-preview svg { width: 20px; height: 20px; }
+    .icon-preview.no-icon {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.1;
+    }
+    .icon-name {
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--brand);
+    }
+
+    /* GRID VIEW */
+    .grid-view {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .grid-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .grid-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-color: var(--brand-light);
+      transform: translateY(-2px);
+    }
+    .grid-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 0.75rem;
+      background: #F0F9FF;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand);
+    }
+    .grid-icon svg { width: 28px; height: 28px; }
+    .grid-icon.no-icon { font-size: 11px; color: var(--text-muted); line-height: 1.1; }
+    .grid-name {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      word-break: break-word;
+    }
+    .grid-badges { display: flex; justify-content: center; gap: 0.25rem; flex-wrap: wrap; }
+    .grid-components {
+      margin-top: 0.5rem;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      max-height: 3em;
+      overflow: hidden;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .badge-studio { background: #DBEAFE; color: #1D4ED8; }
+    .badge-planocad { background: #EDE9FE; color: #6D28D9; }
+    .badge-landing { background: #FEF3C7; color: #B45309; }
+    .badge-lucide { background: #F1F5F9; color: #475569; }
+    .badge-image { background: #FCE7F3; color: #9D174D; }
+
+    .component-list { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    .component-tag {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.4rem;
+      background: #F1F5F9;
+      border-radius: 4px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .legend {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 0.35rem; }
+
+    .empty-msg { color: var(--text-muted); text-align: center; padding: 2rem; }
+
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .container { padding: 1rem; }
+      .grid-view { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body>
 
-  <!-- Header -->
-  <header class="bg-brand-600 text-white">
-    <div class="max-w-7xl mx-auto px-6 py-8">
-      <div class="flex items-center justify-between">
-        <div>
-          <h1 class="text-2xl font-bold">@planometrica/ui</h1>
-          <p class="text-brand-200 mt-1">Component Audit, Preview &amp; Code Examples</p>
-        </div>
-        <div class="text-right text-sm text-brand-200">
-          <div>15 февраля 2026</div>
-          <div class="mt-1">4 проекта &middot; 48 в DS &middot; 57 всего</div>
-        </div>
-      </div>
-      <!-- Nav tabs -->
-      <div class="flex gap-1 mt-6 -mb-8">
-        <button onclick="showSection('audit')" class="section-tab px-4 py-2 rounded-t-lg text-sm font-medium bg-white text-brand-600" data-section="audit">Аудит</button>
-        <button onclick="showSection('gallery')" class="section-tab px-4 py-2 rounded-t-lg text-sm font-medium bg-brand-500/50 text-white/80 hover:bg-brand-500/70" data-section="gallery">Галерея компонентов</button>
-      </div>
+<div class="header">
+  <h1>Planometrica Icons Audit</h1>
+  <p>Визуальный аудит иконок: Студия, ПланоCAD, Лендинг</p>
+  <p style="opacity:0.6; font-size:0.8rem; margin-top:0.5rem;">2026-02-21 | Все продукты на Lucide</p>
+</div>
+
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-number" id="stat-total">0</div>
+    <div class="stat-label">Всего уникальных</div>
+  </div>
+  <div class="stat-card common">
+    <div class="stat-number" id="stat-common">0</div>
+    <div class="stat-label">Общих (2+ продукта)</div>
+  </div>
+  <div class="stat-card studio">
+    <div class="stat-number" id="stat-studio">0</div>
+    <div class="stat-label">Студия</div>
+  </div>
+  <div class="stat-card planocad">
+    <div class="stat-number" id="stat-planocad">0</div>
+    <div class="stat-label">ПланоCAD</div>
+  </div>
+  <div class="stat-card landing">
+    <div class="stat-number" id="stat-landing">0</div>
+    <div class="stat-label">Лендинг</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="legend">
+    <div class="legend-item"><span class="badge badge-lucide">lucide</span> Lucide (React / Astro)</div>
+    <div class="legend-item"><span class="badge badge-image">image</span> PNG/SVG file</div>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+    <div class="tabs" style="margin-bottom:0;">
+      <div class="tab active" data-tab="all">Все</div>
+      <div class="tab" data-tab="common">Общие</div>
+      <div class="tab" data-tab="studio">Студия</div>
+      <div class="tab" data-tab="planocad">ПланоCAD</div>
+      <div class="tab" data-tab="landing">Лендинг</div>
     </div>
-  </header>
-
-  <!-- ===================== SECTION: AUDIT ===================== -->
-  <div id="section-audit">
-    <!-- Summary Cards -->
-    <section class="max-w-7xl mx-auto px-6 mt-8">
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-        <div class="bg-white rounded-lg shadow-sm border p-4 text-center">
-          <div class="text-3xl font-bold text-brand-600">48</div>
-          <div class="text-xs text-gray-500 mt-1">В @planometrica/ui</div>
-        </div>
-        <div class="bg-white rounded-lg shadow-sm border p-4 text-center">
-          <div class="text-3xl font-bold text-green-600">33</div>
-          <div class="text-xs text-gray-500 mt-1">Общие (3 проекта)</div>
-        </div>
-        <div class="bg-white rounded-lg shadow-sm border p-4 text-center">
-          <div class="text-3xl font-bold text-yellow-600">15</div>
-          <div class="text-xs text-gray-500 mt-1">Studio + Admin</div>
-        </div>
-        <div class="bg-white rounded-lg shadow-sm border p-4 text-center">
-          <div class="text-3xl font-bold text-red-500">9</div>
-          <div class="text-xs text-gray-500 mt-1">Только Studio</div>
-        </div>
-        <div class="bg-white rounded-lg shadow-sm border p-4 text-center">
-          <div class="text-3xl font-bold text-gray-400">0</div>
-          <div class="text-xs text-gray-500 mt-1">Landing (Astro)</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Architecture -->
-    <section class="max-w-7xl mx-auto px-6 mt-8">
-      <div class="bg-white rounded-lg shadow-sm border p-6">
-        <h2 class="text-lg font-semibold mb-4">Архитектура</h2>
-        <div class="grid md:grid-cols-2 gap-6 text-center text-sm">
-          <div class="border-2 border-green-300 rounded-lg p-5 bg-green-50/30">
-            <div class="text-xs text-green-600 uppercase tracking-wider mb-3 font-semibold">&#10003; Миграция завершена</div>
-            <div class="bg-blue-100 border-2 border-blue-400 rounded p-3 mb-3">
-              <div class="font-semibold text-blue-800">@planometrica/ui</div>
-              <div class="text-blue-600 text-xs mt-1">48 компонентов + 2 хука + токены + Tailwind preset</div>
-            </div>
-            <div class="text-green-500 mb-2">&darr; npm link</div>
-            <div class="bg-green-50 border border-green-300 rounded p-2 mb-2"><span class="font-medium text-green-700">Studio</span> <span class="text-green-500 text-xs">48 re-export + 9 local</span></div>
-            <div class="bg-green-50 border border-green-300 rounded p-2 mb-2"><span class="font-medium text-green-700">PlanoCAD</span> <span class="text-green-500 text-xs">33 re-export</span></div>
-            <div class="bg-green-50 border border-green-300 rounded p-2 mb-2"><span class="font-medium text-green-700">Admin</span> <span class="text-green-500 text-xs">48 re-export</span></div>
-            <div class="bg-orange-50 border border-orange-200 rounded p-2"><span class="font-medium text-orange-700">Landing</span> <span class="text-orange-400 text-xs">Tailwind preset only</span></div>
-          </div>
-          <div class="text-left text-xs space-y-3 flex flex-col justify-center">
-            <div class="font-semibold text-gray-700 text-sm mb-1">Структура пакета</div>
-            <div class="bg-gray-50 rounded p-3 font-mono text-gray-600 space-y-1">
-              <div>@planometrica/ui</div>
-              <div class="pl-3">/dist &mdash; 48 компонентов (tsup build)</div>
-              <div class="pl-3">/tailwind &mdash; Tailwind CSS preset</div>
-              <div class="pl-3">/tokens &mdash; colors, typography</div>
-              <div class="pl-3">/hooks &mdash; useToast, useIsMobile</div>
-            </div>
-            <div class="text-gray-500 mt-2">
-              <div class="mb-1"><span class="font-medium">E2E тестирование:</span> 40+ страниц проверено</div>
-              <div class="mb-1"><span class="font-medium">DS-ошибки:</span> 0 (zero)</div>
-              <div><span class="font-medium">Build:</span> Studio &#10003; PlanoCAD &#10003; Admin &#10003;</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Filters + Table -->
-    <section class="max-w-7xl mx-auto px-6 mt-8">
-      <div class="bg-white rounded-lg shadow-sm border p-4 mb-4">
-        <div class="flex items-center gap-3 flex-wrap">
-          <span class="text-sm font-medium text-gray-500">Фильтр:</span>
-          <button onclick="filterTable('all')" class="filter-btn filter-active text-xs px-3 py-1.5 rounded-full border border-gray-200 font-medium" data-filter="all">Все (57)</button>
-          <button onclick="filterTable('ds')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-blue-200 text-blue-700 bg-blue-50 font-medium" data-filter="ds">В @plano/ui (48)</button>
-          <button onclick="filterTable('core')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-green-200 text-green-700 bg-green-50 font-medium" data-filter="core">Общие 3/3 (33)</button>
-          <button onclick="filterTable('extended')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-yellow-200 text-yellow-700 bg-yellow-50 font-medium" data-filter="extended">Studio+Admin (15)</button>
-          <button onclick="filterTable('specific')" class="filter-btn text-xs px-3 py-1.5 rounded-full border border-red-200 text-red-700 bg-red-50 font-medium" data-filter="specific">Только Studio (9)</button>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-sm border overflow-hidden mb-4">
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm" id="componentTable">
-            <thead>
-              <tr class="bg-gray-50 border-b">
-                <th class="text-left px-4 py-3 font-semibold text-gray-600 w-48">Компонент</th>
-                <th class="text-center px-3 py-3 font-semibold text-blue-600 w-20">@plano/ui</th>
-                <th class="text-center px-3 py-3 font-semibold text-indigo-600 w-20">Studio</th>
-                <th class="text-center px-3 py-3 font-semibold text-purple-600 w-20">PlanoCAD</th>
-                <th class="text-center px-3 py-3 font-semibold text-teal-600 w-20">Admin</th>
-                <th class="text-center px-3 py-3 font-semibold text-orange-600 w-20">Landing</th>
-                <th class="text-left px-4 py-3 font-semibold text-gray-600">Уровень</th>
-                <th class="text-left px-4 py-3 font-semibold text-gray-600">Действие</th>
-              </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-          </table>
-        </div>
-      </div>
-      <div class="flex flex-wrap gap-4 text-xs text-gray-500 mb-8">
-        <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded cell-migrated inline-block"></span> В пакете</div>
-        <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded cell-reexport inline-block"></span> Re-export</div>
-        <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded cell-yes inline-block"></span> Локальная копия</div>
-        <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded cell-no inline-block"></span> Нет</div>
-        <div class="ml-auto text-gray-400">Кликни на компонент для просмотра превью и кода</div>
-      </div>
-    </section>
-
-    <!-- Migration Status -->
-    <section class="max-w-7xl mx-auto px-6 mb-12">
-      <div class="bg-green-50 rounded-lg shadow-sm border border-green-200 p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-2xl">&#10003;</span>
-          <h2 class="text-lg font-semibold text-green-800">Миграция завершена</h2>
-          <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">15.02.2026</span>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="border border-green-200 rounded-lg p-4 bg-white">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">&#10003;</span>
-              <span class="text-sm font-semibold text-green-800">Общие (33)</span>
-            </div>
-            <p class="text-xs text-gray-500 mb-3">Re-export в Studio + PlanoCAD + Admin</p>
-            <div class="flex flex-wrap gap-1" id="wave1"></div>
-          </div>
-          <div class="border border-green-200 rounded-lg p-4 bg-white">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">&#10003;</span>
-              <span class="text-sm font-semibold text-green-800">Studio+Admin (15)</span>
-            </div>
-            <p class="text-xs text-gray-500 mb-3">Re-export в Studio + Admin</p>
-            <div class="flex flex-wrap gap-1" id="wave2"></div>
-          </div>
-          <div class="border border-gray-200 rounded-lg p-4 bg-white">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">&mdash;</span>
-              <span class="text-sm font-semibold text-gray-700">Локальные (9)</span>
-            </div>
-            <p class="text-xs text-gray-500 mb-3">Studio-специфичные, не в DS</p>
-            <div class="flex flex-wrap gap-1" id="wave3"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ===================== SECTION: GALLERY ===================== -->
-  <div id="section-gallery" class="hidden">
-    <section class="max-w-7xl mx-auto px-6 mt-8 mb-4">
-      <div class="flex items-center gap-3 flex-wrap">
-        <span class="text-sm font-medium text-gray-500">Показать:</span>
-        <button onclick="filterGallery('all')" class="gal-btn filter-active text-xs px-3 py-1.5 rounded-full border font-medium" data-gfilter="all">Все (57)</button>
-        <button onclick="filterGallery('ds')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-blue-200 text-blue-700 bg-blue-50 font-medium" data-gfilter="ds">В @plano/ui (48)</button>
-        <button onclick="filterGallery('core')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-green-200 text-green-700 bg-green-50 font-medium" data-gfilter="core">Общие 3/3 (33)</button>
-        <button onclick="filterGallery('extended')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-yellow-200 text-yellow-700 bg-yellow-50 font-medium" data-gfilter="extended">Studio+Admin (15)</button>
-        <button onclick="filterGallery('specific')" class="gal-btn text-xs px-3 py-1.5 rounded-full border border-red-200 text-red-700 bg-red-50 font-medium" data-gfilter="specific">Studio only (9)</button>
-      </div>
-    </section>
-    <section class="max-w-7xl mx-auto px-6 mb-12" id="galleryContainer"></section>
-  </div>
-
-  <!-- ===================== MODAL ===================== -->
-  <div id="modal" class="fixed inset-0 z-50 hidden">
-    <div class="modal-overlay absolute inset-0 bg-black/40" onclick="closeModal()"></div>
-    <div class="absolute inset-4 md:inset-12 lg:inset-x-24 lg:inset-y-8 bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden z-10">
-      <div class="flex items-center justify-between px-6 py-4 border-b" id="modalHeader"></div>
-      <div class="flex-1 overflow-y-auto p-6" id="modalBody"></div>
+    <div class="view-toggle">
+      <div class="view-btn active" data-view="grid">Grid</div>
+      <div class="view-btn" data-view="table">Table</div>
     </div>
   </div>
 
-  <footer class="bg-gray-100 border-t py-4 text-center text-xs text-gray-400">
-    @planometrica/ui Component Audit &middot; 2026-02-15
-  </footer>
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Поиск по названию иконки или компоненту..." />
+  </div>
+
+  <div id="table-container"></div>
+
+</div>
 
 <script>
-// ==================== DATA ====================
-const COMPONENTS = [
-  // --- Core: shared by Studio + PlanoCAD + Admin (33) ---
-  { name:'button', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
-    desc:'Кнопка с вариантами (primary, secondary, outline, ghost, destructive) и размерами.',
-    radix:'@radix-ui/react-slot',
-    preview:`<div class="flex flex-wrap items-center gap-3">
-      <button class="sh-btn sh-btn-primary">Primary</button>
-      <button class="sh-btn sh-btn-secondary">Secondary</button>
-      <button class="sh-btn sh-btn-outline">Outline</button>
-      <button class="sh-btn sh-btn-ghost">Ghost</button>
-      <button class="sh-btn sh-btn-destructive">Destructive</button>
-      <button class="sh-btn sh-btn-primary sh-btn-sm">Small</button>
-      <button class="sh-btn sh-btn-primary sh-btn-lg">Large</button>
-      <button class="sh-btn sh-btn-primary opacity-50 cursor-not-allowed">Disabled</button>
-    </div>`,
-    code:`import { Button } from '@planometrica/ui'
-
-<Button variant="default">Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="destructive">Destructive</Button>
-<Button size="sm">Small</Button>
-<Button size="lg">Large</Button>
-<Button disabled>Disabled</Button>` },
-
-  { name:'card', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
-    desc:'Контейнер с заголовком, описанием и контентом.',
-    radix:'—',
-    preview:`<div class="sh-card w-full max-w-sm">
-      <div class="p-6 pb-2"><div class="font-semibold text-base">Название проекта</div><div class="text-sm text-gray-500 mt-1">Описание карточки</div></div>
-      <div class="px-6 pb-4"><div class="text-sm text-gray-600">Контент карточки с информацией о проекте дома.</div></div>
-      <div class="px-6 pb-6 flex gap-2"><button class="sh-btn sh-btn-primary sh-btn-sm">Открыть</button><button class="sh-btn sh-btn-outline sh-btn-sm">Отмена</button></div>
-    </div>`,
-    code:`import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@planometrica/ui'
-
-<Card>
-  <CardHeader>
-    <CardTitle>Название проекта</CardTitle>
-    <CardDescription>Описание карточки</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>Контент карточки</p>
-  </CardContent>
-  <CardFooter>
-    <Button>Открыть</Button>
-  </CardFooter>
-</Card>` },
-
-  { name:'input', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
-    desc:'Текстовое поле ввода с вариантами состояний.',
-    radix:'—',
-    preview:`<div class="space-y-3 w-full max-w-sm">
-      <input class="sh-input" placeholder="Введите текст..." />
-      <input class="sh-input" value="С текстом" />
-      <input class="sh-input opacity-50" disabled placeholder="Disabled" />
-      <input class="sh-input border-red-500" value="С ошибкой" />
-    </div>`,
-    code:`import { Input } from '@planometrica/ui'
-
-<Input placeholder="Введите текст..." />
-<Input value="С текстом" />
-<Input disabled placeholder="Disabled" />
-<Input className="border-red-500" value="С ошибкой" />` },
-
-  { name:'label', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
-    desc:'Подпись для элементов формы.',
-    radix:'@radix-ui/react-label',
-    preview:`<div class="space-y-1 w-full max-w-sm"><label class="sh-label">Email</label><input class="sh-input" placeholder="user@example.com" /></div>`,
-    code:`import { Label } from '@planometrica/ui'
-
-<Label htmlFor="email">Email</Label>
-<Input id="email" placeholder="user@example.com" />` },
-
-  { name:'badge', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
-    desc:'Бейджи для статусов и тегов.',
-    radix:'—',
-    preview:`<div class="flex flex-wrap gap-2">
-      <span class="sh-badge sh-badge-default">Default</span>
-      <span class="sh-badge sh-badge-secondary">Secondary</span>
-      <span class="sh-badge sh-badge-outline">Outline</span>
-      <span class="sh-badge sh-badge-destructive">Destructive</span>
-    </div>`,
-    code:`import { Badge } from '@planometrica/ui'
-
-<Badge>Default</Badge>
-<Badge variant="secondary">Secondary</Badge>
-<Badge variant="outline">Outline</Badge>
-<Badge variant="destructive">Destructive</Badge>` },
-
-  { name:'dialog', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
-    desc:'Модальное окно с overlay.',
-    radix:'@radix-ui/react-dialog',
-    preview:`<div class="w-full max-w-md sh-card p-6 relative"><div class="absolute top-3 right-3 text-gray-400 cursor-pointer">&times;</div><div class="font-semibold text-lg mb-1">Заголовок</div><div class="text-sm text-gray-500 mb-4">Описание модального окна для подтверждения действия.</div><div class="flex gap-2 justify-end"><button class="sh-btn sh-btn-outline sh-btn-sm">Отмена</button><button class="sh-btn sh-btn-primary sh-btn-sm">Подтвердить</button></div></div>`,
-    code:`import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@planometrica/ui'
-
-<Dialog>
-  <DialogTrigger asChild>
-    <Button>Открыть</Button>
-  </DialogTrigger>
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Заголовок</DialogTitle>
-      <DialogDescription>Описание</DialogDescription>
-    </DialogHeader>
-    <DialogFooter>
-      <Button variant="outline">Отмена</Button>
-      <Button>Подтвердить</Button>
-    </DialogFooter>
-  </DialogContent>
-</Dialog>` },
-
-  { name:'separator', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
-    desc:'Горизонтальный или вертикальный разделитель.',
-    radix:'@radix-ui/react-separator',
-    preview:`<div class="w-full max-w-sm space-y-3"><div class="text-sm">Секция 1</div><div class="sh-separator"></div><div class="text-sm">Секция 2</div><div class="sh-separator"></div><div class="text-sm">Секция 3</div></div>`,
-    code:`import { Separator } from '@planometrica/ui'
-
-<div>Секция 1</div>
-<Separator />
-<div>Секция 2</div>
-<Separator orientation="vertical" />` },
-
-  { name:'tabs', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core',
-    desc:'Переключение между контентом по вкладкам.',
-    radix:'@radix-ui/react-tabs',
-    preview:`<div class="w-full max-w-sm"><div class="sh-tabs"><div class="sh-tab active">Общие</div><div class="sh-tab">Параметры</div><div class="sh-tab">Материалы</div></div><div class="p-4 text-sm text-gray-600 border border-t-0 rounded-b-lg">Контент вкладки «Общие»</div></div>`,
-    code:`import { Tabs, TabsList, TabsTrigger, TabsContent } from '@planometrica/ui'
-
-<Tabs defaultValue="general">
-  <TabsList>
-    <TabsTrigger value="general">Общие</TabsTrigger>
-    <TabsTrigger value="params">Параметры</TabsTrigger>
-  </TabsList>
-  <TabsContent value="general">Контент</TabsContent>
-</Tabs>` },
-
-  // --- (continuation of Core) ---
-  { name:'accordion', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Раскрывающиеся секции.', radix:'@radix-ui/react-accordion',
-    preview:`<div class="w-full max-w-sm"><div class="sh-accordion-item"><div class="sh-accordion-trigger">Что такое Planometrica?<span>&#9660;</span></div></div><div class="sh-accordion-item"><div class="sh-accordion-trigger">Как начать проект?<span>&#9654;</span></div></div><div class="sh-accordion-item"><div class="sh-accordion-trigger">Стоимость?<span>&#9654;</span></div></div></div>`,
-    code:`import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
-
-<Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Что такое Planometrica?</AccordionTrigger>
-    <AccordionContent>Платформа для проектирования домов.</AccordionContent>
-  </AccordionItem>
-</Accordion>` },
-
-  { name:'alert', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Информационное уведомление.', radix:'—',
-    preview:`<div class="space-y-3 w-full max-w-md"><div class="sh-alert border-blue-200 bg-blue-50"><span class="text-blue-600">&#9432;</span><div><div class="font-medium text-sm text-blue-800">Информация</div><div class="text-xs text-blue-600 mt-0.5">Параметры сохранены.</div></div></div><div class="sh-alert border-red-200 bg-red-50"><span class="text-red-600">&#9888;</span><div><div class="font-medium text-sm text-red-800">Ошибка</div><div class="text-xs text-red-600 mt-0.5">Не удалось загрузить данные.</div></div></div></div>`,
-    code:`import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
-
-<Alert>
-  <AlertTitle>Информация</AlertTitle>
-  <AlertDescription>Параметры сохранены.</AlertDescription>
-</Alert>
-<Alert variant="destructive">
-  <AlertTitle>Ошибка</AlertTitle>
-  <AlertDescription>Не удалось загрузить данные.</AlertDescription>
-</Alert>` },
-
-  { name:'avatar', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Аватар пользователя.', radix:'@radix-ui/react-avatar',
-    preview:`<div class="flex items-center gap-3"><div class="sh-avatar">АИ</div><div class="sh-avatar" style="background:#1A7BB3">ПК</div><div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs">?</div></div>`,
-    code:`import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
-
-<Avatar>
-  <AvatarImage src="/user.jpg" />
-  <AvatarFallback>АИ</AvatarFallback>
-</Avatar>` },
-
-  { name:'checkbox', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Чекбокс.', radix:'@radix-ui/react-checkbox',
-    preview:`<div class="space-y-2"><label class="flex items-center gap-2"><input type="checkbox" class="sh-checkbox" checked /><span class="text-sm">Включить уведомления</span></label><label class="flex items-center gap-2"><input type="checkbox" class="sh-checkbox" /><span class="text-sm">Согласен с условиями</span></label></div>`,
-    code:`import { Checkbox } from '@/components/ui/checkbox'
-
-<div className="flex items-center gap-2">
-  <Checkbox id="terms" />
-  <Label htmlFor="terms">Согласен с условиями</Label>
-</div>` },
-
-  { name:'collapsible', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Сворачиваемый блок.', radix:'@radix-ui/react-collapsible',
-    preview:`<div class="w-full max-w-sm border rounded-lg p-3"><div class="flex items-center justify-between"><span class="text-sm font-medium">Дополнительные параметры</span><span class="text-xs text-brand-600 cursor-pointer">Развернуть &#9660;</span></div></div>`,
-    code:`import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible'
-
-<Collapsible>
-  <CollapsibleTrigger>Дополнительные параметры</CollapsibleTrigger>
-  <CollapsibleContent>Скрытый контент</CollapsibleContent>
-</Collapsible>` },
-
-  { name:'command', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Command palette / поиск.', radix:'cmdk',
-    preview:`<div class="w-full max-w-sm sh-card"><div class="p-3 border-b"><input class="sh-input" placeholder="Поиск команд..." /></div><div class="p-2 text-sm"><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Новый проект</div><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Открыть студию</div><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Настройки</div></div></div>`,
-    code:`import { Command, CommandInput, CommandList, CommandItem } from '@/components/ui/command'
-
-<Command>
-  <CommandInput placeholder="Поиск..." />
-  <CommandList>
-    <CommandItem>Новый проект</CommandItem>
-    <CommandItem>Открыть студию</CommandItem>
-  </CommandList>
-</Command>` },
-
-  { name:'context-menu', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Контекстное меню (ПКМ).', radix:'@radix-ui/react-context-menu',
-    preview:`<div class="sh-card p-2 w-48 text-sm"><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Копировать</div><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer">Вставить</div><div class="sh-separator my-1"></div><div class="px-2 py-1.5 rounded hover:bg-gray-100 cursor-pointer text-red-600">Удалить</div></div>`,
-    code:`import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from '@/components/ui/context-menu'
-
-<ContextMenu>
-  <ContextMenuTrigger>Правый клик</ContextMenuTrigger>
-  <ContextMenuContent>
-    <ContextMenuItem>Копировать</ContextMenuItem>
-    <ContextMenuItem>Удалить</ContextMenuItem>
-  </ContextMenuContent>
-</ContextMenu>` },
-
-  { name:'dropdown-menu', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Выпадающее меню.', radix:'@radix-ui/react-dropdown-menu',
-    preview:`<div class="flex items-start gap-4"><button class="sh-btn sh-btn-outline sh-btn-sm">Меню &#9660;</button><div class="sh-card p-2 w-48 text-sm"><div class="px-2 py-1.5 rounded hover:bg-gray-100">Профиль</div><div class="px-2 py-1.5 rounded hover:bg-gray-100">Настройки</div><div class="sh-separator my-1"></div><div class="px-2 py-1.5 rounded hover:bg-gray-100 text-red-600">Выйти</div></div></div>`,
-    code:`import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu'
-
-<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button variant="outline">Меню</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuItem>Профиль</DropdownMenuItem>
-    <DropdownMenuItem>Выйти</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>` },
-
-  { name:'popover', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Всплывающая панель.', radix:'@radix-ui/react-popover',
-    preview:`<div class="flex items-start gap-4"><button class="sh-btn sh-btn-outline sh-btn-sm">Открыть</button><div class="sh-card p-4 w-64"><div class="text-sm font-medium mb-2">Настройки отображения</div><div class="space-y-2"><label class="flex items-center gap-2"><input type="checkbox" class="sh-checkbox" checked /><span class="text-xs">Показать сетку</span></label><label class="flex items-center gap-2"><input type="checkbox" class="sh-checkbox" /><span class="text-xs">Показать размеры</span></label></div></div></div>`,
-    code:`import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
-
-<Popover>
-  <PopoverTrigger asChild>
-    <Button variant="outline">Открыть</Button>
-  </PopoverTrigger>
-  <PopoverContent>Контент</PopoverContent>
-</Popover>` },
-
-  { name:'progress', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Прогресс-бар.', radix:'@radix-ui/react-progress',
-    preview:`<div class="space-y-4 w-full max-w-sm"><div><div class="text-xs text-gray-500 mb-1">25%</div><div class="sh-progress"><div class="sh-progress-bar" style="width:25%"></div></div></div><div><div class="text-xs text-gray-500 mb-1">66%</div><div class="sh-progress"><div class="sh-progress-bar" style="width:66%"></div></div></div><div><div class="text-xs text-gray-500 mb-1">100%</div><div class="sh-progress"><div class="sh-progress-bar" style="width:100%"></div></div></div></div>`,
-    code:`import { Progress } from '@/components/ui/progress'
-
-<Progress value={66} />` },
-
-  { name:'radio-group', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Группа радио-кнопок.', radix:'@radix-ui/react-radio-group',
-    preview:`<div class="space-y-2"><label class="flex items-center gap-2"><input type="radio" name="floors" class="sh-radio" checked /><span class="text-sm">1 этаж</span></label><label class="flex items-center gap-2"><input type="radio" name="floors" class="sh-radio" /><span class="text-sm">2 этажа</span></label><label class="flex items-center gap-2"><input type="radio" name="floors" class="sh-radio" /><span class="text-sm">1 + мансарда</span></label></div>`,
-    code:`import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-
-<RadioGroup defaultValue="1">
-  <div className="flex items-center gap-2">
-    <RadioGroupItem value="1" id="r1" />
-    <Label htmlFor="r1">1 этаж</Label>
-  </div>
-</RadioGroup>` },
-
-  { name:'scroll-area', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Скроллируемая область.', radix:'@radix-ui/react-scroll-area',
-    preview:`<div class="w-48 h-32 border rounded-lg overflow-hidden relative"><div class="p-3 text-xs space-y-1">${Array.from({length:12},(_,i)=>`<div>Элемент ${i+1}</div>`).join('')}</div><div class="absolute right-0.5 top-0.5 bottom-0.5 w-1.5 bg-gray-200 rounded-full"><div class="w-1.5 h-8 bg-gray-400 rounded-full"></div></div></div>`,
-    code:`import { ScrollArea } from '@/components/ui/scroll-area'
-
-<ScrollArea className="h-48">
-  {items.map(item => <div key={item}>{item}</div>)}
-</ScrollArea>` },
-
-  { name:'select', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Выпадающий список выбора.', radix:'@radix-ui/react-select',
-    preview:`<div class="space-y-3"><div class="sh-select"><span>Выберите стиль...</span><span>&#9660;</span></div><div class="sh-card p-2 w-48 text-sm"><div class="px-2 py-1.5 rounded bg-brand-50 text-brand-700">Классика</div><div class="px-2 py-1.5 rounded hover:bg-gray-100">Минимализм</div><div class="px-2 py-1.5 rounded hover:bg-gray-100">Барнхаус</div><div class="px-2 py-1.5 rounded hover:bg-gray-100">Шале</div></div></div>`,
-    code:`import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
-
-<Select>
-  <SelectTrigger>
-    <SelectValue placeholder="Выберите стиль..." />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="classic">Классика</SelectItem>
-    <SelectItem value="minimalism">Минимализм</SelectItem>
-  </SelectContent>
-</Select>` },
-
-  { name:'sheet', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Боковая панель (slide-over).', radix:'@radix-ui/react-dialog',
-    preview:`<div class="flex gap-3"><div class="flex-1 bg-gray-100 rounded-lg p-4 text-xs text-gray-400 text-center">Основной контент</div><div class="w-48 sh-card p-4 border-l-2 border-brand-500"><div class="font-medium text-sm mb-2">Боковая панель</div><div class="text-xs text-gray-500">Настройки материалов и параметров</div></div></div>`,
-    code:`import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
-
-<Sheet>
-  <SheetTrigger asChild>
-    <Button>Настройки</Button>
-  </SheetTrigger>
-  <SheetContent>
-    <SheetHeader>
-      <SheetTitle>Настройки</SheetTitle>
-    </SheetHeader>
-  </SheetContent>
-</Sheet>` },
-
-  { name:'skeleton', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Скелетон-загрузка.', radix:'—',
-    preview:`<div class="space-y-3 w-full max-w-sm"><div class="sh-skeleton h-4 w-3/4"></div><div class="sh-skeleton h-4 w-1/2"></div><div class="flex gap-3 mt-4"><div class="sh-skeleton h-10 w-10 rounded-full"></div><div class="flex-1 space-y-2"><div class="sh-skeleton h-3 w-full"></div><div class="sh-skeleton h-3 w-4/5"></div></div></div></div>`,
-    code:`import { Skeleton } from '@/components/ui/skeleton'
-
-<Skeleton className="h-4 w-3/4" />
-<Skeleton className="h-4 w-1/2" />
-<div className="flex gap-3">
-  <Skeleton className="h-10 w-10 rounded-full" />
-  <Skeleton className="h-3 w-full" />
-</div>` },
-
-  { name:'slider', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Ползунок.', radix:'@radix-ui/react-slider',
-    preview:`<div class="space-y-4 w-full max-w-sm"><div class="text-xs text-gray-500">Площадь: 80-150 м&sup2;</div><div class="sh-slider"><div style="position:absolute;left:0;width:60%;height:100%;background:#0A4C76;border-radius:4px"></div><div class="sh-slider-thumb" style="left:20%"></div><div class="sh-slider-thumb" style="left:60%"></div></div></div>`,
-    code:`import { Slider } from '@/components/ui/slider'
-
-<Slider
-  defaultValue={[80, 150]}
-  min={40}
-  max={300}
-  step={10}
-/>` },
-
-  { name:'sonner', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Toast-уведомления (Sonner).', radix:'sonner',
-    preview:`<div class="space-y-2 w-full max-w-sm"><div class="sh-card p-3 flex items-center gap-3 border-l-4 border-green-500"><span class="text-green-600">&#10003;</span><div class="text-sm">Проект успешно сохранён</div></div><div class="sh-card p-3 flex items-center gap-3 border-l-4 border-red-500"><span class="text-red-600">&#10007;</span><div class="text-sm">Ошибка загрузки модели</div></div></div>`,
-    code:`import { toast } from 'sonner'
-import { Toaster } from '@/components/ui/sonner'
-
-// В layout:
-<Toaster />
-
-// Вызов:
-toast.success('Проект сохранён')
-toast.error('Ошибка загрузки')` },
-
-  { name:'switch', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Переключатель.', radix:'@radix-ui/react-switch',
-    preview:`<div class="space-y-3"><label class="flex items-center gap-3"><div class="sh-switch active" onclick="this.classList.toggle('active')"></div><span class="text-sm">Тёмная тема</span></label><label class="flex items-center gap-3"><div class="sh-switch" onclick="this.classList.toggle('active')"></div><span class="text-sm">Уведомления</span></label></div>`,
-    code:`import { Switch } from '@/components/ui/switch'
-
-<div className="flex items-center gap-2">
-  <Switch id="dark-mode" />
-  <Label htmlFor="dark-mode">Тёмная тема</Label>
-</div>` },
-
-  { name:'table', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Таблица данных.', radix:'—',
-    preview:`<table class="sh-table w-full"><thead><tr><th>Материал</th><th>Ед.</th><th>Кол-во</th><th>Цена</th></tr></thead><tbody><tr><td>Кирпич</td><td>шт</td><td>5 000</td><td>15 000 &#8381;</td></tr><tr><td>Цемент</td><td>мешок</td><td>120</td><td>48 000 &#8381;</td></tr><tr><td>Арматура</td><td>тонна</td><td>2.5</td><td>125 000 &#8381;</td></tr></tbody></table>`,
-    code:`import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table'
-
-<Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Материал</TableHead>
-      <TableHead>Цена</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Кирпич</TableCell>
-      <TableCell>15 000 ₽</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>` },
-
-  { name:'textarea', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Многострочное поле ввода.', radix:'—',
-    preview:`<div class="w-full max-w-sm"><textarea class="sh-textarea" placeholder="Опишите ваши пожелания к дому...">Хочу большую террасу и панорамные окна</textarea><div class="text-xs text-gray-400 mt-1 text-right">35 / 500</div></div>`,
-    code:`import { Textarea } from '@/components/ui/textarea'
-
-<Textarea
-  placeholder="Опишите пожелания..."
-  maxLength={500}
-/>` },
-
-  { name:'toast', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Toast (Radix версия).', radix:'@radix-ui/react-toast',
-    preview:`<div class="sh-card p-4 w-full max-w-sm flex justify-between items-start"><div><div class="font-medium text-sm">Уведомление</div><div class="text-xs text-gray-500 mt-0.5">Изменения сохранены.</div></div><button class="text-gray-400 hover:text-gray-600">&times;</button></div>`,
-    code:`import { useToast } from '@/components/ui/use-toast'
-import { Toaster } from '@/components/ui/toaster'
-
-const { toast } = useToast()
-toast({ title: 'Сохранено', description: 'Изменения применены.' })` },
-
-  { name:'toaster', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Контейнер для toast (провайдер).', radix:'@radix-ui/react-toast',
-    preview:`<div class="text-sm text-gray-500 text-center p-4">Toaster — провайдер. Размещается в корневом layout.<br/>Визуально не отображается.</div>`,
-    code:`import { Toaster } from '@/components/ui/toaster'
-
-// В App.tsx или layout:
-<Toaster />` },
-
-  { name:'toggle', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Кнопка-переключатель.', radix:'@radix-ui/react-toggle',
-    preview:`<div class="flex gap-2"><div class="sh-toggle active" onclick="this.classList.toggle('active')"><b>B</b></div><div class="sh-toggle" onclick="this.classList.toggle('active')"><i>I</i></div><div class="sh-toggle" onclick="this.classList.toggle('active')"><u>U</u></div></div>`,
-    code:`import { Toggle } from '@/components/ui/toggle'
-
-<Toggle aria-label="Bold">
-  <Bold className="h-4 w-4" />
-</Toggle>` },
-
-  { name:'toggle-group', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Группа toggle-кнопок.', radix:'@radix-ui/react-toggle-group',
-    preview:`<div class="flex border rounded-lg overflow-hidden"><div class="sh-toggle active rounded-none border-0 border-r" style="background:#f1f5f9">3D</div><div class="sh-toggle rounded-none border-0 border-r">План</div><div class="sh-toggle rounded-none border-0">Виды</div></div>`,
-    code:`import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
-
-<ToggleGroup type="single" defaultValue="3d">
-  <ToggleGroupItem value="3d">3D</ToggleGroupItem>
-  <ToggleGroupItem value="plan">План</ToggleGroupItem>
-  <ToggleGroupItem value="views">Виды</ToggleGroupItem>
-</ToggleGroup>` },
-
-  { name:'tooltip', ds:true, studio:'reexport', planocad:'reexport', admin:'reexport', landing:false, level:'core', desc:'Подсказка при наведении.', radix:'@radix-ui/react-tooltip',
-    preview:`<div class="sh-tooltip"><div class="sh-tooltip-content">Добавить помещение</div><button class="sh-btn sh-btn-outline sh-btn-sm">+ Комната</button></div>`,
-    code:`import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip'
-
-<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <Button>+ Комната</Button>
-    </TooltipTrigger>
-    <TooltipContent>Добавить помещение</TooltipContent>
-  </Tooltip>
-</TooltipProvider>` },
-
-  // --- Extended: Studio + Admin only (15) ---
-  { name:'alert-dialog', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Диалог подтверждения (блокирующий).', radix:'@radix-ui/react-alert-dialog',
-    preview:`<div class="w-full max-w-md sh-card p-6"><div class="font-semibold text-lg mb-1">Удалить проект?</div><div class="text-sm text-gray-500 mb-4">Это действие нельзя отменить. Проект и все данные будут удалены.</div><div class="flex gap-2 justify-end"><button class="sh-btn sh-btn-outline sh-btn-sm">Отмена</button><button class="sh-btn sh-btn-destructive sh-btn-sm">Удалить</button></div></div>`,
-    code:`import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogAction, AlertDialogCancel } from '@/components/ui/alert-dialog'
-
-<AlertDialog>
-  <AlertDialogTrigger>Удалить</AlertDialogTrigger>
-  <AlertDialogContent>
-    <AlertDialogTitle>Удалить проект?</AlertDialogTitle>
-    <AlertDialogCancel>Отмена</AlertDialogCancel>
-    <AlertDialogAction>Удалить</AlertDialogAction>
-  </AlertDialogContent>
-</AlertDialog>` },
-
-  { name:'aspect-ratio', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Контейнер с фиксированным соотношением сторон.', radix:'@radix-ui/react-aspect-ratio',
-    preview:`<div class="w-48 bg-gray-200 rounded-lg overflow-hidden" style="aspect-ratio:16/9"><div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">16:9</div></div>`,
-    code:`import { AspectRatio } from '@/components/ui/aspect-ratio'
-
-<AspectRatio ratio={16/9}>
-  <img src="/house.jpg" className="object-cover" />
-</AspectRatio>` },
-
-  { name:'breadcrumb', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Хлебные крошки.', radix:'—',
-    preview:`<div class="flex items-center gap-2 text-sm"><a class="text-brand-600 hover:underline" href="#">Главная</a><span class="text-gray-400">/</span><a class="text-brand-600 hover:underline" href="#">Каталог</a><span class="text-gray-400">/</span><span class="text-gray-500">Классика-120</span></div>`,
-    code:`import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
-
-<Breadcrumb>
-  <BreadcrumbList>
-    <BreadcrumbItem><BreadcrumbLink href="/">Главная</BreadcrumbLink></BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>Каталог</BreadcrumbItem>
-  </BreadcrumbList>
-</Breadcrumb>` },
-
-  { name:'calendar', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Календарь.', radix:'react-day-picker',
-    preview:`<div class="sh-card p-4 w-64 text-center"><div class="font-medium text-sm mb-3">Февраль 2026</div><div class="grid grid-cols-7 gap-1 text-xs"><span class="text-gray-400">Пн</span><span class="text-gray-400">Вт</span><span class="text-gray-400">Ср</span><span class="text-gray-400">Чт</span><span class="text-gray-400">Пт</span><span class="text-gray-400">Сб</span><span class="text-gray-400">Вс</span>${Array.from({length:28},(_,i)=>`<span class="p-1 rounded ${i===14?'bg-brand-600 text-white':'hover:bg-gray-100'} cursor-pointer">${i+1}</span>`).join('')}</div></div>`,
-    code:`import { Calendar } from '@/components/ui/calendar'
-
-<Calendar
-  mode="single"
-  selected={date}
-  onSelect={setDate}
-/>` },
-
-  { name:'carousel', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Карусель.', radix:'embla-carousel-react',
-    preview:`<div class="w-full max-w-sm flex items-center gap-2"><button class="sh-btn sh-btn-outline sh-btn-sm">&lsaquo;</button><div class="flex-1 bg-gray-100 rounded-lg h-32 flex items-center justify-center text-gray-400 text-sm">Слайд 1 / 5</div><button class="sh-btn sh-btn-outline sh-btn-sm">&rsaquo;</button></div>`,
-    code:`import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel'
-
-<Carousel>
-  <CarouselContent>
-    <CarouselItem>Слайд 1</CarouselItem>
-    <CarouselItem>Слайд 2</CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>` },
-
-  { name:'chart', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Обёртка для Recharts.', radix:'recharts',
-    preview:`<div class="w-full max-w-sm bg-gray-50 rounded-lg p-4"><div class="text-xs text-gray-500 mb-2">Стоимость по категориям</div><div class="flex items-end gap-2 h-24"><div class="bg-brand-500 rounded-t w-8" style="height:80%"></div><div class="bg-brand-400 rounded-t w-8" style="height:50%"></div><div class="bg-brand-300 rounded-t w-8" style="height:35%"></div><div class="bg-brand-200 rounded-t w-8" style="height:60%"></div><div class="bg-brand-100 rounded-t w-8" style="height:20%"></div></div><div class="flex gap-2 text-[10px] text-gray-400 mt-1"><span class="w-8 text-center">Стены</span><span class="w-8 text-center">Кровля</span><span class="w-8 text-center">Фунд</span><span class="w-8 text-center">Окна</span><span class="w-8 text-center">Инж</span></div></div>`,
-    code:`import { ChartContainer, ChartTooltip } from '@/components/ui/chart'
-import { BarChart, Bar, XAxis, YAxis } from 'recharts'
-
-<ChartContainer config={chartConfig}>
-  <BarChart data={data}>
-    <XAxis dataKey="category" />
-    <Bar dataKey="cost" />
-    <ChartTooltip />
-  </BarChart>
-</ChartContainer>` },
-
-  { name:'drawer', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Выезжающая панель снизу (мобильная).', radix:'vaul',
-    preview:`<div class="w-full max-w-sm"><div class="bg-gray-100 rounded-t-xl p-2 flex justify-center"><div class="w-12 h-1 bg-gray-300 rounded-full"></div></div><div class="bg-white border rounded-b-xl p-4"><div class="font-medium text-sm mb-2">Фильтры</div><div class="text-xs text-gray-500">Мобильная панель для фильтрации каталога.</div></div></div>`,
-    code:`import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
-
-<Drawer>
-  <DrawerTrigger>Фильтры</DrawerTrigger>
-  <DrawerContent>
-    <DrawerHeader>
-      <DrawerTitle>Фильтры</DrawerTitle>
-    </DrawerHeader>
-  </DrawerContent>
-</Drawer>` },
-
-  { name:'form', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Form + React Hook Form интеграция.', radix:'react-hook-form + @hookform/resolvers',
-    preview:`<div class="w-full max-w-sm space-y-3"><div><label class="sh-label">Имя</label><input class="sh-input mt-1" placeholder="Иван" /></div><div><label class="sh-label">Email</label><input class="sh-input mt-1" placeholder="ivan@mail.ru" /><div class="text-xs text-red-500 mt-1">Обязательное поле</div></div><button class="sh-btn sh-btn-primary w-full mt-2">Отправить</button></div>`,
-    code:`import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-
-const form = useForm({ resolver: zodResolver(schema) })
-
-<Form {...form}>
-  <FormField control={form.control} name="email" render={({ field }) => (
-    <FormItem>
-      <FormLabel>Email</FormLabel>
-      <FormControl><Input {...field} /></FormControl>
-      <FormMessage />
-    </FormItem>
-  )} />
-</Form>` },
-
-  { name:'hover-card', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Карточка при наведении.', radix:'@radix-ui/react-hover-card',
-    preview:`<div class="flex items-start gap-3"><a class="text-brand-600 underline text-sm" href="#">@architect</a><div class="sh-card p-3 w-56"><div class="flex gap-2 items-center"><div class="sh-avatar text-xs" style="width:32px;height:32px">A</div><div><div class="text-sm font-medium">Архитектор</div><div class="text-xs text-gray-500">15 проектов</div></div></div></div></div>`,
-    code:`import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card'
-
-<HoverCard>
-  <HoverCardTrigger>@architect</HoverCardTrigger>
-  <HoverCardContent>
-    <p>15 проектов</p>
-  </HoverCardContent>
-</HoverCard>` },
-
-  { name:'input-otp', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'OTP ввод (код подтверждения).', radix:'input-otp',
-    preview:`<div class="flex gap-2">${Array.from({length:6},(_,i)=>`<input class="sh-input w-10 h-10 text-center font-semibold" maxlength="1" value="${i<3?[4,2,7][i]:''}" />`).join('')}</div>`,
-    code:`import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp'
-
-<InputOTP maxLength={6}>
-  <InputOTPGroup>
-    <InputOTPSlot index={0} />
-    <InputOTPSlot index={1} />
-    <InputOTPSlot index={2} />
-  </InputOTPGroup>
-</InputOTP>` },
-
-  { name:'menubar', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Горизонтальная панель меню.', radix:'@radix-ui/react-menubar',
-    preview:`<div class="flex border rounded-lg p-1 gap-1"><div class="px-3 py-1 text-sm rounded hover:bg-gray-100 cursor-pointer">Файл</div><div class="px-3 py-1 text-sm rounded bg-gray-100 cursor-pointer">Вид</div><div class="px-3 py-1 text-sm rounded hover:bg-gray-100 cursor-pointer">Настройки</div></div>`,
-    code:`import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from '@/components/ui/menubar'
-
-<Menubar>
-  <MenubarMenu>
-    <MenubarTrigger>Файл</MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>Новый проект</MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-</Menubar>` },
-
-  { name:'navigation-menu', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Навигационное меню с мега-выпадающими.', radix:'@radix-ui/react-navigation-menu',
-    preview:`<div class="flex gap-4 text-sm"><a class="font-medium text-brand-600" href="#">Конструктор</a><a class="text-gray-600 hover:text-brand-600" href="#">Каталог</a><a class="text-gray-600 hover:text-brand-600" href="#">Блог</a><a class="text-gray-600 hover:text-brand-600" href="#">Ипотека</a></div>`,
-    code:`import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from '@/components/ui/navigation-menu'
-
-<NavigationMenu>
-  <NavigationMenuList>
-    <NavigationMenuItem>
-      <NavigationMenuLink href="/create">Конструктор</NavigationMenuLink>
-    </NavigationMenuItem>
-  </NavigationMenuList>
-</NavigationMenu>` },
-
-  { name:'pagination', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Пагинация.', radix:'—',
-    preview:`<div class="flex items-center gap-1"><button class="sh-btn sh-btn-ghost sh-btn-sm">&laquo;</button><button class="sh-btn sh-btn-ghost sh-btn-sm">&lsaquo;</button><button class="sh-btn sh-btn-primary sh-btn-sm">1</button><button class="sh-btn sh-btn-ghost sh-btn-sm">2</button><button class="sh-btn sh-btn-ghost sh-btn-sm">3</button><button class="sh-btn sh-btn-ghost sh-btn-sm">&rsaquo;</button><button class="sh-btn sh-btn-ghost sh-btn-sm">&raquo;</button></div>`,
-    code:`import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination'
-
-<Pagination>
-  <PaginationContent>
-    <PaginationPrevious href="#" />
-    <PaginationLink href="#" isActive>1</PaginationLink>
-    <PaginationLink href="#">2</PaginationLink>
-    <PaginationNext href="#" />
-  </PaginationContent>
-</Pagination>` },
-
-  { name:'resizable', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Панели с изменяемым размером.', radix:'react-resizable-panels',
-    preview:`<div class="flex border rounded-lg overflow-hidden h-24"><div class="flex-1 bg-gray-50 p-3 text-xs text-gray-500">Панель 1 (60%)</div><div class="w-1 bg-gray-300 cursor-col-resize hover:bg-brand-400"></div><div class="w-24 bg-gray-50 p-3 text-xs text-gray-500">Панель 2</div></div>`,
-    code:`import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable'
-
-<ResizablePanelGroup direction="horizontal">
-  <ResizablePanel defaultSize={60}>Панель 1</ResizablePanel>
-  <ResizableHandle />
-  <ResizablePanel>Панель 2</ResizablePanel>
-</ResizablePanelGroup>` },
-
-  { name:'sidebar', ds:true, studio:'reexport', planocad:false, admin:'reexport', landing:false, level:'extended', desc:'Боковая навигация.', radix:'—',
-    preview:`<div class="flex h-32"><div class="w-48 bg-gray-900 text-white p-3 rounded-l-lg"><div class="text-xs font-semibold text-gray-400 mb-2">НАВИГАЦИЯ</div><div class="text-sm py-1 px-2 rounded bg-brand-600 mb-1">Конструктор</div><div class="text-sm py-1 px-2 rounded hover:bg-gray-800 mb-1 text-gray-300">Каталог</div><div class="text-sm py-1 px-2 rounded hover:bg-gray-800 text-gray-300">Кабинет</div></div><div class="flex-1 bg-gray-50 p-3 rounded-r-lg text-xs text-gray-400">Основной контент</div></div>`,
-    code:`import { Sidebar, SidebarContent, SidebarGroup, SidebarMenuItem } from '@/components/ui/sidebar'
-
-<SidebarProvider>
-  <Sidebar>
-    <SidebarContent>
-      <SidebarGroup>
-        <SidebarMenuItem>Конструктор</SidebarMenuItem>
-        <SidebarMenuItem>Каталог</SidebarMenuItem>
-      </SidebarGroup>
-    </SidebarContent>
-  </Sidebar>
-</SidebarProvider>` },
-
-  // --- Specific: Studio only, NOT in DS (9) ---
-  { name:'ai-actions', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Кнопки действий AI-ответа (копировать, повторить).', radix:'—',
-    preview:`<div class="flex gap-1"><button class="sh-btn sh-btn-ghost sh-btn-sm text-xs">&#128203; Копировать</button><button class="sh-btn sh-btn-ghost sh-btn-sm text-xs">&#x21bb; Повторить</button><button class="sh-btn sh-btn-ghost sh-btn-sm text-xs">&#128077;</button><button class="sh-btn sh-btn-ghost sh-btn-sm text-xs">&#128078;</button></div>`,
-    code:`import { AIActions } from '@/components/ui/ai-actions'
-
-<AIActions
-  onCopy={() => {}}
-  onRetry={() => {}}
-  onFeedback={(positive) => {}}
-/>` },
-
-  { name:'ai-message', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Сообщение в AI-чате (NeuroPlan).', radix:'—',
-    preview:`<div class="space-y-3 w-full max-w-sm"><div class="flex gap-2"><div class="sh-avatar text-xs" style="width:28px;height:28px;background:#7c3aed">AI</div><div class="bg-gray-100 rounded-lg p-3 text-sm flex-1">Рекомендую двускатную крышу для вашего проекта.</div></div><div class="flex gap-2 flex-row-reverse"><div class="sh-avatar text-xs" style="width:28px;height:28px;background:#0A4C76">Я</div><div class="bg-brand-50 rounded-lg p-3 text-sm flex-1">А что насчёт мансарды?</div></div></div>`,
-    code:`import { AIMessage } from '@/components/ui/ai-message'
-
-<AIMessage role="assistant" content="Рекомендую..." />
-<AIMessage role="user" content="А что насчёт...?" />` },
-
-  { name:'ai-reasoning', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Блок «размышлений» AI.', radix:'—',
-    preview:`<div class="w-full max-w-sm border-l-2 border-purple-300 bg-purple-50 rounded-r-lg p-3"><div class="text-xs font-medium text-purple-700 mb-1">Анализ параметров...</div><div class="text-xs text-purple-600">Учитываю площадь 120м&sup2;, 2 этажа, стиль «Минимализм»</div></div>`,
-    code:`import { AIReasoning } from '@/components/ui/ai-reasoning'
-
-<AIReasoning>
-  Учитываю площадь 120м², 2 этажа, стиль «Минимализм»
-</AIReasoning>` },
-
-  { name:'LoadingSpinner', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Спиннер загрузки.', radix:'—',
-    preview:`<div class="flex items-center gap-3"><div class="w-6 h-6 border-2 border-brand-600 border-t-transparent rounded-full animate-spin"></div><div class="w-8 h-8 border-2 border-brand-600 border-t-transparent rounded-full animate-spin"></div><div class="w-10 h-10 border-3 border-brand-600 border-t-transparent rounded-full animate-spin"></div></div>`,
-    code:`import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
-
-<LoadingSpinner />
-<LoadingSpinner size="lg" />` },
-
-  { name:'markdown-content', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Рендер Markdown контента.', radix:'react-markdown',
-    preview:`<div class="prose prose-sm w-full max-w-sm"><h3 style="font-size:16px;font-weight:600;margin-bottom:4px">Заголовок</h3><p style="font-size:14px;color:#6b7280">Параграф с <strong>жирным</strong> и <em>курсивом</em>.</p><ul style="font-size:14px;margin-left:16px"><li>Пункт 1</li><li>Пункт 2</li></ul></div>`,
-    code:`import { MarkdownContent } from '@/components/ui/markdown-content'
-
-<MarkdownContent content="# Заголовок\\n\\nТекст с **жирным**" />` },
-
-  { name:'optimized-image', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Изображение с lazy loading и fallback.', radix:'—',
-    preview:`<div class="w-48 h-32 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-xs">Lazy loaded image<br/>+ blur placeholder</div>`,
-    code:`import { OptimizedImage } from '@/components/ui/optimized-image'
-
-<OptimizedImage
-  src="/house.jpg"
-  alt="Дом"
-  width={400}
-  height={300}
-  placeholder="blur"
-/>` },
-
-  { name:'page-header', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Заголовок страницы с описанием.', radix:'—',
-    preview:`<div class="w-full max-w-md"><h1 class="text-xl font-bold">Конструктор дома</h1><p class="text-sm text-gray-500 mt-1">Создайте проект дома мечты за несколько шагов</p></div>`,
-    code:`import { PageHeader } from '@/components/ui/page-header'
-
-<PageHeader
-  title="Конструктор дома"
-  description="Создайте проект мечты"
-/>` },
-
-  { name:'page-loader', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Полностраничный лоадер.', radix:'—',
-    preview:`<div class="w-full h-24 bg-gray-50 rounded-lg flex flex-col items-center justify-center gap-2"><div class="w-8 h-8 border-2 border-brand-600 border-t-transparent rounded-full animate-spin"></div><div class="text-xs text-gray-400">Загрузка страницы...</div></div>`,
-    code:`import { PageLoader } from '@/components/ui/page-loader'
-
-<PageLoader />
-<PageLoader text="Загрузка проекта..." />` },
-
-  { name:'prompt-input', ds:false, studio:true, planocad:false, admin:false, landing:false, level:'specific', desc:'Поле ввода для AI-промпта.', radix:'—',
-    preview:`<div class="w-full max-w-sm flex gap-2 items-end"><textarea class="sh-textarea flex-1" style="min-height:40px;max-height:40px" placeholder="Спросите НейроПлан..."></textarea><button class="sh-btn sh-btn-primary" style="height:40px">&#9654;</button></div>`,
-    code:`import { PromptInput } from '@/components/ui/prompt-input'
-
-<PromptInput
-  placeholder="Спросите НейроПлан..."
-  onSubmit={(text) => sendMessage(text)}
-/>` },
+// =====================================================================
+// Lucide icon name -> kebab-case converter for the CDN
+// =====================================================================
+function toKebab(name) {
+  return name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').replace(/([A-Z])([A-Z][a-z])/g, '$1-$2').toLowerCase();
+}
+
+// =====================================================================
+// DATA — All products now use Lucide (lucide-react / lucide-astro)
+// =====================================================================
+const iconsData = [
+  {n:"AlertCircle",t:"lucide",p:["studio","planocad"],c:["PlanEditor","CabinetMortgage","ImportDialog","ProjectFilesPage"]},
+  {n:"AlertTriangle",t:"lucide",p:["studio","planocad","landing"],c:["WizardErrorBoundary","ErrorBoundary","ProjectSidebar","AccountNotificationsPage","ProjectStylePage","ProjectTepPage","ProjectGeneratePage","ProjectOutbuildingsPage","ProblemSolution.astro"]},
+  {n:"Archive",t:"lucide",p:["planocad"],c:["ProjectFilesPage"]},
+  {n:"ArrowDown",t:"lucide",p:["landing"],c:["Hero.astro"]},
+  {n:"ArrowLeft",t:"lucide",p:["studio","planocad"],c:["CalculatorProgress","BlogPostLayout","WizardErrorBoundary","ForgotPasswordPage","ProjectDocsPage","ProjectExportPage","ProjectStyleExamplesPage","ProjectRenderPage"]},
+  {n:"ArrowLeftRight",t:"lucide",p:["planocad"],c:["ProjectLandscapingPage"]},
+  {n:"ArrowRight",t:"lucide",p:["studio","planocad","landing"],c:["MaterialStep","HowItWorksV2","StylesShowcase","LadderStyles","ProjectDocsPage","ProjectGeneratePage","ProjectRenderPage","ContactModal.astro","CTA.astro","ProductCTA.astro"]},
+  {n:"ArrowUp",t:"lucide",p:["studio","planocad","landing"],c:["PromptInput","DashboardPage","Hero.astro"]},
+  {n:"ArrowUpDown",t:"lucide",p:["studio"],c:["BankComparison"]},
+  {n:"ArrowUpRight",t:"lucide",p:["landing"],c:["studio.astro"]},
+  {n:"Award",t:"lucide",p:["studio"],c:["PartnersPage","AboutPage"]},
+  {n:"Baby",t:"lucide",p:["studio"],c:["MortgageForm"]},
+  {n:"BadgeCheck",t:"lucide",p:["studio"],c:["MortgageApplicationDetail"]},
+  {n:"Banknote",t:"lucide",p:["studio","landing"],c:["CabinetLayout","Pricing.astro"]},
+  {n:"BarChart3",t:"lucide",p:["studio","planocad","landing"],c:["PaymentChart","MortgageCalculator","DashboardPage","ProjectEstimatePage","QuizModal"]},
+  {n:"Bath",t:"lucide",p:["studio"],c:["ProjectCard"]},
+  {n:"Bed",t:"lucide",p:["studio"],c:["ProjectCard"]},
+  {n:"Bell",t:"lucide",p:["studio"],c:["NotificationsTab"]},
+  {n:"BookOpen",t:"lucide",p:["studio","planocad"],c:["NotFoundPage","NeuroPlanSection","AccountHelpPage"]},
+  {n:"Bot",t:"lucide",p:["planocad"],c:["NeuroPlanDialog","ProjectLayout","DashboardPage","ProjectDocsPage","ProjectExportPage","ProjectRenderPage","ProjectGeneratePage","ProjectOutbuildingsPage","ProjectZoningPage"]},
+  {n:"Box",t:"lucide",p:["planocad","landing"],c:["InfoBox","MultiFloorPreview","Products.astro"]},
+  {n:"BoxSelect",t:"lucide",p:["planocad"],c:["Toolbar"]},
+  {n:"Boxes",t:"lucide",p:["studio","planocad"],c:["StudioCanvas","EstimateSummary","Studio3DEnhanced","ViewToggle","ProjectEditorPage"]},
+  {n:"Brain",t:"lucide",p:["studio"],c:["AiReasoning","Studio3DEnhanced","CabinetPricing"]},
+  {n:"BrainCircuit",t:"lucide",p:["landing"],c:["QuizModal"]},
+  {n:"Briefcase",t:"lucide",p:["studio"],c:["DocumentStatusTable","DocumentUploader"]},
+  {n:"Building",t:"lucide",p:["studio"],c:["BankComparison","ProfileTab"]},
+  {n:"Building2",t:"lucide",p:["studio","planocad"],c:["MortgageResult","MortgageForm","RequisitesPage","CabinetMortgage","MortgageApplicationForm","MortgageNewApplication","NavigatorTree","FacadesView","AccountBillingPage","DashboardPage"]},
+  {n:"Calculator",t:"lucide",p:["studio","planocad"],c:["Studio3DEnhanced","MortgageEmptyState","CabinetMortgage","ProjectEstimatePage"]},
+  {n:"Calendar",t:"lucide",p:["studio","planocad"],c:["BlogCard","RelatedPosts","FeaturedPost","BlogPostLayout","MortgageApplicationForm","CabinetMortgage","MortgageNewApplication","DashboardPage"]},
+  {n:"CalendarDays",t:"lucide",p:["studio"],c:["PaymentSchedule"]},
+  {n:"Camera",t:"lucide",p:["planocad"],c:["ProjectStylePage","Project3DPage"]},
+  {n:"Car",t:"lucide",p:["planocad"],c:["ProjectOutbuildingsPage"]},
+  {n:"Check",t:"lucide",p:["studio","planocad","landing"],c:["LadderStyleCard","StyleCard","VariantComparison","ComparisonSection","ComparisonV2","ProjectFilesPage","ProjectStylePage","ProjectGeneratePage","ProjectOutbuildingsPage","DocumentUploader","DocumentStatusTable","Products.astro","Audiences.astro","HowItWorks.astro"]},
+  {n:"CheckCircle",t:"lucide",p:["studio","planocad"],c:["BankCard","BankComparison","SubscriptionForm","ForgotPasswordPage","ConfirmEmailPage","MortgageApplicationCard","ProjectDocsPage","ProjectRenderPage","ProjectExportPage","ProjectGeneratePage","ProjectZoningPage","ReferralSection","AccountBillingPage"]},
+  {n:"CheckCircle2",t:"lucide",p:["studio","planocad"],c:["PartnersPage","ProjectSidebar","ImportDialog"]},
+  {n:"CheckSquare",t:"lucide",p:["planocad"],c:["AccountHelpPage"]},
+  {n:"ChevronDown",t:"lucide",p:["studio","planocad","landing"],c:["PaymentSchedule","AiReasoning","NavigatorTree","StoryTabs","MaterialPanel","ProjectFilesPage","Header.astro","ProductHero.astro","Hero.astro"]},
+  {n:"ChevronLeft",t:"lucide",p:["studio","planocad"],c:["LadderStyleGallery","WizardNavigation","StyleGallery","ProjectGalleryDialog","ProjectStyleExamplesPage","ProjectEditorPage","ProjectDocsPage"]},
+  {n:"ChevronRight",t:"lucide",p:["studio","planocad"],c:["LadderStyleGallery","WizardNavigation","StyleGallery","ProjectGalleryDialog","AccountHelpPage","ProjectStyleExamplesPage","ProjectDocsPage","ProjectFilesPage","MaterialPanel"]},
+  {n:"ChevronUp",t:"lucide",p:["studio","planocad"],c:["PaymentSchedule","Studio3DEnhanced","StoryTabs"]},
+  {n:"Circle",t:"lucide",p:["planocad"],c:["ProjectSidebar","Toolbar","NavigatorTree","ProjectDocsPage","ProjectRenderPage","ProjectExportPage","ProjectOutbuildingsPage","ProjectZoningPage"]},
+  {n:"CircleDollarSign",t:"lucide",p:["landing"],c:["ProblemSolution.astro"]},
+  {n:"ClipboardCopy",t:"lucide",p:["landing"],c:["HowItWorks.astro"]},
+  {n:"ClipboardList",t:"lucide",p:["landing"],c:["Features.astro"]},
+  {n:"Clock",t:"lucide",p:["studio","planocad","landing"],c:["BlogCard","RelatedPosts","FeaturedPost","BlogPostLayout","NeuroPlanSection","DocumentStatusTable","DocumentUploader","CabinetPricing","ProjectFilesPage","ProjectRenderPage","ProblemSolution.astro"]},
+  {n:"Code",t:"lucide",p:["landing"],c:["Features.astro"]},
+  {n:"Cog",t:"lucide",p:["planocad"],c:["ProjectTepPage","ProjectZoningPage"]},
+  {n:"Coins",t:"lucide",p:["studio"],c:["FeaturesSection"]},
+  {n:"Compass",t:"lucide",p:["planocad"],c:["ProjectPlotPage"]},
+  {n:"Construction",t:"lucide",p:["planocad"],c:["ProjectZoningPage"]},
+  {n:"Cookie",t:"lucide",p:["studio"],c:["CookieConsent"]},
+  {n:"Copy",t:"lucide",p:["studio","planocad"],c:["NeuroPlanPage","NavigatorTree","StoryTabs","PetPalette","ReferralSection"]},
+  {n:"Cpu",t:"lucide",p:["landing"],c:["HowItWorks.astro","Features.astro"]},
+  {n:"CreditCard",t:"lucide",p:["studio","planocad"],c:["MortgageForm","RequisitesPage","DocumentStatusTable","DocumentUploader","MortgageApplicationForm","CabinetMortgage","CabinetPricing","MortgageNewApplication","AccountNotificationsPage","AccountBillingPage","DashboardPage"]},
+  {n:"Crosshair",t:"lucide",p:["planocad"],c:["ProjectEditorPage"]},
+  {n:"Crown",t:"lucide",p:["studio"],c:["CabinetPricing"]},
+  {n:"Cylinder",t:"lucide",p:["planocad"],c:["Toolbar","buildNavigatorTree"]},
+  {n:"Database",t:"lucide",p:["planocad"],c:["ProjectEditorPage"]},
+  {n:"DoorOpen",t:"lucide",p:["studio","planocad"],c:["Studio3DEnhanced","Panels","ParametersPage","Toolbar","NavigatorTree","buildNavigatorTree"]},
+  {n:"Download",t:"lucide",p:["studio","planocad"],c:["EstimateSummary","PlacementHouse","ProjectInfo","ExportDialog","MEPLegend","ReferralSection","ProjectFilesPage","ProjectEstimatePage"]},
+  {n:"Droplet",t:"lucide",p:["planocad"],c:["InfoBox","Toolbar","buildNavigatorTree"]},
+  {n:"Edit",t:"lucide",p:["studio"],c:["CustomizationCard"]},
+  {n:"Edit2",t:"lucide",p:["studio","planocad"],c:["Studio3DEnhanced","Panels","NavigatorTree"]},
+  {n:"ExternalLink",t:"lucide",p:["studio","planocad"],c:["BankCard","MortgageApplicationForm","ReferralSection"]},
+  {n:"Eye",t:"lucide",p:["studio","planocad"],c:["PlanEditor","NavigatorTree","MultiFloorPreview","FacadesView","ProjectExportPage","ProjectFilesPage","AccountBillingPage"]},
+  {n:"EyeOff",t:"lucide",p:["studio","planocad"],c:["PlanEditor","NavigatorTree","MultiFloorPreview"]},
+  {n:"File",t:"lucide",p:["planocad","landing"],c:["ImportDialog","studio.astro"]},
+  {n:"FileCheck",t:"lucide",p:["landing"],c:["QuizModal","HowItWorks.astro"]},
+  {n:"FileDown",t:"lucide",p:["planocad"],c:["DashboardPage","ProjectDocsPage","ProjectPlotPage","Toolbar","AccountSettingsPage"]},
+  {n:"FileImage",t:"lucide",p:["planocad"],c:["ImportDialog"]},
+  {n:"FileSpreadsheet",t:"lucide",p:["planocad"],c:["ProjectExportPage","ProjectEstimatePage"]},
+  {n:"FileStack",t:"lucide",p:["studio"],c:["MortgageNewApplication","MortgageApplicationDetail"]},
+  {n:"FileText",t:"lucide",p:["studio","planocad","landing"],c:["BankCard","PlanEditor","FeaturesSection","RequisitesPage","DocumentStatusTable","DocumentUploader","DocumentUploadDialog","MortgageEmptyState","NeuroPlanPage","MEPLegend","ImportDialog","ProjectDocsPage","ProjectExportPage","ProjectStylePage","ProjectFilesPage","ProjectPlotPage","ProjectOutbuildingsPage","ProjectGeneratePage","AccountBillingPage","ProblemSolution.astro","Features.astro"]},
+  {n:"FileUp",t:"lucide",p:["planocad"],c:["Toolbar","ImportDialog"]},
+  {n:"Files",t:"lucide",p:["landing"],c:["QuizModal"]},
+  {n:"Film",t:"lucide",p:["planocad"],c:["AccountHelpPage"]},
+  {n:"Filter",t:"lucide",p:["studio"],c:["CatalogFilters","CatalogGrid"]},
+  {n:"Flame",t:"lucide",p:["planocad"],c:["InfoBox","Toolbar","buildNavigatorTree"]},
+  {n:"FlipHorizontal",t:"lucide",p:["planocad"],c:["PetPalette"]},
+  {n:"Folder",t:"lucide",p:["planocad"],c:["NavigatorTree","ProjectDocsPage"]},
+  {n:"FolderOpen",t:"lucide",p:["studio"],c:["CabinetLayout"]},
+  {n:"Gamepad2",t:"lucide",p:["planocad"],c:["ProjectExportPage"]},
+  {n:"Grid2X2",t:"lucide",p:["studio","planocad"],c:["Studio3DEnhanced","Panels","Toolbar","NavigatorTree","buildNavigatorTree"]},
+  {n:"Grid3x3",t:"lucide",p:["planocad"],c:["ProjectZoningPage","ProjectLandscapingPage"]},
+  {n:"GripVertical",t:"lucide",p:["planocad"],c:["NavigatorTree"]},
+  {n:"Hammer",t:"lucide",p:["studio","planocad"],c:["LadderStyles","StyleSelectionPage","ProjectStylePage","CalculatorMocks"]},
+  {n:"Hand",t:"lucide",p:["planocad"],c:["ProjectZoningPage","ProjectLandscapingPage"]},
+  {n:"Handshake",t:"lucide",p:["studio"],c:["PartnersPage"]},
+  {n:"Hash",t:"lucide",p:["landing"],c:["QuizModal"]},
+  {n:"Heart",t:"lucide",p:["studio","landing"],c:["ProjectInfo","ProjectCard","Footer.astro"]},
+  {n:"HelpCircle",t:"lucide",p:["landing"],c:["FAQ.astro"]},
+  {n:"History",t:"lucide",p:["studio"],c:["WizardContinueBanner"]},
+  {n:"Home",t:"lucide",p:["studio","planocad","landing"],c:["StudioCanvas","PlotCard","Header","NotFoundPage","AuthPage","FeaturesSection","MortgageApplicationForm","ProjectCard","Toolbar","NavigatorTree","ProjectEditorPage","Project3DPage","ProjectTepPage","ProjectOutbuildingsPage","buildNavigatorTree","QuizModal","Products.astro"]},
+  {n:"IdCard",t:"lucide",p:["studio"],c:["DocumentStatusTable","DocumentUploader"]},
+  {n:"Image",t:"lucide",p:["planocad","landing"],c:["ProjectFilesPage","QuizModal","Products.astro"]},
+  {n:"Images",t:"lucide",p:["studio","landing"],c:["ViewToggle","QuizModal"]},
+  {n:"Info",t:"lucide",p:["studio","planocad"],c:["BankCard","MortgageCalculator","ParametersPage","NewProjectPage","ProjectTepPage"]},
+  {n:"KeyRound",t:"lucide",p:["studio"],c:["ForgotPasswordPage"]},
+  {n:"Landmark",t:"lucide",p:["planocad","landing"],c:["ProjectStylePage","Features.astro"]},
+  {n:"LayoutDashboard",t:"lucide",p:["studio"],c:["CabinetLayout"]},
+  {n:"LayoutGrid",t:"lucide",p:["studio"],c:["Studio3DEnhanced","ViewToggle"]},
+  {n:"Layers",t:"lucide",p:["studio","planocad"],c:["MortgageApplicationForm","FloorSelector","Toolbar","NavigatorTree","MultiFloorPreview","ProjectEditorPage","ProjectZoningPage","ProjectLandscapingPage","buildNavigatorTree"]},
+  {n:"Lightbulb",t:"lucide",p:["planocad"],c:["AccountBillingPage"]},
+  {n:"Link",t:"lucide",p:["planocad"],c:["ReferralSection"]},
+  {n:"Link2",t:"lucide",p:["planocad"],c:["PetPalette"]},
+  {n:"List",t:"lucide",p:["landing"],c:["Features.astro"]},
+  {n:"Loader2",t:"lucide",p:["studio","planocad"],c:["ChatPanel","Studio3DEnhanced","PlanEditor","ForgotPasswordPage","AuthPage","ContactsPage","NeuroPlanPanel","DocumentUploadDialog","PartnersPage","MortgageNewApplication","NeuroPlanDialog","ImportDialog","ReferralSection","ProjectEstimatePage","ProjectGeneratePage"]},
+  {n:"Locate",t:"lucide",p:["studio"],c:["PlotYandexMap"]},
+  {n:"Lock",t:"lucide",p:["studio","planocad"],c:["SecurityTab","LoginPage","RegisterPage","ProjectRenderPage"]},
+  {n:"LogOut",t:"lucide",p:["studio","planocad"],c:["Header","AppHeader"]},
+  {n:"Mail",t:"lucide",p:["studio","planocad","landing"],c:["ForgotPasswordPage","ConfirmEmailPage","LoginPage","RegisterPage","AccountHelpPage","ContactModal.astro","contacts.astro"]},
+  {n:"Map",t:"lucide",p:["planocad","landing"],c:["ProjectPlotPage","ProjectLandscapingPage","studio.astro"]},
+  {n:"MapPin",t:"lucide",p:["studio","planocad","landing"],c:["InfoTab","Studio3DEnhanced","PlotStep","LadderPlot","FeaturesSection","MortgageApplicationForm","ProjectLayout","NewProjectPage","ProjectStylePage","ProjectPlotPage","ProjectZoningPage","ProjectLandscapingPage","DashboardPage","studio.astro"]},
+  {n:"Maximize2",t:"lucide",p:["studio","planocad"],c:["Panels","ProjectCard","PetPalette"]},
+  {n:"Menu",t:"lucide",p:["studio","planocad","landing"],c:["LadderHeader","Header","ProjectLayout","Header.astro"]},
+  {n:"MessageCircle",t:"lucide",p:["studio","landing"],c:["ChatButton","ChatPanel","contacts.astro"]},
+  {n:"MessageSquare",t:"lucide",p:["studio","planocad","landing"],c:["ParametersPage","NeuroPlanPage","AccountHelpPage","AccountBillingPage","QuizModal"]},
+  {n:"Minus",t:"lucide",p:["planocad"],c:["ProjectZoningPage","ProjectLandscapingPage"]},
+  {n:"Monitor",t:"lucide",p:["landing"],c:["Features.astro"]},
+  {n:"MonitorCog",t:"lucide",p:["landing"],c:["QuizModal"]},
+  {n:"MoreHorizontal",t:"lucide",p:["planocad"],c:["ProjectTepPage"]},
+  {n:"MoreVertical",t:"lucide",p:["planocad"],c:["DashboardPage","ProjectFilesPage"]},
+  {n:"MousePointer2",t:"lucide",p:["planocad"],c:["Toolbar","ProjectZoningPage","ProjectLandscapingPage"]},
+  {n:"MousePointerClick",t:"lucide",p:["planocad"],c:["ReferralSection"]},
+  {n:"Move",t:"lucide",p:["planocad"],c:["PetPalette","ProjectPlotPage"]},
+  {n:"Package",t:"lucide",p:["planocad"],c:["DashboardPage","ProjectDocsPage","ProjectExportPage","Project3DPage","AccountBillingPage"]},
+  {n:"PaintBucket",t:"lucide",p:["studio"],c:["CalculatorMocks"]},
+  {n:"Paintbrush",t:"lucide",p:["studio","planocad","landing"],c:["MaterialColorPanel","WallFinishingPanel","Features.astro"]},
+  {n:"Palette",t:"lucide",p:["planocad"],c:["MaterialPanel","FacadesView","AccountNotificationsPage","AccountBillingPage","DashboardPage"]},
+  {n:"PanelLeft",t:"lucide",p:["planocad"],c:["ProjectEditorPage"]},
+  {n:"PanelTopClose",t:"lucide",p:["planocad"],c:["Project3DPage","ProjectLandscapingPage"]},
+  {n:"Paperclip",t:"lucide",p:["studio"],c:["NeuroPlanPage"]},
+  {n:"Pencil",t:"lucide",p:["studio","planocad","landing"],c:["PlotYandexMap","PetPalette","ProjectPlotPage","ProjectLandscapingPage","ProjectTepPage","ProjectGeneratePage","ProjectOutbuildingsPage","HowItWorks.astro"]},
+  {n:"PenLine",t:"lucide",p:["landing"],c:["HowItWorks.astro"]},
+  {n:"Percent",t:"lucide",p:["studio"],c:["CabinetMortgage","MortgageNewApplication"]},
+  {n:"Phone",t:"lucide",p:["studio","planocad","landing"],c:["NotFoundPage","ContactsPage","ProfileTab","AccountHelpPage","ContactModal.astro","contacts.astro"]},
+  {n:"Plug",t:"lucide",p:["planocad"],c:["ProjectPlotPage"]},
+  {n:"Plus",t:"lucide",p:["studio","planocad"],c:["Panels","RoomsList","WizardContinueBanner","CabinetProjects","CabinetMortgage","FloorSelector","StoryTabs","WallFinishingPanel","MaterialPanel","ProjectZoningPage","ProjectLandscapingPage"]},
+  {n:"PlusCircle",t:"lucide",p:["planocad"],c:["DashboardPage","ProjectTepPage","ProjectOutbuildingsPage"]},
+  {n:"Presentation",t:"lucide",p:["landing"],c:["HowItWorks.astro"]},
+  {n:"Printer",t:"lucide",p:["planocad"],c:["MEPSpecification","MEPLegend","ProjectEstimatePage"]},
+  {n:"Puzzle",t:"lucide",p:["landing"],c:["Features.astro"]},
+  {n:"RefreshCw",t:"lucide",p:["studio","planocad"],c:["WizardErrorBoundary","ErrorBoundary","ProjectEstimatePage"]},
+  {n:"Repeat",t:"lucide",p:["landing"],c:["QuizModal"]},
+  {n:"Rocket",t:"lucide",p:["studio"],c:["FeaturesSection"]},
+  {n:"RotateCcw",t:"lucide",p:["studio","planocad"],c:["Studio3DEnhanced","PlacementHouse","WizardErrorBoundary","NeuroPlanPage","ToolOptions","MaterialPanel","AccountSettingsPage","ProjectGeneratePage","ProjectZoningPage"]},
+  {n:"RotateCw",t:"lucide",p:["studio","planocad"],c:["PlacementHouse","PetPalette","Project3DPage"]},
+  {n:"Route",t:"lucide",p:["planocad"],c:["Project3DPage","ProjectLandscapingPage"]},
+  {n:"Ruler",t:"lucide",p:["studio","planocad","landing"],c:["MortgageApplicationForm","ParametersPage","Toolbar","buildNavigatorTree","DashboardPage","NewProjectPage","ProjectExportPage","ProjectStylePage","ProjectPlotPage","ProjectTepPage","ProjectZoningPage","QuizModal"]},
+  {n:"RussianRuble",t:"lucide",p:["studio"],c:["EstimateSummary","Studio3DEnhanced","ProjectInfo"]},
+  {n:"Satellite",t:"lucide",p:["planocad"],c:["ProjectPlotPage"]},
+  {n:"Save",t:"lucide",p:["studio","planocad"],c:["Studio3DEnhanced","PlanEditor","AccountProfilePage","AccountNotificationsPage","AccountSettingsPage","ProjectDocsPage","ProjectEditorPage","ProjectExportPage","ProjectRenderPage","ProjectZoningPage"]},
+  {n:"Scissors",t:"lucide",p:["planocad"],c:["NavigatorTree","PetPalette"]},
+  {n:"Search",t:"lucide",p:["studio","landing"],c:["NotFoundPage","studio.astro"]},
+  {n:"Send",t:"lucide",p:["studio","planocad"],c:["ChatPanel","NeuroPlanPanel","NeuroPlanDialog","AccountHelpPage","ProjectExportPage"]},
+  {n:"Settings",t:"lucide",p:["studio","planocad"],c:["Studio3DEnhanced","Header","ToolOptions"]},
+  {n:"Settings2",t:"lucide",p:["studio"],c:["Panels"]},
+  {n:"Share2",t:"lucide",p:["studio"],c:["CustomizationCard"]},
+  {n:"Shield",t:"lucide",p:["studio","planocad"],c:["Header","ProjectLandscapingPage"]},
+  {n:"ShieldCheck",t:"lucide",p:["studio","landing"],c:["CabinetPricing","ProblemSolution.astro"]},
+  {n:"SkipForward",t:"lucide",p:["studio"],c:["PlotStep","LadderPlot"]},
+  {n:"SlidersHorizontal",t:"lucide",p:["landing"],c:["Features.astro"]},
+  {n:"Snowflake",t:"lucide",p:["planocad"],c:["InfoBox","buildNavigatorTree"]},
+  {n:"Sparkles",t:"lucide",p:["studio","planocad","landing"],c:["VariantsStep","LadderVariants","ComparisonV2","LadderStyles","StyleSelectionPage","AccountBillingPage","ProjectRenderPage","Products.astro"]},
+  {n:"Square",t:"lucide",p:["studio","planocad"],c:["PromptInput","Toolbar","NavigatorTree","buildNavigatorTree"]},
+  {n:"SquareStack",t:"lucide",p:["planocad"],c:["ProjectTepPage"]},
+  {n:"Star",t:"lucide",p:["studio","planocad"],c:["LadderStyles","StyleSelectionPage","AccountBillingPage","ProjectGeneratePage"]},
+  {n:"Target",t:"lucide",p:["studio"],c:["FeaturesSection","AboutPage"]},
+  {n:"Tent",t:"lucide",p:["planocad"],c:["Project3DPage","ProjectOutbuildingsPage"]},
+  {n:"ThermometerSun",t:"lucide",p:["studio"],c:["LadderStyles","StyleSelectionPage"]},
+  {n:"ThumbsDown",t:"lucide",p:["studio"],c:["NeuroPlanPage"]},
+  {n:"ThumbsUp",t:"lucide",p:["studio"],c:["NeuroPlanPage"]},
+  {n:"Trash2",t:"lucide",p:["studio","planocad"],c:["Panels","RoomsList","NeuroPlanPanel","CustomizationCard","DocumentStatusTable","NeuroPlanDialog","NavigatorTree","FloorSelector","PetPalette","AccountSettingsPage","MaterialPanel","ReferralSection","ProjectFilesPage","ProjectTepPage"]},
+  {n:"TrendingUp",t:"lucide",p:["studio","planocad"],c:["MortgageResult","AboutPage","Toolbar","ProjectStylePage","buildNavigatorTree"]},
+  {n:"Unlock",t:"lucide",p:["planocad"],c:["ProjectRenderPage"]},
+  {n:"Upload",t:"lucide",p:["studio","planocad"],c:["PlanEditor","DocumentUploader","DocumentUploadDialog","ProjectRenderPage","ProjectFilesPage"]},
+  {n:"User",t:"lucide",p:["studio"],c:["ChatMessage","BlogPostLayout","Header"]},
+  {n:"UserCog",t:"lucide",p:["studio"],c:["ChatPanel"]},
+  {n:"Users",t:"lucide",p:["studio","planocad"],c:["MortgageForm","AboutPage","ProjectStylePage","AccountBillingPage","ReferralSection"]},
+  {n:"Video",t:"lucide",p:["planocad","landing"],c:["Project3DPage","Features.astro"]},
+  {n:"Wallet",t:"lucide",p:["studio"],c:["MortgageForm"]},
+  {n:"Wand2",t:"lucide",p:["studio"],c:["CTASection"]},
+  {n:"Warehouse",t:"lucide",p:["planocad"],c:["Project3DPage","ProjectOutbuildingsPage"]},
+  {n:"Waves",t:"lucide",p:["planocad"],c:["InfoBox","buildNavigatorTree"]},
+  {n:"Wind",t:"lucide",p:["planocad"],c:["InfoBox","Toolbar","buildNavigatorTree"]},
+  {n:"Wrench",t:"lucide",p:["landing"],c:["Features.astro"]},
+  {n:"X",t:"lucide",p:["studio","planocad"],c:["ChatPanel","PlotYandexMap","Modal","LadderHeader","Header","PlanEditor","CookieConsent","NeuroPlanPanel","ProjectGalleryDialog","ComparisonV2","NeuroPlanDialog","WallPropertiesPanel","ImportDialog","InfoBox","WallFinishingPanel","ProjectStyleExamplesPage","ProjectFilesPage","AccountBillingPage","ReferralSection","ProjectOutbuildingsPage","ProjectLandscapingPage","ProjectPlotPage","ProjectRenderPage","DocumentUploadDialog"]},
+  {n:"XCircle",t:"lucide",p:["studio"],c:["BankCard","ConfirmEmailPage"]},
+  {n:"Zap",t:"lucide",p:["studio","planocad","landing"],c:["NeuroPlanSection","CabinetPricing","InfoBox","Toolbar","buildNavigatorTree","ProblemSolution.astro","Features.astro"]},
+
+  // Image files
+  {n:"social-telegram.png",t:"image",p:["landing","studio"],c:["Footer.astro","contacts.astro","ContactsPage","Footer"]},
+  {n:"social-vk.png",t:"image",p:["landing","studio"],c:["Footer.astro","contacts.astro","ContactsPage","Footer"]},
+  {n:"social-max.png",t:"image",p:["landing"],c:["Footer.astro","contacts.astro"]},
+  {n:"social-dzen.png",t:"image",p:["landing","studio"],c:["Footer.astro","contacts.astro","ContactsPage","Footer"]},
+  {n:"max-logo.png",t:"image",p:["planocad"],c:["max-logo.tsx"]},
+  {n:"neuroplan-logo.png",t:"image",p:["studio"],c:["NeuroPlanPage"]},
 ];
 
-const LEVEL_LABELS = { core:{label:'Общие (3/3)',class:'level-core'}, extended:{label:'Studio+Admin',class:'level-extended'}, specific:{label:'Studio only',class:'level-specific'} };
-const ACTION_MAP = { core:'&#10003; В @planometrica/ui', extended:'&#10003; В @planometrica/ui', specific:'Локальный компонент' };
+allIcons = iconsData.sort((a, b) => a.n.localeCompare(b.n));
+allIcons.forEach(i => { i.isCommon = i.p.length > 1; });
 
-// ==================== AUDIT TABLE ====================
-function cellHTML(val) {
-  if (val === true) return '<td class="text-center px-3 py-2 cell-yes"><span class="font-medium text-xs">Local</span></td>';
-  if (val === false) return '<td class="text-center px-3 py-2 cell-no">&mdash;</td>';
-  if (val === 'reexport') return '<td class="text-center px-3 py-2 cell-reexport"><span class="font-medium text-xs">Re-exp</span></td>';
-  return '<td class="text-center px-3 py-2 cell-no">&mdash;</td>';
+const sets = {
+  all: allIcons,
+  common: allIcons.filter(i => i.isCommon),
+  studio: allIcons.filter(i => i.p.includes('studio')),
+  planocad: allIcons.filter(i => i.p.includes('planocad')),
+  landing: allIcons.filter(i => i.p.includes('landing')),
+};
+
+document.getElementById('stat-total').textContent = sets.all.length;
+document.getElementById('stat-common').textContent = sets.common.length;
+document.getElementById('stat-studio').textContent = sets.studio.length;
+document.getElementById('stat-planocad').textContent = sets.planocad.length;
+document.getElementById('stat-landing').textContent = sets.landing.length;
+
+// Build icon preview HTML
+function getIconPreview(item, size) {
+  const cls = size === 'large' ? 'grid-icon' : 'icon-preview';
+  const w = size === 'large' ? 28 : 20;
+
+  if (item.t === 'lucide') {
+    const kebab = toKebab(item.n);
+    return `<div class="${cls}"><i data-lucide="${kebab}" style="width:${w}px;height:${w}px;"></i></div>`;
+  }
+  if (item.t === 'image') {
+    return `<div class="${cls} no-icon" style="font-size:9px;">${item.n.split('.')[0]}</div>`;
+  }
+  return `<div class="${cls} no-icon">?</div>`;
 }
 
-function renderTable(filter) {
-  const tbody = document.getElementById('tableBody');
-  const filtered = filter === 'all' ? COMPONENTS : filter === 'ds' ? COMPONENTS.filter(c => c.ds) : COMPONENTS.filter(c => c.level === filter);
-  tbody.innerHTML = filtered.map(c => {
-    const lev = LEVEL_LABELS[c.level];
-    return `<tr class="border-b border-gray-100 comp-row" onclick="openModal('${c.name}')">
-      <td class="px-4 py-2 font-mono text-xs font-medium">${c.name}</td>
-      <td class="text-center px-3 py-2 ${c.ds ? 'cell-migrated' : 'cell-no'}">${c.ds ? '&#10003;' : '&mdash;'}</td>
-      ${cellHTML(c.studio)}${cellHTML(c.planocad)}${cellHTML(c.admin)}${cellHTML(c.landing)}
-      <td class="px-4 py-2"><span class="level-chip ${lev.class}">${lev.label}</span></td>
-      <td class="px-4 py-2 text-xs text-gray-500">${ACTION_MAP[c.level]}</td>
-    </tr>`;
-  }).join('');
+function badgeType(t) {
+  if (t==='lucide') return '<span class="badge badge-lucide">lucide</span>';
+  if (t==='image') return '<span class="badge badge-image">image</span>';
+  return '';
+}
+function badgeProducts(ps) {
+  return ps.map(p => {
+    const cl = p==='studio'?'badge-studio':p==='planocad'?'badge-planocad':'badge-landing';
+    const lb = p==='studio'?'Студия':p==='planocad'?'ПланоCAD':'Лендинг';
+    return '<span class="badge '+cl+'">'+lb+'</span>';
+  }).join(' ');
 }
 
-function filterTable(filter) {
-  document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('filter-active'); if(b.dataset.filter===filter) b.classList.add('filter-active'); });
-  renderTable(filter);
-}
-
-// ==================== GALLERY ====================
-function renderGallery(filter) {
-  const container = document.getElementById('galleryContainer');
-  const filtered = filter === 'all' ? COMPONENTS : filter === 'ds' ? COMPONENTS.filter(c => c.ds) : COMPONENTS.filter(c => c.level === filter);
-  container.innerHTML = filtered.map(c => {
-    const lev = LEVEL_LABELS[c.level];
-    return `<div class="bg-white rounded-lg shadow-sm border mb-6 overflow-hidden" id="gal-${c.name}">
-      <div class="flex items-center justify-between px-6 py-3 border-b bg-gray-50">
-        <div class="flex items-center gap-3">
-          <span class="font-mono text-sm font-semibold">${c.name}</span>
-          <span class="level-chip ${lev.class}">${lev.label}</span>
-          <span class="text-xs text-gray-400">${c.radix}</span>
-        </div>
-        <button onclick="openModal('${c.name}')" class="text-xs text-brand-600 hover:underline">Подробнее</button>
-      </div>
-      <div class="grid md:grid-cols-2">
-        <div class="p-6 border-r">
-          <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-3">Preview</div>
-          <div class="preview-box">${c.preview}</div>
-        </div>
-        <div class="p-6">
-          <div class="text-[10px] text-gray-400 uppercase tracking-wider mb-3">Usage</div>
-          <div class="code-block"><pre><code class="language-typescript">${escapeHtml(c.code)}</code></pre></div>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-  document.querySelectorAll('.code-block code').forEach(el => hljs.highlightElement(el));
-}
-
-function filterGallery(filter) {
-  document.querySelectorAll('.gal-btn').forEach(b => { b.classList.remove('filter-active'); if(b.dataset.gfilter===filter) b.classList.add('filter-active'); });
-  renderGallery(filter);
-}
-
-// ==================== MODAL ====================
-function openModal(name) {
-  const c = COMPONENTS.find(x => x.name === name);
-  if (!c) return;
-  const lev = LEVEL_LABELS[c.level];
-  document.getElementById('modalHeader').innerHTML = `
-    <div class="flex items-center gap-3">
-      <span class="font-mono text-lg font-bold">${c.name}</span>
-      <span class="level-chip ${lev.class}">${lev.label}</span>
-    </div>
-    <button onclick="closeModal()" class="text-2xl text-gray-400 hover:text-gray-600 leading-none">&times;</button>`;
-
-  document.getElementById('modalBody').innerHTML = `
-    <p class="text-gray-600 mb-6">${c.desc}</p>
-    <div class="grid lg:grid-cols-2 gap-6">
-      <div>
-        <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Preview</div>
-        <div class="preview-box mb-4">${c.preview}</div>
-        <div class="text-xs text-gray-400 uppercase tracking-wider mb-2">Свойства</div>
-        <table class="text-xs w-full">
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">Radix / Dep</td><td><code class="bg-gray-100 px-1 rounded">${c.radix}</code></td></tr>
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">@planometrica/ui</td><td>${c.ds ? '<span class="text-green-600 font-medium">&#10003; В пакете</span>' : '<span class="text-yellow-600">Не мигрирован</span>'}</td></tr>
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">Studio</td><td>${c.studio === 'reexport' ? '<span class="text-indigo-600">Re-export</span>' : c.studio ? 'Local copy' : '—'}</td></tr>
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">PlanoCAD</td><td>${c.planocad === 'reexport' ? '<span class="text-indigo-600">Re-export</span>' : c.planocad ? 'Local copy' : '—'}</td></tr>
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">Admin</td><td>${c.admin === 'reexport' ? '<span class="text-indigo-600">Re-export</span>' : c.admin ? 'Local copy' : '—'}</td></tr>
-          <tr><td class="py-1 pr-4 text-gray-500 font-medium">Действие</td><td><strong>${ACTION_MAP[c.level]}</strong></td></tr>
-        </table>
-      </div>
-      <div>
-        <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Code Example</div>
-        <div class="code-block"><pre><code class="language-typescript">${escapeHtml(c.code)}</code></pre></div>
-        ${c.ds ? `<div class="mt-4"><div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Re-export wrapper</div><div class="code-block"><pre><code class="language-typescript">${escapeHtml(`// src/components/ui/${c.name}.tsx\nexport { ${capitalize(c.name)} } from '@planometrica/ui'`)}</code></pre></div></div>` : ''}
-      </div>
-    </div>`;
-
-  document.getElementById('modal').classList.remove('hidden');
-  document.querySelectorAll('#modalBody code').forEach(el => hljs.highlightElement(el));
-}
-
-function closeModal() { document.getElementById('modal').classList.add('hidden'); }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-// ==================== SECTIONS ====================
-function showSection(section) {
-  document.getElementById('section-audit').classList.toggle('hidden', section !== 'audit');
-  document.getElementById('section-gallery').classList.toggle('hidden', section !== 'gallery');
-  document.querySelectorAll('.section-tab').forEach(t => {
-    if (t.dataset.section === section) { t.className = 'section-tab px-4 py-2 rounded-t-lg text-sm font-medium bg-white text-brand-600'; }
-    else { t.className = 'section-tab px-4 py-2 rounded-t-lg text-sm font-medium bg-brand-500/50 text-white/80 hover:bg-brand-500/70'; }
+function renderTable(icons) {
+  if (!icons.length) return '<p class="empty-msg">Ничего не найдено</p>';
+  let h = '<table><thead><tr><th style="width:250px;">Иконка</th><th>Тип</th><th>Продукты</th><th>Компоненты</th></tr></thead><tbody>';
+  icons.forEach(i => {
+    const ct = i.c.map(c => '<span class="component-tag">'+c+'</span>').join('');
+    h += '<tr><td><div class="icon-cell">'+getIconPreview(i,'small')+'<span class="icon-name">'+i.n+'</span></div></td><td>'+badgeType(i.t)+'</td><td>'+badgeProducts(i.p)+'</td><td><div class="component-list">'+ct+'</div></td></tr>';
   });
-  if (section === 'gallery' && !document.getElementById('galleryContainer').innerHTML) renderGallery('all');
+  return h + '</tbody></table>';
 }
 
-// ==================== UTILS ====================
-function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function capitalize(s) { return s.split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join(''); }
-
-// ==================== WAVES ====================
-function renderWaves() {
-  ['core','extended','specific'].forEach((level,i) => {
-    const el = document.getElementById('wave'+(i+1));
-    const cls = ['bg-green-100 text-green-700','bg-yellow-100 text-yellow-700','bg-gray-100 text-gray-600'][i];
-    COMPONENTS.filter(c=>c.level===level).forEach(c => {
-      el.innerHTML += `<span class="inline-block text-[11px] ${cls} px-2 py-0.5 rounded font-mono cursor-pointer hover:opacity-70" onclick="openModal('${c.name}')">${c.name}</span>`;
-    });
+function renderGrid(icons) {
+  if (!icons.length) return '<p class="empty-msg">Ничего не найдено</p>';
+  let h = '<div class="grid-view">';
+  icons.forEach(i => {
+    h += '<div class="grid-card">'+getIconPreview(i,'large')+'<div class="grid-name">'+i.n+'</div><div class="grid-badges">'+badgeProducts(i.p)+'</div><div class="grid-components">'+i.c.join(', ')+'</div></div>';
   });
+  return h + '</div>';
 }
 
-// ==================== INIT ====================
-renderTable('all');
-renderWaves();
+const container = document.getElementById('table-container');
+const tabs = document.querySelectorAll('.tab');
+const viewBtns = document.querySelectorAll('.view-btn');
+let currentTab = 'all', searchQuery = '', currentView = 'grid';
+
+function render() {
+  let icons = sets[currentTab] || sets.all;
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    icons = icons.filter(i => i.n.toLowerCase().includes(q) || i.c.some(c => c.toLowerCase().includes(q)));
+  }
+  container.innerHTML = currentView === 'grid' ? renderGrid(icons) : renderTable(icons);
+  // Re-render lucide icons
+  if (window.lucide) lucide.createIcons();
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.className = 'tab');
+    const tn = tab.dataset.tab;
+    tab.classList.add(tn==='studio'?'active-studio':tn==='planocad'?'active-planocad':tn==='landing'?'active-landing':tn==='common'?'active-common':'active');
+    currentTab = tn;
+    render();
+  });
+});
+
+viewBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    viewBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentView = btn.dataset.view;
+    render();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => { searchQuery = e.target.value; render(); });
+
+// Initial render
+render();
 </script>
 </body>
 </html>
