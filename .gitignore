@@ -1,3 +1,16 @@
 node_modules/
 *.tsbuildinfo
 .DS_Store
+
+# Design / print / marketing assets — хранятся локально, не в истории пакета
+Fonts/
+export-rvf/
+images/
+*.tiff
+render-front.png
+render-house.png
+pitch deck.png
+sber-unity.png
+демо.png
+лендинг.png
+студия.png
