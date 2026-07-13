@@ -34,8 +34,8 @@ src/
   tailwind.preset.ts        # Tailwind CSS preset (colors, fonts, animations)
   hooks/
     use-toast.ts            # Toast state management
-    use-mobile.ts           # useIsMobile() responsive hook
-  components/ui/            # 49 shadcn/ui components (see list below)
+    use-mobile.tsx          # useIsMobile() responsive hook
+  components/ui/            # 49 components: 48 shadcn/ui + PlanometricaLogo (see list below)
   assets/
     logos/                  # SVG logos (primary, inverse-white, inverse-transparent)
     social/                 # Social media icons (telegram, vk, max, dzen)
@@ -95,6 +95,8 @@ export default {
 // main.tsx or layout.tsx
 import '@planometrica/ui/styles'
 ```
+
+`globals.css` also loads the brand fonts (Manrope + Unbounded) from Google Fonts via `@import` — no extra font setup is needed in the consuming project. JetBrains Mono is not bundled; it falls back to locally installed monospace fonts.
 
 ### 3. Use Components
 
@@ -215,7 +217,7 @@ The preset configures:
 
 - **Colors** — brand palette + CSS variable-based semantic colors (light/dark)
 - **Fonts** — Manrope (body), Unbounded (logo), JetBrains Mono (code)
-- **Animations** — accordion, fade-in, slide-in, float, shimmer, shake, scale-in
+- **Animations** — accordion-down/up, float, shimmer, shake, scale-in, fade-in, fade-in-up, slide-in-right, slide-in-left, pulse, spin
 - **Shadows** — elevation-1 through elevation-4
 - **Spacing** — extended scale (18, 88, 128)
 - **Border radius** — CSS variable-based (lg, md, sm)
@@ -315,6 +317,20 @@ SVG files available as direct imports:
 import logoSrc from '@planometrica/ui/logos/primary'
 ```
 
+## Design Sources
+
+Beyond the npm package, the repository stores brand/design sources:
+
+| Asset | Tracked in git | Notes |
+|---|---|---|
+| `planometrica-design-system.pen` | ✅ | Design system source ([Pencil](https://pencil.dev) file) |
+| `landing-pro.pen` | ✅ | Landing PRO design source |
+| `макеты раздатки.pen` | ✅ | Print handout layouts |
+| `Logo PLM.ai`, `Логотип Планометрика.{svg,png,jpg}`, `*.emf` | ✅ | Logo sources (vector + raster) |
+| `Fonts/`, `images/`, `export-rvf/`, `*.tiff`, renders, screenshots | ❌ | Local-only, see `.gitignore` |
+
+`.pen` files are encrypted Pencil documents — open them with the Pencil editor (or Pencil MCP tools), not as plain text.
+
 ## Development
 
 ```bash
@@ -327,7 +343,7 @@ npm run dev
 # Type check
 npm run typecheck
 
-# Lint
+# Lint (ESLint 9 flat config — eslint.config.js)
 npm run lint
 ```
 

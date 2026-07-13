@@ -1,4 +1,4 @@
-# Planometrica Frontend Instructions
+# @planometrica/ui — Instructions
 
 ## Core Behavior
 
@@ -23,58 +23,45 @@ DO NOT:
 - Invent Tailwind classes or component props
 - Suggest alternatives unless asked
 
-## Response Format
+## What This Repo Is
 
-```tsx
-[code changes only]
-```
-
-Changed: [1-line summary]
-
-If unsure: "I need to see [X] to answer accurately."
+Shared UI library **`@planometrica/ui`** — the single source of truth for the visual layer of all Planometrica products (Studio, PlanoCAD, Landing). It is a **library**, not an application: no routing, no app state, no Konva/Three.js here.
 
 ## Tech Stack
 
-### Framework
-- React 18 + TypeScript
-- Functional components with hooks only
-- Konva for 2D canvas editor
+### Build & Module Format
+- **tsup** (ESM only for components/icons; ESM + CJS for the Tailwind preset)
+- Entry points: `src/index.ts`, `src/icons/index.ts`, `src/tailwind.preset.ts`
+- `dist/` is **committed** (git-dependency support) — rebuild (`npm run build`) before committing any `src/` change
+- React 18 + TypeScript, functional components only
 
 ### Styling
-- **Tailwind CSS** — use existing utility classes
-- Responsive: mobile-first (sm:, md:, lg:, xl:)
+- **Tailwind CSS 3.4** via the package preset (`src/tailwind.preset.ts`)
+- CSS custom properties for theming (light/dark) in `src/styles/globals.css`
+- No CSS-in-JS
 
-### Design System Colors (Planometrica Brand)
+### Design Tokens (`src/tokens/`)
 - Primary: `#0A4C76` — brand blue (`brand-primary`, `primary`)
-- Secondary: `#1A7BB3` — accent blue (`brand-secondary`, `secondary`)
-- Accent: `#92CF93` — green accent (`brand-green`, `accent`)
+- Secondary: `#1A7BB3` — light blue (`brand-secondary`)
+- Success: `#92CF93` — green (`brand-green`)
 - Warning: `#F59E0B` — orange (`brand-orange`)
+- Fonts: Manrope (body), Unbounded (logo/display), JetBrains Mono (code)
 
 ### Components
-- **shadcn/ui** (Radix-based)
-- Import from: `@/components/ui/button`, `@/components/ui/card`, etc.
-- Don't create custom components if shadcn/ui has one
+- **shadcn/ui pattern** (Radix-based), live in `src/components/ui/`
+- Internal imports are **relative**: `import { cn } from '../../lib/utils'`
+- Consumers import from the package root: `import { Button } from '@planometrica/ui'`
+- New components must be re-exported from `src/index.ts`
 
 ### Icons
-- **Lucide React** only
-- Import: `import { IconName } from 'lucide-react'`
-- Size: `className="w-4 h-4"` or `size={16}`
-
-### 3D
-- Three.js via **@react-three/fiber**
-- Helpers: **@react-three/drei**
-
-### Standard Imports
-```tsx
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { ChevronRight, Settings } from 'lucide-react'
-import { useState, useEffect } from 'react'
-```
+- **Lucide React** only, centralized in `src/icons/index.ts`
+- Domain semantics via aliases (`WindowIcon`, `DoorIcon`, …) — change the mapping there, never hardcode a different Lucide icon for a domain concept in a consumer
+- New commonly-used icons: add the re-export to `src/icons/index.ts`
 
 ## Self-Check
 
 - Answered exactly what was asked?
 - Only modified requested elements?
 - All classes/components exist?
+- Re-exported new public API from `src/index.ts`?
 - Response is minimal?
