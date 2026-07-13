@@ -1,3 +1,141 @@
+// src/tokens/typography.ts
+var MANROPE_STACK = ["Manrope", "system-ui", "sans-serif"];
+var JETBRAINS_MONO_STACK = ["JetBrains Mono", "Fira Code", "monospace"];
+var fonts = {
+  // Font Families
+  families: {
+    heading: MANROPE_STACK,
+    body: JETBRAINS_MONO_STACK,
+    logo: ["Unbounded", "sans-serif"],
+    /** @deprecated legacy alias, use `heading` */
+    sans: MANROPE_STACK,
+    mono: JETBRAINS_MONO_STACK
+  },
+  // Font Sizes (rem based)
+  sizes: {
+    xs: "0.75rem",
+    // 12px
+    sm: "0.875rem",
+    // 14px
+    base: "1rem",
+    // 16px
+    lg: "1.125rem",
+    // 18px
+    xl: "1.25rem",
+    // 20px
+    "2xl": "1.5rem",
+    // 24px
+    "3xl": "1.875rem",
+    // 30px
+    "4xl": "2.25rem",
+    // 36px
+    "5xl": "3rem",
+    // 48px
+    "6xl": "3.75rem"
+    // 60px
+  },
+  // Line Heights
+  lineHeights: {
+    none: "1",
+    tight: "1.25",
+    snug: "1.375",
+    normal: "1.5",
+    relaxed: "1.625",
+    loose: "2"
+  },
+  // Font Weights
+  weights: {
+    thin: "100",
+    extralight: "200",
+    light: "300",
+    normal: "400",
+    medium: "500",
+    semibold: "600",
+    bold: "700",
+    extrabold: "800",
+    black: "900"
+  },
+  // Letter Spacing
+  letterSpacing: {
+    tighter: "-0.05em",
+    tight: "-0.025em",
+    normal: "0em",
+    wide: "0.025em",
+    wider: "0.05em",
+    widest: "0.1em"
+  }
+};
+var HEADING_FONT_FAMILY = fonts.families.heading.join(", ");
+var BODY_FONT_FAMILY = fonts.families.body.join(", ");
+var textStyles = {
+  // Headings — Manrope
+  h1: {
+    fontFamily: HEADING_FONT_FAMILY,
+    fontSize: fonts.sizes["4xl"],
+    fontWeight: fonts.weights.bold,
+    lineHeight: fonts.lineHeights.tight,
+    letterSpacing: fonts.letterSpacing.tight
+  },
+  h2: {
+    fontFamily: HEADING_FONT_FAMILY,
+    fontSize: fonts.sizes["3xl"],
+    fontWeight: fonts.weights.semibold,
+    lineHeight: fonts.lineHeights.tight,
+    letterSpacing: fonts.letterSpacing.tight
+  },
+  h3: {
+    fontFamily: HEADING_FONT_FAMILY,
+    fontSize: fonts.sizes["2xl"],
+    fontWeight: fonts.weights.semibold,
+    lineHeight: fonts.lineHeights.snug
+  },
+  h4: {
+    fontFamily: HEADING_FONT_FAMILY,
+    fontSize: fonts.sizes.xl,
+    fontWeight: fonts.weights.semibold,
+    lineHeight: fonts.lineHeights.snug
+  },
+  // Body text — JetBrains Mono
+  body: {
+    fontFamily: BODY_FONT_FAMILY,
+    fontSize: fonts.sizes.base,
+    fontWeight: fonts.weights.normal,
+    lineHeight: fonts.lineHeights.normal
+  },
+  bodySmall: {
+    fontFamily: BODY_FONT_FAMILY,
+    fontSize: fonts.sizes.sm,
+    fontWeight: fonts.weights.normal,
+    lineHeight: fonts.lineHeights.normal
+  },
+  bodyLarge: {
+    fontFamily: BODY_FONT_FAMILY,
+    fontSize: fonts.sizes.lg,
+    fontWeight: fonts.weights.normal,
+    lineHeight: fonts.lineHeights.relaxed
+  },
+  // Lead text
+  lead: {
+    fontFamily: BODY_FONT_FAMILY,
+    fontSize: fonts.sizes.xl,
+    fontWeight: fonts.weights.normal,
+    lineHeight: fonts.lineHeights.relaxed
+  },
+  // Caption
+  caption: {
+    fontFamily: BODY_FONT_FAMILY,
+    fontSize: fonts.sizes.xs,
+    fontWeight: fonts.weights.medium,
+    lineHeight: fonts.lineHeights.normal,
+    letterSpacing: fonts.letterSpacing.wide
+  },
+  // Code
+  code: {
+    fontFamily: fonts.families.mono.join(", "),
+    fontSize: fonts.sizes.sm
+  }
+};
+
 // src/tailwind.preset.ts
 var planometricaPreset = {
   darkMode: ["class"],
@@ -89,13 +227,15 @@ var planometricaPreset = {
         sm: "calc(var(--radius) - 4px)"
       },
       // Font Families — brand canon: Unbounded только логотип,
-      // Manrope только заголовки, JetBrains Mono — основной текст
+      // Manrope только заголовки, JetBrains Mono — основной текст.
+      // Стеки — из tokens/typography (единый источник истины)
       fontFamily: {
-        heading: ["Manrope", "system-ui", "sans-serif"],
-        body: ["JetBrains Mono", "Fira Code", "monospace"],
-        logo: ["Unbounded", "sans-serif"],
-        sans: ["Manrope", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "Fira Code", "monospace"]
+        heading: [...fonts.families.heading],
+        body: [...fonts.families.body],
+        logo: [...fonts.families.logo],
+        // legacy алиас heading — см. tokens/typography
+        sans: [...fonts.families.heading],
+        mono: [...fonts.families.mono]
       },
       // Animations
       keyframes: {

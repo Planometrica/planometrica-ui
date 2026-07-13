@@ -17,6 +17,8 @@
 
 import type { Config } from 'tailwindcss'
 
+import { fonts } from './tokens/typography'
+
 const planometricaPreset: Partial<Config> = {
   darkMode: ['class'],
   theme: {
@@ -113,13 +115,15 @@ const planometricaPreset: Partial<Config> = {
       },
 
       // Font Families — brand canon: Unbounded только логотип,
-      // Manrope только заголовки, JetBrains Mono — основной текст
+      // Manrope только заголовки, JetBrains Mono — основной текст.
+      // Стеки — из tokens/typography (единый источник истины)
       fontFamily: {
-        heading: ['Manrope', 'system-ui', 'sans-serif'],
-        body: ['JetBrains Mono', 'Fira Code', 'monospace'],
-        logo: ['Unbounded', 'sans-serif'],
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        heading: [...fonts.families.heading],
+        body: [...fonts.families.body],
+        logo: [...fonts.families.logo],
+        // legacy алиас heading — см. tokens/typography
+        sans: [...fonts.families.heading],
+        mono: [...fonts.families.mono],
       },
 
       // Animations

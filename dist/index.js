@@ -174,17 +174,17 @@ var hslColors = {
 };
 
 // src/tokens/typography.ts
+var MANROPE_STACK = ["Manrope", "system-ui", "sans-serif"];
+var JETBRAINS_MONO_STACK = ["JetBrains Mono", "Fira Code", "monospace"];
 var fonts = {
-  // Font Families — brand canon:
-  // Unbounded — только нейминг «Планометрика», Manrope — только заголовки,
-  // JetBrains Mono — основной текст
+  // Font Families
   families: {
-    heading: ["Manrope", "system-ui", "sans-serif"],
-    body: ["JetBrains Mono", "Fira Code", "monospace"],
+    heading: MANROPE_STACK,
+    body: JETBRAINS_MONO_STACK,
     logo: ["Unbounded", "sans-serif"],
     /** @deprecated legacy alias, use `heading` */
-    sans: ["Manrope", "system-ui", "sans-serif"],
-    mono: ["JetBrains Mono", "Fira Code", "monospace"]
+    sans: MANROPE_STACK,
+    mono: JETBRAINS_MONO_STACK
   },
   // Font Sizes (rem based)
   sizes: {
@@ -240,63 +240,65 @@ var fonts = {
     widest: "0.1em"
   }
 };
+var HEADING_FONT_FAMILY = fonts.families.heading.join(", ");
+var BODY_FONT_FAMILY = fonts.families.body.join(", ");
 var textStyles = {
   // Headings — Manrope
   h1: {
-    fontFamily: fonts.families.heading.join(", "),
+    fontFamily: HEADING_FONT_FAMILY,
     fontSize: fonts.sizes["4xl"],
     fontWeight: fonts.weights.bold,
     lineHeight: fonts.lineHeights.tight,
     letterSpacing: fonts.letterSpacing.tight
   },
   h2: {
-    fontFamily: fonts.families.heading.join(", "),
+    fontFamily: HEADING_FONT_FAMILY,
     fontSize: fonts.sizes["3xl"],
     fontWeight: fonts.weights.semibold,
     lineHeight: fonts.lineHeights.tight,
     letterSpacing: fonts.letterSpacing.tight
   },
   h3: {
-    fontFamily: fonts.families.heading.join(", "),
+    fontFamily: HEADING_FONT_FAMILY,
     fontSize: fonts.sizes["2xl"],
     fontWeight: fonts.weights.semibold,
     lineHeight: fonts.lineHeights.snug
   },
   h4: {
-    fontFamily: fonts.families.heading.join(", "),
+    fontFamily: HEADING_FONT_FAMILY,
     fontSize: fonts.sizes.xl,
     fontWeight: fonts.weights.semibold,
     lineHeight: fonts.lineHeights.snug
   },
   // Body text — JetBrains Mono
   body: {
-    fontFamily: fonts.families.body.join(", "),
+    fontFamily: BODY_FONT_FAMILY,
     fontSize: fonts.sizes.base,
     fontWeight: fonts.weights.normal,
     lineHeight: fonts.lineHeights.normal
   },
   bodySmall: {
-    fontFamily: fonts.families.body.join(", "),
+    fontFamily: BODY_FONT_FAMILY,
     fontSize: fonts.sizes.sm,
     fontWeight: fonts.weights.normal,
     lineHeight: fonts.lineHeights.normal
   },
   bodyLarge: {
-    fontFamily: fonts.families.body.join(", "),
+    fontFamily: BODY_FONT_FAMILY,
     fontSize: fonts.sizes.lg,
     fontWeight: fonts.weights.normal,
     lineHeight: fonts.lineHeights.relaxed
   },
   // Lead text
   lead: {
-    fontFamily: fonts.families.body.join(", "),
+    fontFamily: BODY_FONT_FAMILY,
     fontSize: fonts.sizes.xl,
     fontWeight: fonts.weights.normal,
     lineHeight: fonts.lineHeights.relaxed
   },
   // Caption
   caption: {
-    fontFamily: fonts.families.body.join(", "),
+    fontFamily: BODY_FONT_FAMILY,
     fontSize: fonts.sizes.xs,
     fontWeight: fonts.weights.medium,
     lineHeight: fonts.lineHeights.normal,
@@ -502,7 +504,7 @@ var AlertTitle = React34.forwardRef(({ className, ...props }, ref) => /* @__PURE
   "h5",
   {
     ref,
-    className: cn("mb-1 font-medium leading-none tracking-tight", className),
+    className: cn("mb-1 font-heading font-medium leading-none tracking-tight", className),
     ...props
   }
 ));
@@ -619,7 +621,7 @@ var AlertDialogTitle = React34.forwardRef(({ className, ...props }, ref) => /* @
   AlertDialogPrimitive.Title,
   {
     ref,
-    className: cn("text-lg font-semibold", className),
+    className: cn("font-heading text-lg font-semibold", className),
     ...props
   }
 ));
@@ -1046,7 +1048,7 @@ var CardTitle = React34.forwardRef(({ className, ...props }, ref) => /* @__PURE_
   {
     ref,
     className: cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "font-heading text-2xl font-semibold leading-none tracking-tight",
       className
     ),
     ...props
@@ -1393,7 +1395,7 @@ var DialogTitle = React34.forwardRef(({ className, ...props }, ref) => /* @__PUR
   {
     ref,
     className: cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "font-heading text-lg font-semibold leading-none tracking-tight",
       className
     ),
     ...props
@@ -1706,7 +1708,7 @@ var DrawerTitle = React34.forwardRef(({ className, ...props }, ref) => /* @__PUR
   {
     ref,
     className: cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "font-heading text-lg font-semibold leading-none tracking-tight",
       className
     ),
     ...props
@@ -2696,7 +2698,7 @@ var SheetTitle = React34.forwardRef(({ className, ...props }, ref) => /* @__PURE
   DialogPrimitive.Title,
   {
     ref,
-    className: cn("text-lg font-semibold text-foreground", className),
+    className: cn("font-heading text-lg font-semibold text-foreground", className),
     ...props
   }
 ));
@@ -3551,7 +3553,7 @@ var ToastTitle = React34.forwardRef(({ className, ...props }, ref) => /* @__PURE
   ToastPrimitives.Title,
   {
     ref,
-    className: cn("text-sm font-semibold [&+div]:text-xs", className),
+    className: cn("font-heading text-sm font-semibold [&+div]:text-xs", className),
     ...props
   }
 ));
