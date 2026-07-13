@@ -12,11 +12,17 @@ Shared UI components, design tokens and icon system for Planometrica platform.
 | **Build** | tsup (ESM) |
 | **Peer deps** | React 18+, Tailwind CSS 3.4+ |
 
-This package is the single source of truth for the visual layer across all Planometrica products:
+This package is the single source of truth for the visual layer across all Planometrica products. It **must** be used in every project of the ecosystem:
 
-- **Planometrica Studio** (React) — main platform
-- **PlanoCAD** (React) — CAD editor
-- **Planometrica Landing** (Astro / lucide-astro) — marketing site
+| Project | Local path |
+|---|---|
+| Planometrica PRO | `~/Projects/Planometrica/planometrica-pro` |
+| Demo Sites | `~/Projects/Planometrica/planometrica-demo-sites` |
+| Sandbox | `~/Projects/Planometrica/Sandbox` |
+| Studio Frontend | `~/Projects/Planometrica/Studio-frontend` |
+| Landing (Astro / lucide-astro) | `~/Projects/Planometrica/planometrica-landing` |
+| Admin | `~/Projects/Planometrica/planometrica-admin` |
+| PlanoCAD | `~/Projects/Planocad` |
 
 ## What's Inside
 
@@ -200,6 +206,16 @@ colors.dark.background  // '#0F172A'
 
 ### Typography
 
+#### Font Usage Rules (brand canon)
+
+| Font | Allowed usage |
+|---|---|
+| **Unbounded** | ТОЛЬКО нейминг «Планометрика» (логотип, brand name) — `font-logo`, `.brand-logo` |
+| **Manrope** | ТОЛЬКО заголовки и подзаголовки |
+| **JetBrains Mono** | Основной текст |
+
+> ⚠️ **Implementation gap:** текущий preset назначает Manrope дефолтным `font-sans` (то есть весь body-текст), а JetBrains Mono не подгружается через `@import` в `globals.css`. Приведение пакета к канону — задача **PLM-339**. До её выполнения основной текст в потребителях требует явного `font-mono`.
+
 ```ts
 import { fonts, textStyles } from '@planometrica/ui'
 
@@ -216,7 +232,7 @@ textStyles.body      // { fontSize, fontWeight, lineHeight }
 The preset configures:
 
 - **Colors** — brand palette + CSS variable-based semantic colors (light/dark)
-- **Fonts** — Manrope (body), Unbounded (logo), JetBrains Mono (code)
+- **Fonts** — `font-sans` Manrope, `font-logo` Unbounded, `font-mono` JetBrains Mono (канон использования — см. [Font Usage Rules](#font-usage-rules-brand-canon))
 - **Animations** — accordion-down/up, float, shimmer, shake, scale-in, fade-in, fade-in-up, slide-in-right, slide-in-left, pulse, spin
 - **Shadows** — elevation-1 through elevation-4
 - **Spacing** — extended scale (18, 88, 128)

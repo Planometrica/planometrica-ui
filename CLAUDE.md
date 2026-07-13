@@ -1,6 +1,6 @@
 # CLAUDE.md — @planometrica/ui
 
-Shared UI библиотека (design tokens, иконки, 48 shadcn/ui компонентов, Tailwind preset) для всех продуктов Планометрики: Studio, PlanoCAD, Landing. Библиотека, не приложение. Полная документация пакета — `README.md`.
+Shared UI библиотека (design tokens, иконки, 48 shadcn/ui компонентов, Tailwind preset) для всех продуктов Планометрики — полный список потребителей и брендовый канон шрифтов (Unbounded = только нейминг, Manrope = только заголовки, JetBrains Mono = основной текст) — в `README.md`. Библиотека, не приложение.
 
 ## MONO
 - **Проект:** Планометрика (`d0424711-702e-4f20-b804-46367411ac52`)
