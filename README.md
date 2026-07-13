@@ -339,6 +339,7 @@ Beyond the npm package, the repository stores brand/design sources:
 
 | Asset | Tracked in git | Notes |
 |---|---|---|
+| `templates/planometrica-brand.pptx` | ✅ | Брендовый PowerPoint-шаблон: тема (палитра + Manrope/JetBrains Mono), 9 образцов слайдов, вся палитра. Регенерация: `templates/build_template.py` (python-pptx). Требует установленных шрифтов Manrope/Unbounded/JetBrains Mono (`Fonts/`) |
 | `planometrica-design-system.pen` | ✅ | Design system source ([Pencil](https://pencil.dev) file) |
 | `landing-pro.pen` | ✅ | Landing PRO design source |
 | `макеты раздатки.pen` | ✅ | Print handout layouts |
