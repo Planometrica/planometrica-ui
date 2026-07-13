@@ -52,9 +52,10 @@ DARK = {
 }
 CHART = ["0A4C76", "1A7BB3", "92CF93", "F59E0B", "EF4444"]
 
-F_LOGO = "Unbounded"
+F_LOGO = "Unbounded Medium"
 F_HEAD = "Manrope"
-F_BODY = "JetBrains Mono"
+F_BODY = "JetBrains Mono Medium"
+THEME_BODY = "JetBrains Mono"  # база для theme minorFont
 
 SLIDE_W, SLIDE_H = Inches(13.333), Inches(7.5)
 
@@ -147,8 +148,6 @@ text(s, Inches(0.6), Inches(4.45), Inches(10), Inches(0.6),
      [[("Подзаголовок — краткое описание темы и контекста", F_HEAD, 18, LIGHT["secondary"], False)]])
 text(s, Inches(0.6), Inches(6.6), Inches(8), Inches(0.4),
      [[("2026 · planometrica.pro", F_BODY, 12, BRAND["green"], False)]])
-rect(s, Inches(12.13), Inches(0), Inches(1.2), Inches(0.22), fill=BRAND["orange"])
-rect(s, Inches(12.73), Inches(0.22), Inches(0.6), Inches(0.22), fill=BRAND["green"])
 
 # ============ 2. Разделитель секции (brand secondary) ============
 s = prs.slides.add_slide(blank)
@@ -326,7 +325,7 @@ text(s, Inches(1.7), Inches(4.0), Inches(10), Inches(0.5),
      [[("Спасибо за внимание", F_HEAD, 20, DARK["mutedForeground"], False)]],
      align=PP_ALIGN.CENTER)
 text(s, Inches(1.7), Inches(4.7), Inches(10), Inches(0.4),
-     [[("planometrica.pro · hello@planometrica.pro", F_BODY, 13, BRAND["green"], False)]],
+     [[("planometrica.pro · mail@planometrica.ru", F_BODY, 13, BRAND["green"], False)]],
      align=PP_ALIGN.CENTER)
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -347,7 +346,7 @@ with zipfile.ZipFile(OUT) as zin, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED
                 rf"\g<1>{F_HEAD}\g<2>", xml)
             xml = re.sub(
                 r'(<a:minorFont>\s*<a:latin typeface=")[^"]*(")',
-                rf"\g<1>{F_BODY}\g<2>", xml)
+                rf"\g<1>{THEME_BODY}\g<2>", xml)
             xml = xml.replace('name="Office Theme"', 'name="Planometrica"')
             data = xml.encode("utf-8")
         zout.writestr(item, data)
