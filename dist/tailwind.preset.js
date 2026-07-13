@@ -88,10 +88,13 @@ var planometricaPreset = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)"
       },
-      // Font Families
+      // Font Families — brand canon: Unbounded только логотип,
+      // Manrope только заголовки, JetBrains Mono — основной текст
       fontFamily: {
-        sans: ["Manrope", "system-ui", "sans-serif"],
+        heading: ["Manrope", "system-ui", "sans-serif"],
+        body: ["JetBrains Mono", "Fira Code", "monospace"],
         logo: ["Unbounded", "sans-serif"],
+        sans: ["Manrope", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "Fira Code", "monospace"]
       },
       // Animations

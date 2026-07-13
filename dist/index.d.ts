@@ -189,8 +189,11 @@ type DarkThemeColor = keyof typeof colors.dark;
  */
 declare const fonts: {
     readonly families: {
-        readonly sans: readonly ["Manrope", "system-ui", "sans-serif"];
+        readonly heading: readonly ["Manrope", "system-ui", "sans-serif"];
+        readonly body: readonly ["JetBrains Mono", "Fira Code", "monospace"];
         readonly logo: readonly ["Unbounded", "sans-serif"];
+        /** @deprecated legacy alias, use `heading` */
+        readonly sans: readonly ["Manrope", "system-ui", "sans-serif"];
         readonly mono: readonly ["JetBrains Mono", "Fira Code", "monospace"];
     };
     readonly sizes: {
@@ -238,48 +241,57 @@ declare const fonts: {
  */
 declare const textStyles: {
     readonly h1: {
+        readonly fontFamily: string;
         readonly fontSize: "2.25rem";
         readonly fontWeight: "700";
         readonly lineHeight: "1.25";
         readonly letterSpacing: "-0.025em";
     };
     readonly h2: {
+        readonly fontFamily: string;
         readonly fontSize: "1.875rem";
         readonly fontWeight: "600";
         readonly lineHeight: "1.25";
         readonly letterSpacing: "-0.025em";
     };
     readonly h3: {
+        readonly fontFamily: string;
         readonly fontSize: "1.5rem";
         readonly fontWeight: "600";
         readonly lineHeight: "1.375";
     };
     readonly h4: {
+        readonly fontFamily: string;
         readonly fontSize: "1.25rem";
         readonly fontWeight: "600";
         readonly lineHeight: "1.375";
     };
     readonly body: {
+        readonly fontFamily: string;
         readonly fontSize: "1rem";
         readonly fontWeight: "400";
         readonly lineHeight: "1.5";
     };
     readonly bodySmall: {
+        readonly fontFamily: string;
         readonly fontSize: "0.875rem";
         readonly fontWeight: "400";
         readonly lineHeight: "1.5";
     };
     readonly bodyLarge: {
+        readonly fontFamily: string;
         readonly fontSize: "1.125rem";
         readonly fontWeight: "400";
         readonly lineHeight: "1.625";
     };
     readonly lead: {
+        readonly fontFamily: string;
         readonly fontSize: "1.25rem";
         readonly fontWeight: "400";
         readonly lineHeight: "1.625";
     };
     readonly caption: {
+        readonly fontFamily: string;
         readonly fontSize: "0.75rem";
         readonly fontWeight: "500";
         readonly lineHeight: "1.5";

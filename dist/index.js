@@ -175,10 +175,15 @@ var hslColors = {
 
 // src/tokens/typography.ts
 var fonts = {
-  // Font Families
+  // Font Families — brand canon:
+  // Unbounded — только нейминг «Планометрика», Manrope — только заголовки,
+  // JetBrains Mono — основной текст
   families: {
-    sans: ["Manrope", "system-ui", "sans-serif"],
+    heading: ["Manrope", "system-ui", "sans-serif"],
+    body: ["JetBrains Mono", "Fira Code", "monospace"],
     logo: ["Unbounded", "sans-serif"],
+    /** @deprecated legacy alias, use `heading` */
+    sans: ["Manrope", "system-ui", "sans-serif"],
     mono: ["JetBrains Mono", "Fira Code", "monospace"]
   },
   // Font Sizes (rem based)
@@ -236,53 +241,62 @@ var fonts = {
   }
 };
 var textStyles = {
-  // Headings
+  // Headings — Manrope
   h1: {
+    fontFamily: fonts.families.heading.join(", "),
     fontSize: fonts.sizes["4xl"],
     fontWeight: fonts.weights.bold,
     lineHeight: fonts.lineHeights.tight,
     letterSpacing: fonts.letterSpacing.tight
   },
   h2: {
+    fontFamily: fonts.families.heading.join(", "),
     fontSize: fonts.sizes["3xl"],
     fontWeight: fonts.weights.semibold,
     lineHeight: fonts.lineHeights.tight,
     letterSpacing: fonts.letterSpacing.tight
   },
   h3: {
+    fontFamily: fonts.families.heading.join(", "),
     fontSize: fonts.sizes["2xl"],
     fontWeight: fonts.weights.semibold,
     lineHeight: fonts.lineHeights.snug
   },
   h4: {
+    fontFamily: fonts.families.heading.join(", "),
     fontSize: fonts.sizes.xl,
     fontWeight: fonts.weights.semibold,
     lineHeight: fonts.lineHeights.snug
   },
-  // Body text
+  // Body text — JetBrains Mono
   body: {
+    fontFamily: fonts.families.body.join(", "),
     fontSize: fonts.sizes.base,
     fontWeight: fonts.weights.normal,
     lineHeight: fonts.lineHeights.normal
   },
   bodySmall: {
+    fontFamily: fonts.families.body.join(", "),
     fontSize: fonts.sizes.sm,
     fontWeight: fonts.weights.normal,
     lineHeight: fonts.lineHeights.normal
   },
   bodyLarge: {
+    fontFamily: fonts.families.body.join(", "),
     fontSize: fonts.sizes.lg,
     fontWeight: fonts.weights.normal,
     lineHeight: fonts.lineHeights.relaxed
   },
   // Lead text
   lead: {
+    fontFamily: fonts.families.body.join(", "),
     fontSize: fonts.sizes.xl,
     fontWeight: fonts.weights.normal,
     lineHeight: fonts.lineHeights.relaxed
   },
   // Caption
   caption: {
+    fontFamily: fonts.families.body.join(", "),
     fontSize: fonts.sizes.xs,
     fontWeight: fonts.weights.medium,
     lineHeight: fonts.lineHeights.normal,

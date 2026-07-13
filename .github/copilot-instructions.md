@@ -45,7 +45,7 @@ Shared UI library **`@planometrica/ui`** — the single source of truth for the 
 - Secondary: `#1A7BB3` — light blue (`brand-secondary`)
 - Success: `#92CF93` — green (`brand-green`)
 - Warning: `#F59E0B` — orange (`brand-orange`)
-- Fonts — brand canon: Unbounded ONLY for the «Планометрика» brand name/logo; Manrope ONLY for headings/subheadings; JetBrains Mono for body text (see README → Font Usage Rules; alignment task PLM-339)
+- Fonts — brand canon: Unbounded ONLY for the «Планометрика» brand name/logo (`font-logo`); Manrope ONLY for headings/subheadings (`font-heading`); JetBrains Mono for body text (`font-body`, default via `globals.css`). `font-sans` is a legacy Manrope alias — prefer semantic utilities
 
 ### Components
 - **shadcn/ui pattern** (Radix-based), live in `src/components/ui/`

@@ -7,7 +7,7 @@ Shared UI components, design tokens and icon system for Planometrica platform.
 | | |
 |---|---|
 | **Package** | `@planometrica/ui` |
-| **Version** | 1.0.0 |
+| **Version** | 2.0.0 |
 | **License** | MIT |
 | **Build** | tsup (ESM) |
 | **Peer deps** | React 18+, Tailwind CSS 3.4+ |
@@ -102,7 +102,7 @@ export default {
 import '@planometrica/ui/styles'
 ```
 
-`globals.css` also loads the brand fonts (Manrope + Unbounded) from Google Fonts via `@import` — no extra font setup is needed in the consuming project. JetBrains Mono is not bundled; it falls back to locally installed monospace fonts.
+`globals.css` also loads the brand fonts (Manrope + Unbounded + JetBrains Mono) from Google Fonts via `@import` — no extra font setup is needed in the consuming project.
 
 ### 3. Use Components
 
@@ -214,17 +214,17 @@ colors.dark.background  // '#0F172A'
 | **Manrope** | ТОЛЬКО заголовки и подзаголовки |
 | **JetBrains Mono** | Основной текст |
 
-> ⚠️ **Implementation gap:** текущий preset назначает Manrope дефолтным `font-sans` (то есть весь body-текст), а JetBrains Mono не подгружается через `@import` в `globals.css`. Приведение пакета к канону — задача **PLM-339**. До её выполнения основной текст в потребителях требует явного `font-mono`.
+The canon is applied **by default** (since v2.0.0, PLM-339): `globals.css` sets `body { font-body }` (JetBrains Mono) and `h1–h6 { font-heading }` (Manrope). For explicit styling use the `font-heading` / `font-body` / `font-logo` Tailwind utilities. `font-sans` is kept as a legacy alias for Manrope — prefer the semantic utilities in new code.
 
 ```ts
 import { fonts, textStyles } from '@planometrica/ui'
 
-fonts.families.sans  // ['Manrope', 'system-ui', 'sans-serif']
-fonts.families.logo  // ['Unbounded', 'sans-serif']
-fonts.families.mono  // ['JetBrains Mono', 'Fira Code', 'monospace']
+fonts.families.heading  // ['Manrope', 'system-ui', 'sans-serif']
+fonts.families.body     // ['JetBrains Mono', 'Fira Code', 'monospace']
+fonts.families.logo     // ['Unbounded', 'sans-serif']
 
-textStyles.h1        // { fontSize, fontWeight, lineHeight, letterSpacing }
-textStyles.body      // { fontSize, fontWeight, lineHeight }
+textStyles.h1        // { fontFamily: Manrope, fontSize, fontWeight, lineHeight, letterSpacing }
+textStyles.body      // { fontFamily: JetBrains Mono, fontSize, fontWeight, lineHeight }
 ```
 
 ### Tailwind Preset
@@ -232,7 +232,7 @@ textStyles.body      // { fontSize, fontWeight, lineHeight }
 The preset configures:
 
 - **Colors** — brand palette + CSS variable-based semantic colors (light/dark)
-- **Fonts** — `font-sans` Manrope, `font-logo` Unbounded, `font-mono` JetBrains Mono (канон использования — см. [Font Usage Rules](#font-usage-rules-brand-canon))
+- **Fonts** — `font-heading` Manrope, `font-body` JetBrains Mono, `font-logo` Unbounded, `font-mono` JetBrains Mono, `font-sans` Manrope (legacy) — канон использования: [Font Usage Rules](#font-usage-rules-brand-canon)
 - **Animations** — accordion-down/up, float, shimmer, shake, scale-in, fade-in, fade-in-up, slide-in-right, slide-in-left, pulse, spin
 - **Shadows** — elevation-1 through elevation-4
 - **Spacing** — extended scale (18, 88, 128)
