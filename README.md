@@ -210,7 +210,7 @@ colors.dark.background  // '#0F172A'
 
 | Font | Allowed usage |
 |---|---|
-| **Unbounded** | ТОЛЬКО нейминг «Планометрика» (логотип, brand name) — `font-logo`, `.brand-logo` |
+| **Unbounded** | ТОЛЬКО нейминг «Планометрика» (логотип, brand name) — `font-logo`, `.brand-logo`. Написание всегда «Планометрика» — одна заглавная буква, капс запрещён |
 | **Manrope** | ТОЛЬКО заголовки и подзаголовки |
 | **JetBrains Mono** | Основной текст |
 

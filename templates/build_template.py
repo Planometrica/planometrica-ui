@@ -106,7 +106,7 @@ def text(slide, x, y, w, h, runs, align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP,
 
 def wordmark(slide, x, y, color, size=14):
     text(slide, x, y, Inches(4), Inches(0.4),
-         [[("ПЛАНОМЕТРИКА", F_LOGO, size, color, False)]])
+         [[("Планометрика", F_LOGO, size, color, False)]])
 
 
 def footer(slide, page):
@@ -321,7 +321,7 @@ s = prs.slides.add_slide(blank)
 bg(s, DARK["background"])
 rect(s, Inches(5.97), Inches(2.55), Inches(1.4), Inches(0.07), fill=BRAND["green"])
 text(s, Inches(1.7), Inches(2.9), Inches(10), Inches(0.9),
-     [[("ПЛАНОМЕТРИКА", F_LOGO, 34, DARK["foreground"], False)]], align=PP_ALIGN.CENTER)
+     [[("Планометрика", F_LOGO, 34, DARK["foreground"], False)]], align=PP_ALIGN.CENTER)
 text(s, Inches(1.7), Inches(4.0), Inches(10), Inches(0.5),
      [[("Спасибо за внимание", F_HEAD, 20, DARK["mutedForeground"], False)]],
      align=PP_ALIGN.CENTER)
