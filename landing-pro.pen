@@ -11589,7 +11589,7 @@
                               "type": "text",
                               "id": "Z7Syau",
                               "name": "H1 Marked Word",
-                              "fill": "#EAF4FB",
+                              "fill": "$c-green",
                               "content": "сметой",
                               "lineHeight": 1.05,
                               "fontFamily": "$f-display",
@@ -11649,7 +11649,7 @@
                       "type": "text",
                       "id": "Mn0uD",
                       "name": "H1 Line 1",
-                      "fill": "#EAF4FB",
+                      "fill": "$c-on-dark-muted",
                       "content": "вместо «перезвоните»",
                       "lineHeight": 1.05,
                       "fontFamily": "$f-display",
@@ -11674,7 +11674,7 @@
                       "fill": "#BFE0F2",
                       "textGrowth": "fixed-width",
                       "width": 640,
-                      "content": "Виджет Планометрики работает на сайте, в мессенджере, письме, соцсети. Клиент за несколько минут соберёт дом на своём участке: планировка, 3D-модель, смета по вашим ценам.",
+                      "content": "Виджет Планометрики работает на сайте, в мессенджерах, соцсетях. Клиент за несколько минут соберёт дом на своём участке: планировка, 3D-модель, смета по вашим ценам.",
                       "lineHeight": 1.7,
                       "fontFamily": "$f-mono",
                       "fontSize": 15.5,
@@ -11729,7 +11729,8 @@
                           "fill": "#EAF4FB",
                           "content": "Посетитель открыл виджет на вашем сайте",
                           "fontFamily": "$f-mono",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -11757,7 +11758,8 @@
                           "fill": "#EAF4FB",
                           "content": "Выбрал стиль: скандинавский",
                           "fontFamily": "$f-mono",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -11785,7 +11787,8 @@
                           "fill": "#EAF4FB",
                           "content": "Задал параметры: 120 м², 1 этаж, 4 комнаты",
                           "fontFamily": "$f-mono",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -11811,9 +11814,10 @@
                           "id": "K2hmc",
                           "name": "Event",
                           "fill": "#EAF4FB",
-                          "content": "Алгоритм собрал 250 планировок и показал лучшие",
+                          "content": "Алгоритм создал несколько планировок",
                           "fontFamily": "$f-mono",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -11841,7 +11845,8 @@
                           "fill": "#EAF4FB",
                           "content": "Поставил дом на участок 66:41:0303001:56",
                           "fontFamily": "$f-mono",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -11869,7 +11874,8 @@
                           "fill": "#EAF4FB",
                           "content": "Смета по вашим ценам: 6 480 000 ₽",
                           "fontFamily": "$f-mono",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -11897,7 +11903,8 @@
                           "fill": "#EAF4FB",
                           "content": "Запросил КП и оставил телефон",
                           "fontFamily": "$f-mono",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -11931,7 +11938,7 @@
                           "id": "rTke6",
                           "name": "Event",
                           "fill": "#92CF93",
-                          "content": "Заявка ушла в ваш Bitrix24",
+                          "content": "Заявка ушла в работу менеджеру",
                           "fontFamily": "$f-mono",
                           "fontSize": 13.5,
                           "fontWeight": "600"
@@ -11994,16 +12001,6 @@
                       ]
                     },
                     {
-                      "type": "text",
-                      "id": "gxRlK",
-                      "name": "After Hours",
-                      "fill": "#8FB6CE",
-                      "content": "Ваш отдел продаж уже не работал.",
-                      "fontFamily": "$f-mono",
-                      "fontSize": 13,
-                      "fontWeight": "normal"
-                    },
-                    {
                       "type": "frame",
                       "id": "jP0bU",
                       "name": "Demo Link",
@@ -12044,250 +12041,142 @@
                   "type": "frame",
                   "id": "Ro7Ae",
                   "name": "House Scene",
-                  "width": 640,
-                  "height": 420,
+                  "width": 700,
+                  "height": 440,
                   "layout": "none",
                   "children": [
                     {
                       "type": "path",
-                      "id": "oSRqv",
+                      "id": "BBia7",
                       "x": 0,
                       "y": 0,
                       "name": "Ground",
-                      "geometry": "M267 28l315.2 182-266.7 154-315.2-182z",
+                      "geometry": "M406 84.6l245.3 141.6-357.5 206.4-245.3-141.6z",
                       "viewBox": [
                         0,
                         0,
-                        640,
-                        420
+                        700,
+                        440
                       ],
-                      "width": 640,
-                      "height": 420,
+                      "width": 700,
+                      "height": 440,
                       "stroke": "#7FB3D566",
                       "strokeWidth": 1,
                       "strokeLinejoin": "round"
                     },
                     {
                       "type": "path",
-                      "id": "ynkwJ",
+                      "id": "xJSUn",
                       "x": 0,
                       "y": 0,
                       "name": "Back Edges",
-                      "geometry": "M267 14l-145.5 84 194 112m-194-112l0 84m145.5-84l-145.5 84 194 112",
+                      "geometry": "M406 51l-291 168m0 0l0 72m0-72l178.8 103.2m-178.8-31.2l178.8 103.2m-89.4-186l-89.4 10.8",
                       "viewBox": [
                         0,
                         0,
-                        640,
-                        420
+                        700,
+                        440
                       ],
-                      "width": 640,
-                      "height": 420,
+                      "width": 700,
+                      "height": 440,
                       "stroke": "#7FB3D540",
-                      "strokeWidth": 0.75
+                      "strokeWidth": 0.9,
+                      "strokeLinejoin": "round"
                     },
                     {
                       "type": "path",
-                      "id": "hSStZ",
+                      "id": "r3LFz3",
                       "x": 0,
                       "y": 0,
-                      "name": "Right Face",
-                      "geometry": "M461 210l-145.5 84 0-84 145.5-84z",
+                      "name": "Gable Front",
+                      "geometry": "M406 123l178.7 103.2 0-72-89.3-114-89.4 10.8z",
                       "viewBox": [
                         0,
                         0,
-                        640,
-                        420
+                        700,
+                        440
                       ],
-                      "fill": "#0E5C89AA",
-                      "width": 640,
-                      "height": 420,
+                      "width": 700,
+                      "height": 440,
                       "stroke": "#7FB3D5",
                       "strokeWidth": 1.5,
                       "strokeLinejoin": "round"
                     },
                     {
                       "type": "path",
-                      "id": "G8Avh7",
+                      "id": "sW5TB",
                       "x": 0,
                       "y": 0,
-                      "name": "Roof Plane",
-                      "geometry": "M267 14l194 112-72.8-14-193.9-112z",
+                      "name": "Facade East",
+                      "geometry": "M584.7 226.2l-290.9 168 0-72 290.9-168z",
                       "viewBox": [
                         0,
                         0,
-                        640,
-                        420
+                        700,
+                        440
                       ],
-                      "fill": "#1A7BB380",
-                      "width": 640,
-                      "height": 420,
+                      "width": 700,
+                      "height": 440,
                       "stroke": "#7FB3D5",
                       "strokeWidth": 1.5,
                       "strokeLinejoin": "round"
                     },
                     {
                       "type": "path",
-                      "id": "i59Uj",
+                      "id": "vTlvm",
                       "x": 0,
                       "y": 0,
-                      "name": "Gable",
-                      "geometry": "M461 126l-145.5 84 72.7-98z",
+                      "name": "Ridge",
+                      "geometry": "M495.4 40.2l-291 168",
                       "viewBox": [
                         0,
                         0,
-                        640,
-                        420
+                        700,
+                        440
                       ],
-                      "fill": "#0A4C7699",
-                      "width": 640,
-                      "height": 420,
+                      "width": 700,
+                      "height": 440,
                       "stroke": "#7FB3D5",
                       "strokeWidth": 1.5,
                       "strokeLinejoin": "round"
                     },
                     {
                       "type": "path",
-                      "id": "v6DWo",
+                      "id": "q4CBep",
                       "x": 0,
                       "y": 0,
-                      "name": "Front Face",
-                      "geometry": "M267 98l194 112 0-84-194-112z",
+                      "name": "Roof Edge",
+                      "geometry": "M204.4 208.2l89.4 114",
                       "viewBox": [
                         0,
                         0,
-                        640,
-                        420
+                        700,
+                        440
                       ],
-                      "width": 640,
-                      "height": 420,
-                      "stroke": "#7FB3D5",
-                      "strokeWidth": 1.5,
-                      "strokeLinejoin": "round"
-                    },
-                    {
-                      "type": "path",
-                      "id": "pMaSb",
-                      "x": 0,
-                      "y": 0,
-                      "name": "Window 1",
-                      "geometry": "M296.1 89.6l43.7 25.2 0-33.6-43.7-25.2z",
-                      "viewBox": [
-                        0,
-                        0,
-                        640,
-                        420
-                      ],
-                      "fill": "#7FB3D51F",
-                      "width": 640,
-                      "height": 420,
+                      "width": 700,
+                      "height": 440,
                       "stroke": "#7FB3D5",
                       "strokeWidth": 1.2,
                       "strokeLinejoin": "round"
                     },
                     {
                       "type": "path",
-                      "id": "dxoEY",
-                      "x": 0,
-                      "y": 0,
-                      "name": "Window 2",
-                      "geometry": "M373.7 134.4l43.7 25.2 0-33.6-43.7-25.2z",
-                      "viewBox": [
-                        0,
-                        0,
-                        640,
-                        420
-                      ],
-                      "fill": "#7FB3D51F",
-                      "width": 640,
-                      "height": 420,
-                      "stroke": "#7FB3D5",
-                      "strokeWidth": 1.2,
-                      "strokeLinejoin": "round"
-                    },
-                    {
-                      "type": "path",
-                      "id": "ItFcW",
+                      "id": "fRgaC",
                       "x": 0,
                       "y": 0,
                       "name": "Door",
-                      "geometry": "M431.9 193.2l19.4 11.2 0-61.6-19.4-11.2z",
+                      "geometry": "M493.3 279l-21.8 12.6 0-54.5 21.8-12.6z",
                       "viewBox": [
                         0,
                         0,
-                        640,
-                        420
+                        700,
+                        440
                       ],
-                      "width": 640,
-                      "height": 420,
+                      "width": 700,
+                      "height": 440,
                       "stroke": "#7FB3D5",
-                      "strokeWidth": 1.2,
+                      "strokeWidth": 1.1,
                       "strokeLinejoin": "round"
-                    },
-                    {
-                      "type": "path",
-                      "id": "NIiGG",
-                      "x": 0,
-                      "y": 0,
-                      "name": "Lead Line",
-                      "geometry": "M446 148l74-64 84 0",
-                      "viewBox": [
-                        0,
-                        0,
-                        640,
-                        420
-                      ],
-                      "width": 640,
-                      "height": 420,
-                      "stroke": "#92CF93",
-                      "strokeWidth": 1.2,
-                      "strokeLinejoin": "round"
-                    },
-                    {
-                      "type": "ellipse",
-                      "id": "grDps",
-                      "x": 441,
-                      "y": 143,
-                      "name": "Lead Dot",
-                      "fill": "#92CF93",
-                      "width": 8,
-                      "height": 8
-                    },
-                    {
-                      "type": "text",
-                      "id": "zFJta",
-                      "x": 498,
-                      "y": 58,
-                      "name": "Lead Label",
-                      "fill": "#92CF93",
-                      "content": "заявка №1247",
-                      "fontFamily": "$f-mono",
-                      "fontSize": 12,
-                      "fontWeight": "600"
-                    },
-                    {
-                      "type": "text",
-                      "id": "R5DqiX",
-                      "x": 498,
-                      "y": 92,
-                      "name": "Lead Sub",
-                      "fill": "#92CF93",
-                      "content": "→ ваш Bitrix24",
-                      "fontFamily": "$f-mono",
-                      "fontSize": 11.5,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "eBUeS",
-                      "x": 404,
-                      "y": 306,
-                      "name": "Cadastre",
-                      "fill": "#7FB3D5AA",
-                      "content": "66:41:0303001:56",
-                      "fontFamily": "$f-mono",
-                      "fontSize": 10.5,
-                      "fontWeight": "normal",
-                      "letterSpacing": 0.5
                     }
                   ]
                 }
@@ -12977,25 +12866,12 @@
                   "name": "Verdict",
                   "fill": "$c-ink",
                   "textGrowth": "fixed-width",
-                  "width": 520,
-                  "content": "Реклама та же. Трафик тот же. Разница — в том, что падает в CRM.",
+                  "width": 1040,
+                  "content": "Реклама та же. Трафик тот же. Разница в том, что падает в CRM.",
                   "lineHeight": 1.6,
                   "fontFamily": "$f-mono",
                   "fontSize": 14.5,
                   "fontWeight": "600"
-                },
-                {
-                  "type": "text",
-                  "id": "j6VRe",
-                  "name": "Market Note",
-                  "fill": "$c-muted",
-                  "textGrowth": "fixed-width",
-                  "width": 560,
-                  "content": "Заявка с техзаданием на площадках лидогенерации стоит 8 000–15 600 ₽. Здесь она приходит из трафика, за который вы уже заплатили.",
-                  "lineHeight": 1.65,
-                  "fontFamily": "$f-mono",
-                  "fontSize": 12.5,
-                  "fontWeight": "normal"
                 }
               ]
             }
@@ -13141,7 +13017,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "6 стилей — за ними 45 000 реальных проектов",
+                      "content": "6 архитектурных стилей",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12.5,
@@ -13269,7 +13145,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Алгоритм соберёт 250 вариантов и покажет лучшие. Стены можно двигать мышью",
+                      "content": "Алгоритм соберёт несколько вариантов и покажет лучшие. Можно изменять планировку",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12.5,
@@ -13333,7 +13209,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Кадастровый номер — и дом встаёт на участок. Кадастр Росреестра и карты 2ГИС",
+                      "content": "Кадастровый номер для размещения дома на участке",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12.5,
@@ -13397,7 +13273,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Цены Лемана Про и ваши. Техзадание и контакт — уже внутри",
+                      "content": "Каталог Лемана Про и ваши поставщики",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12.5,
@@ -13430,7 +13306,7 @@
                   "fill": "$c-body",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Виджет выпускает эскизный проект — рабочую документацию клиент закажет после договора. К вам придёт человек, который уже выбрал дом.",
+                  "content": "Виджет выпускает эскизный проект, рендеры, 3D-модель и смету. К вам придёт человек, который уже сделал осознанный выбор.",
                   "lineHeight": 1.6,
                   "fontFamily": "$f-mono",
                   "fontSize": 13,
@@ -13525,7 +13401,7 @@
                       "fill": "$c-ink",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Кровля — от площади кровли, кладка — от периметра. То, на что у сметчика уходит день, приложение делает за секунды.",
+                      "content": "Кровля считается от площади кровли, кладка от периметра. То, на что у сметчика уходит день, приложение делает за секунды.",
                       "lineHeight": 1.7,
                       "fontFamily": "$f-mono",
                       "fontSize": 15.5,
@@ -13538,7 +13414,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "12 разделов СМР — от подготовительных работ до инженерных систем.",
+                      "content": "12 разделов СМР: от подготовительных работ до инженерных систем.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
                       "fontSize": 13,
@@ -13551,7 +13427,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Нормы расхода развернут работы в ведомость материалов — узнаете, сколько и чего закупать.",
+                      "content": "Нормы расхода развернут работы в ведомость материалов: узнаете, сколько и чего закупать.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
                       "fontSize": 13,
@@ -13564,7 +13440,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Каталог Лемана Про — 6 800 позиций от 37 производителей, цены обновляются ежедневно. Ваши цены главнее каталожных.",
+                      "content": "Каталог Лемана Про: 6 800 позиций от 37 производителей, цены обновляются ежедневно. Ваши цены главнее каталожных.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
                       "fontSize": 13,
@@ -13577,7 +13453,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Каждая правка рождает новую версию. Прежняя уходит в архив — историю не переписать.",
+                      "content": "Каждая правка рождает новую версию. Прежняя уходит в архив, историю не переписать.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
                       "fontSize": 13,
@@ -14868,7 +14744,8 @@
                                   "fill": "$c-muted",
                                   "content": "Дашборд",
                                   "fontFamily": "$f-mono",
-                                  "fontSize": 11.5
+                                  "fontSize": 11.5,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             },
@@ -14915,7 +14792,8 @@
                                   "fill": "$c-muted",
                                   "content": "Проекты",
                                   "fontFamily": "$f-mono",
-                                  "fontSize": 11.5
+                                  "fontSize": 11.5,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             },
@@ -14938,7 +14816,8 @@
                                   "fill": "$c-muted",
                                   "content": "Материалы",
                                   "fontFamily": "$f-mono",
-                                  "fontSize": 11.5
+                                  "fontSize": 11.5,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             },
@@ -14961,7 +14840,8 @@
                                   "fill": "$c-muted",
                                   "content": "СМР",
                                   "fontFamily": "$f-mono",
-                                  "fontSize": 11.5
+                                  "fontSize": 11.5,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             },
@@ -14984,7 +14864,8 @@
                                   "fill": "$c-muted",
                                   "content": "Сборки",
                                   "fontFamily": "$f-mono",
-                                  "fontSize": 11.5
+                                  "fontSize": 11.5,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             },
@@ -15007,7 +14888,8 @@
                                   "fill": "$c-muted",
                                   "content": "Сметы",
                                   "fontFamily": "$f-mono",
-                                  "fontSize": 11.5
+                                  "fontSize": 11.5,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             },
@@ -15030,7 +14912,8 @@
                                   "fill": "$c-muted",
                                   "content": "CRM",
                                   "fontFamily": "$f-mono",
-                                  "fontSize": 11.5
+                                  "fontSize": 11.5,
+                                  "fontWeight": "normal"
                                 }
                               ]
                             }
@@ -15272,10 +15155,11 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Таймер ответа: на горячую заявку — 15 минут рабочего времени. Администратор может ужесточить срок.",
+                      "content": "Таймер ответа: на горячую заявку 15 минут рабочего времени.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -15287,7 +15171,8 @@
                       "content": "Повторное обращение за 30 дней не съест лимит: приложение узнает клиента по телефону, почте и файлу cookie.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -15296,10 +15181,11 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Доставка заявок в Bitrix24, на ваш адрес с подписью или на почту. При сбое — повтор и журнал отправок.",
+                      "content": "Доставка заявок в Bitrix24, на ваш адрес с подписью или на почту.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -15311,7 +15197,8 @@
                       "content": "Команда из пяти ролей. История действий не переписывается задним числом.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     },
                     {
                       "type": "text",
@@ -15323,7 +15210,8 @@
                       "content": "НейроПлан разберёт чужую смету из Excel и ответит по 180+ нормативам.",
                       "lineHeight": 1.65,
                       "fontFamily": "$f-mono",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -15378,7 +15266,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": 680,
-                      "content": "Как посетитель собирает дом и как команда работает с заявками — в записи экрана.",
+                      "content": "Как посетитель собирает дом и как команда работает с заявками.",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 13.5,
@@ -15613,7 +15501,7 @@
                           "id": "Z0Iymb",
                           "name": "Dur",
                           "fill": "$c-muted",
-                          "content": "3:12",
+                          "content": "1:35",
                           "fontFamily": "$f-mono",
                           "fontSize": 11.5,
                           "fontWeight": "normal"
@@ -15657,7 +15545,7 @@
                               "id": "aKhIq",
                               "name": "Title",
                               "fill": "$c-ink",
-                              "content": "Заявки и доставка в CRM",
+                              "content": "Материалы: цены Лемана и ваши",
                               "fontFamily": "$f-mono",
                               "fontSize": 13,
                               "fontWeight": "500"
@@ -15669,7 +15557,7 @@
                           "id": "IxCwH",
                           "name": "Dur",
                           "fill": "$c-muted",
-                          "content": "2:47",
+                          "content": "1:24",
                           "fontFamily": "$f-mono",
                           "fontSize": 11.5,
                           "fontWeight": "normal"
@@ -15713,7 +15601,7 @@
                               "id": "u4lDUa",
                               "name": "Title",
                               "fill": "$c-ink",
-                              "content": "Смета: авто-расчёт и версии",
+                              "content": "СМР и нормы расхода",
                               "fontFamily": "$f-mono",
                               "fontSize": 13,
                               "fontWeight": "500"
@@ -15725,7 +15613,7 @@
                           "id": "PHoOH",
                           "name": "Dur",
                           "fill": "$c-muted",
-                          "content": "3:05",
+                          "content": "2:45",
                           "fontFamily": "$f-mono",
                           "fontSize": 11.5,
                           "fontWeight": "normal"
@@ -15810,7 +15698,7 @@
                       "fill": "$c-muted",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Каждое видео — около трёх минут записи экрана. Смотрите в любом порядке.",
+                      "content": "Короткие записи экрана. Смотрите в любом порядке.",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 11.5,
@@ -15935,7 +15823,7 @@
                       "fill": "#8FB6CE",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Соберёт 250 вариантов планировки по строительным правилам",
+                      "content": "Соберёт несколько вариантов планировки, руководствуясь СП, ГОСТ, СНиП",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12,
@@ -15993,7 +15881,7 @@
                       "id": "xZzFF",
                       "name": "NT",
                       "fill": "#EAF4FB",
-                      "content": "OPENCASCADE",
+                      "content": "CAD",
                       "fontFamily": "$f-mono",
                       "fontSize": 13.5,
                       "fontWeight": "600",
@@ -16006,7 +15894,7 @@
                       "fill": "#8FB6CE",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Промышленное ядро геометрии — то же, что в BricsCAD",
+                      "content": "Собственное геометрическое ядро и 3D-генератор для интерактивного взаимодействия",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12,
@@ -16064,7 +15952,7 @@
                       "id": "X7JQFe",
                       "name": "NT",
                       "fill": "#EAF4FB",
-                      "content": "НЕЙРОСЕТИ",
+                      "content": "НЕЙРОПЛАН",
                       "fontFamily": "$f-mono",
                       "fontSize": 13.5,
                       "fontWeight": "600",
@@ -16077,241 +15965,10 @@
                       "fill": "#8FB6CE",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Распознавание чертежей, проверка по нормативам, изображения дома",
+                      "content": "ИИ-агент читает чертёж, проверяет нормативы, создаёт рендеры",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "Xv4ED",
-              "name": "Numbers",
-              "width": "fill_container",
-              "gap": 64,
-              "padding": [
-                16,
-                0,
-                0,
-                0
-              ],
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "tkCev",
-                  "name": "Num 45 000",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "PTreg",
-                      "name": "Value",
-                      "fill": "#EAF4FB",
-                      "content": "45 000",
-                      "fontFamily": "$f-display",
-                      "fontSize": 46,
-                      "fontWeight": "800",
-                      "letterSpacing": 0.5
-                    },
-                    {
-                      "type": "frame",
-                      "id": "IjTkY",
-                      "name": "Dim",
-                      "width": 370,
-                      "height": 13,
-                      "layout": "none",
-                      "children": [
-                        {
-                          "type": "rectangle",
-                          "id": "zj7k4",
-                          "x": 0,
-                          "y": 6,
-                          "name": "Line",
-                          "fill": "#7FB3D577",
-                          "width": 370,
-                          "height": 1
-                        },
-                        {
-                          "type": "rectangle",
-                          "id": "wD0rI",
-                          "x": 0,
-                          "y": 0,
-                          "name": "Tick L",
-                          "fill": "#7FB3D577",
-                          "width": 1,
-                          "height": 13
-                        },
-                        {
-                          "type": "rectangle",
-                          "id": "IVgPh",
-                          "x": 369,
-                          "y": 0,
-                          "name": "Tick R",
-                          "fill": "#7FB3D577",
-                          "width": 1,
-                          "height": 13
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "nXu4b",
-                      "name": "Caption",
-                      "fill": "#8FB6CE",
-                      "content": "проектов в закрытом наборе данных",
-                      "fontFamily": "$f-mono",
-                      "fontSize": 11.5,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "j0QwCA",
-                  "name": "Num 180+",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "P7bKB",
-                      "name": "Value",
-                      "fill": "#EAF4FB",
-                      "content": "180+",
-                      "fontFamily": "$f-display",
-                      "fontSize": 46,
-                      "fontWeight": "800",
-                      "letterSpacing": 0.5
-                    },
-                    {
-                      "type": "frame",
-                      "id": "Jj8jP",
-                      "name": "Dim",
-                      "width": 370,
-                      "height": 13,
-                      "layout": "none",
-                      "children": [
-                        {
-                          "type": "rectangle",
-                          "id": "bHF2t",
-                          "x": 0,
-                          "y": 6,
-                          "name": "Line",
-                          "fill": "#7FB3D577",
-                          "width": 370,
-                          "height": 1
-                        },
-                        {
-                          "type": "rectangle",
-                          "id": "qSNFq",
-                          "x": 0,
-                          "y": 0,
-                          "name": "Tick L",
-                          "fill": "#7FB3D577",
-                          "width": 1,
-                          "height": 13
-                        },
-                        {
-                          "type": "rectangle",
-                          "id": "TJeoI",
-                          "x": 369,
-                          "y": 0,
-                          "name": "Tick R",
-                          "fill": "#7FB3D577",
-                          "width": 1,
-                          "height": 13
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "wKlce",
-                      "name": "Caption",
-                      "fill": "#8FB6CE",
-                      "content": "нормативов работают внутри продукта",
-                      "fontFamily": "$f-mono",
-                      "fontSize": 11.5,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "VFUpq",
-                  "name": "Num 6 800",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 12,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "hWWRS",
-                      "name": "Value",
-                      "fill": "#EAF4FB",
-                      "content": "6 800",
-                      "fontFamily": "$f-display",
-                      "fontSize": 46,
-                      "fontWeight": "800",
-                      "letterSpacing": 0.5
-                    },
-                    {
-                      "type": "frame",
-                      "id": "hmPbD",
-                      "name": "Dim",
-                      "width": 370,
-                      "height": 13,
-                      "layout": "none",
-                      "children": [
-                        {
-                          "type": "rectangle",
-                          "id": "rq6TC",
-                          "x": 0,
-                          "y": 6,
-                          "name": "Line",
-                          "fill": "#7FB3D577",
-                          "width": 370,
-                          "height": 1
-                        },
-                        {
-                          "type": "rectangle",
-                          "id": "sEsD2",
-                          "x": 0,
-                          "y": 0,
-                          "name": "Tick L",
-                          "fill": "#7FB3D577",
-                          "width": 1,
-                          "height": 13
-                        },
-                        {
-                          "type": "rectangle",
-                          "id": "s93p0N",
-                          "x": 369,
-                          "y": 0,
-                          "name": "Tick R",
-                          "fill": "#7FB3D577",
-                          "width": 1,
-                          "height": 13
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "it75C",
-                      "name": "Caption",
-                      "fill": "#8FB6CE",
-                      "content": "цен обновляются ежедневно",
-                      "fontFamily": "$f-mono",
-                      "fontSize": 11.5,
                       "fontWeight": "normal"
                     }
                   ]
@@ -16575,7 +16232,7 @@
                       "fill": "$c-body",
                       "textGrowth": "fixed-width",
                       "width": 640,
-                      "content": "7 дней полного доступа бесплатно. Помесячно без обязательств или за год со скидкой 17%.",
+                      "content": "7 дней полного доступа бесплатно. Помесячно или за год со скидкой 17%.",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 13.5,
@@ -17262,7 +16919,7 @@
                           "id": "tgS7o",
                           "name": "T",
                           "fill": "$c-muted",
-                          "content": "За год — два месяца в подарок",
+                          "content": "При оплате за год — два месяца в подарок",
                           "fontFamily": "$f-mono",
                           "fontSize": 12,
                           "fontWeight": "normal"
@@ -17353,7 +17010,7 @@
                       "fill": "$c-muted",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Заявка сверх лимита — 300 ₽ на любом тарифе. Виджет не останавливается: сверхлимитные заявки приходят как обычно.",
+                      "content": "Заявка сверх лимита 300 ₽ на любом тарифе. Виджет не останавливается: сверхлимитные заявки приходят как обычно.",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12,
@@ -17366,7 +17023,7 @@
                       "fill": "$c-muted",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Всё остальное входит в каждый тариф: оформление под ваш бренд, участок по кадастру, 3D-модель, сметы и ведомость материалов, доставка в CRM, отчёты, вход по Face ID.",
+                      "content": "Всё остальное входит в каждый тариф: оформление под ваш бренд, участок по кадастру, 3D-модель, сметы и ведомость материалов, доставка в CRM, отчёты.",
                       "lineHeight": 1.6,
                       "fontFamily": "$f-mono",
                       "fontSize": 12,
@@ -17965,61 +17622,36 @@
                       "type": "frame",
                       "id": "Jnn0q",
                       "name": "Stamp Slot",
-                      "width": 400,
-                      "height": 112,
+                      "width": 460,
+                      "height": 150,
                       "layout": "none",
                       "children": [
                         {
                           "type": "frame",
                           "id": "ly40n",
                           "x": 8,
-                          "y": 18,
+                          "y": 10,
                           "name": "Оттиск СОГЛАСОВАНО",
                           "opacity": 0.95,
                           "rotation": 2.5,
-                          "width": 380,
-                          "height": 86,
+                          "width": 440,
+                          "height": 128,
                           "layout": "none",
                           "children": [
                             {
                               "type": "rectangle",
-                              "cornerRadius": 8,
-                              "id": "vP3G1",
+                              "id": "R0YwH",
                               "x": 0,
                               "y": 0,
-                              "name": "Outer Ring",
-                              "width": 380,
-                              "height": 86,
-                              "stroke": "$c-orange",
-                              "strokeWidth": 3
-                            },
-                            {
-                              "type": "rectangle",
-                              "cornerRadius": 5,
-                              "id": "Pdiue",
-                              "x": 6,
-                              "y": 6,
-                              "name": "Inner Ring",
-                              "width": 368,
-                              "height": 74,
-                              "stroke": "$c-orange",
-                              "strokeWidth": 1.25
-                            },
-                            {
-                              "type": "text",
-                              "id": "VRD7v",
-                              "x": 0,
-                              "y": 18,
-                              "name": "Approved",
-                              "fill": "$c-orange",
-                              "textGrowth": "fixed-width",
-                              "width": 380,
-                              "content": "СОГЛАСОВАНО",
-                              "textAlign": "center",
-                              "fontFamily": "$f-display",
-                              "fontSize": 40,
-                              "fontWeight": "800",
-                              "letterSpacing": 4
+                              "name": "Stamp Image",
+                              "fill": {
+                                "type": "image",
+                                "enabled": true,
+                                "url": "stamp-approved.png",
+                                "mode": "fit"
+                              },
+                              "width": 440,
+                              "height": 128
                             }
                           ]
                         }
@@ -18110,7 +17742,7 @@
                       "id": "L3lvp7",
                       "name": "Site",
                       "fill": "#8FB6CE",
-                      "content": "planometrica.ru",
+                      "content": "planometrica.pro",
                       "fontFamily": "$f-mono",
                       "fontSize": 11.5,
                       "fontWeight": "normal"
@@ -18136,24 +17768,17 @@
                       "letterSpacing": 2
                     },
                     {
-                      "type": "text",
-                      "id": "B6Wdw",
+                      "type": "rectangle",
+                      "id": "T4SwsL",
                       "name": "Logo АСИ",
-                      "fill": "#EAF4FB",
-                      "content": "АСИ",
-                      "fontFamily": "$f-display",
-                      "fontSize": 15,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "text",
-                      "id": "TQZPV",
-                      "name": "Logo Сколково",
-                      "fill": "#EAF4FB",
-                      "content": "Сколково",
-                      "fontFamily": "$f-display",
-                      "fontSize": 15,
-                      "fontWeight": "700"
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "asi-white.png",
+                        "mode": "fit"
+                      },
+                      "width": 73,
+                      "height": 44
                     }
                   ]
                 },
@@ -18170,16 +17795,6 @@
                       "name": "L Контакты",
                       "fill": "#8FB6CE",
                       "content": "Контакты",
-                      "fontFamily": "$f-mono",
-                      "fontSize": 11.5,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "fOHZf",
-                      "name": "L Поддержка",
-                      "fill": "#8FB6CE",
-                      "content": "Поддержка",
                       "fontFamily": "$f-mono",
                       "fontSize": 11.5,
                       "fontWeight": "normal"
@@ -18240,14 +17855,14 @@
           "name": "Binding Axis",
           "fill": "#64748B44",
           "width": 1,
-          "height": 7350
+          "height": 7124
         },
         {
           "type": "frame",
           "id": "w4zLC0",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 1065,
+          "y": 1080,
           "name": "Sheet Mark 01",
           "width": 26,
           "height": 26,
@@ -18275,7 +17890,7 @@
           "id": "aORpM",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 1807,
+          "y": 1799,
           "name": "Sheet Mark 02",
           "width": 26,
           "height": 26,
@@ -18303,7 +17918,7 @@
           "id": "YHAAP",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 2338,
+          "y": 2330,
           "name": "Sheet Mark 03",
           "width": 26,
           "height": 26,
@@ -18331,7 +17946,7 @@
           "id": "d8NFz2",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 2983,
+          "y": 2975,
           "name": "Sheet Mark 04",
           "width": 26,
           "height": 26,
@@ -18359,7 +17974,7 @@
           "id": "OwPT9",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 3614,
+          "y": 3593,
           "name": "Sheet Mark 05",
           "width": 26,
           "height": 26,
@@ -18387,7 +18002,7 @@
           "id": "c9y2m",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 4383,
+          "y": 4362,
           "name": "Sheet Mark 06",
           "width": 26,
           "height": 26,
@@ -18415,7 +18030,7 @@
           "id": "d3VJo6",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 5002,
+          "y": 4798,
           "name": "Sheet Mark 07",
           "width": 26,
           "height": 26,
@@ -18443,7 +18058,7 @@
           "id": "QT0Xj",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 5358,
+          "y": 5154,
           "name": "Sheet Mark 08",
           "width": 26,
           "height": 26,
@@ -18471,7 +18086,7 @@
           "id": "iJEAK",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 6180,
+          "y": 5954,
           "name": "Sheet Mark 09",
           "width": 26,
           "height": 26,
@@ -18499,7 +18114,7 @@
           "id": "e5KFgd",
           "layoutPosition": "absolute",
           "x": 37,
-          "y": 6792,
+          "y": 6566,
           "name": "Sheet Mark 10",
           "width": 26,
           "height": 26,
@@ -19071,7 +18686,8 @@
                           "fill": "$c-ink",
                           "content": "10:00",
                           "fontFamily": "$f-mono",
-                          "fontSize": 12.5
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -19095,7 +18711,8 @@
                           "fill": "$c-ink",
                           "content": "11:30",
                           "fontFamily": "$f-mono",
-                          "fontSize": 12.5
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -19144,7 +18761,8 @@
                           "fill": "$c-ink",
                           "content": "16:30",
                           "fontFamily": "$f-mono",
-                          "fontSize": 12.5
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
