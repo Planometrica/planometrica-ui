@@ -11679,61 +11679,6 @@
                       "fontFamily": "$f-mono",
                       "fontSize": 15.5,
                       "fontWeight": "normal"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "p4XND",
-                      "name": "CTA Col",
-                      "layout": "vertical",
-                      "gap": 12,
-                      "alignItems": "end",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "l4OSQ",
-                          "name": "Primary CTA",
-                          "fill": "#EAF4FB",
-                          "cornerRadius": 8,
-                          "gap": 10,
-                          "padding": [
-                            17,
-                            30
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "a0pmp",
-                              "name": "CTA Label",
-                              "fill": "#062B43",
-                              "content": "Посмотреть на демо",
-                              "fontFamily": "$f-display",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "iW4Kq",
-                              "name": "CTA Arrow",
-                              "fill": "#0A4C76",
-                              "content": "↗",
-                              "fontFamily": "$f-mono",
-                              "fontSize": 16,
-                              "fontWeight": "600"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "UncIM",
-                          "name": "CTA Micro",
-                          "fill": "#8FB6CE",
-                          "content": "По видеосвязи, 30–40 минут. Доступ на 7 дней выдадим на демонстрации.",
-                          "fontFamily": "$f-mono",
-                          "fontSize": 11.5,
-                          "fontWeight": "normal"
-                        }
-                      ]
                     }
                   ]
                 }
@@ -11838,7 +11783,7 @@
                           "id": "iyZl6",
                           "name": "Event",
                           "fill": "#EAF4FB",
-                          "content": "Задал параметры: 120 м², 2 этажа, 4 комнаты",
+                          "content": "Задал параметры: 120 м², 1 этаж, 4 комнаты",
                           "fontFamily": "$f-mono",
                           "fontSize": 13.5
                         }
@@ -12839,7 +12784,7 @@
                           "id": "QYBSv",
                           "name": "V",
                           "fill": "$c-ink",
-                          "content": "120 м² · 2 этажа · 4 комнаты",
+                          "content": "120 м² · 1 этаж · 4 комнаты",
                           "fontFamily": "$f-mono",
                           "fontSize": 13,
                           "fontWeight": "500"
